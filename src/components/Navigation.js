@@ -1,3 +1,5 @@
+import { Link } from "react-router-dom";
+
 export const Nav = () => {
   return (
     <nav className="navigation">
@@ -7,7 +9,7 @@ export const Nav = () => {
         width="150px"
       />
       <div style={{ display: "inline-block" }}>
-        <a>Home</a>
+        <Link to="/">Home</Link>
         <a>Cars</a>
         <a>About</a>
         <a>Contacts</a>

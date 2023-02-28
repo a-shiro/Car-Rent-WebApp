@@ -3,6 +3,7 @@ import { Home } from "./pages/home/Home";
 import { Nav } from "./components/Navigation";
 import { Footer } from "./components/Footer";
 import { TermsAndConditions } from "./pages/TermsAndConditions";
+import { PageNotFound } from "./pages/404";
 
 function App() {
   return (
@@ -15,6 +16,7 @@ function App() {
             path="/terms-and-conditions"
             element={<TermsAndConditions />}
           />
+          <Route path="*" element={<PageNotFound />} />
         </Routes>
         <Footer />
       </BrowserRouter>
