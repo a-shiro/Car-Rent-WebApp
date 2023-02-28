@@ -1,3 +1,5 @@
+import { Link } from "react-router-dom";
+
 export const Footer = () => {
   return (
     <footer>
@@ -13,7 +15,7 @@ export const Footer = () => {
           <p>Facebook</p>
         </div>
         <div>
-          <p>Terms Of Service</p>
+          <Link to="/terms-and-conditions">Terms And Conditions</Link>
           <p>Pricacy Policy</p>
         </div>
       </div>
