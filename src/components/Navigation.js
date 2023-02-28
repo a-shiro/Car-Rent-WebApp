@@ -11,7 +11,7 @@ export const Nav = () => {
       <div style={{ display: "inline-block" }}>
         <Link to="/">Home</Link>
         <a>Cars</a>
-        <a>About</a>
+        <Link to="/about">About</Link>
         <a>Contacts</a>
       </div>
     </nav>
