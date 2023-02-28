@@ -12,7 +12,7 @@ export const Nav = () => {
         <Link to="/">Home</Link>
         <a>Cars</a>
         <Link to="/about">About</Link>
-        <a>Contacts</a>
+        <Link to="/contact">Contacts</Link>
       </div>
     </nav>
   );

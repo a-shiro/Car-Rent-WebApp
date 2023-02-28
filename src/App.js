@@ -5,6 +5,7 @@ import { Footer } from "./components/Footer";
 import { TermsAndConditions } from "./pages/TermsAndConditions";
 import { PageNotFound } from "./pages/404";
 import { About } from "./pages/About";
+import { Contact } from "./pages/Contact";
 
 function App() {
   return (
@@ -14,7 +15,7 @@ function App() {
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/about" element={<About />} />
-
+          <Route path="/contact" element={<Contact />} />
           <Route
             path="/terms-and-conditions"
             element={<TermsAndConditions />}
