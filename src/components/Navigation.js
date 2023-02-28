@@ -10,7 +10,7 @@ export const Nav = () => {
       />
       <div style={{ display: "inline-block" }}>
         <Link to="/">Home</Link>
-        <a>Cars</a>
+        <Link to="/cars">Cars</Link>
         <Link to="/about">About</Link>
         <Link to="/contact">Contacts</Link>
       </div>
