@@ -1,7 +1,7 @@
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import { Home } from "./pages/home/Home";
-import { Nav } from "./components/Navigation";
-import { Footer } from "./components/Footer";
+import { Nav } from "./common/Navigation";
+import { Footer } from "./common/Footer";
 import { TermsAndConditions } from "./pages/tac/TermsAndConditions";
 import { PageNotFound } from "./pages/404/404";
 import { About } from "./pages/about/About";
