@@ -13,6 +13,7 @@ export const Nav = () => {
         <Link to="/cars">Cars</Link>
         <Link to="/about">About</Link>
         <Link to="/contact">Contacts</Link>
+        <Link to="/profile">Profile</Link>
       </div>
     </nav>
   );
