@@ -7,6 +7,7 @@ import { PageNotFound } from "./pages/404";
 import { About } from "./pages/About";
 import { Contact } from "./pages/Contact";
 import { Catalog } from "./pages/catalog/Catalog";
+import { RentCar } from "./pages/catalog/RentCar";
 
 function App() {
   return (
@@ -16,6 +17,7 @@ function App() {
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/cars" element={<Catalog />} />
+          <Route path="/whatever-car-and-model" element={<RentCar />} />
           <Route path="/about" element={<About />} />
           <Route path="/contact" element={<Contact />} />
           <Route
