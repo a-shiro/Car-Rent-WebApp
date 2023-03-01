@@ -10,6 +10,7 @@ export const RentCar = () => {
             <h2>from $$$ per day</h2>
             <p>Minimum rental period is 2 days.</p>
           </div>
+
           <div>
             <h2>Car specs</h2>
             <p>Engine: 4.5</p>

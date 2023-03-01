@@ -6,7 +6,7 @@ export const PageNotFound = () => {
       <h1>Page not found</h1>
       <p>Sorry, the page you requested was not found.</p>
       <Link to="/">Back Home</Link>
-      <button>Browse Cars</button>
+      <Link to="/cars">Browse Cars</Link>
     </div>
   );
 };

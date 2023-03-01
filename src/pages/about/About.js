@@ -2,6 +2,7 @@ export const About = () => {
   return (
     <div>
       <h1>RentX - About us</h1>
+
       <div style={{ display: "flex" }}>
         <img src="https://autozona.bg/wp-content/uploads/2023/01/2022-McLaren-720S-1024x576-1.webp" />
         <p>
@@ -25,6 +26,7 @@ export const About = () => {
           rhoncus id quis quam.
         </p>
       </div>
+
       <div style={{ display: "flex" }}>
         <p>
           Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent vel
@@ -48,6 +50,7 @@ export const About = () => {
         </p>
         <img src="https://autozona.bg/wp-content/uploads/2023/01/2022-McLaren-720S-1024x576-1.webp" />
       </div>
+
       <div style={{ display: "flex" }}>
         <img src="https://autozona.bg/wp-content/uploads/2023/01/2022-McLaren-720S-1024x576-1.webp" />
         <p>
