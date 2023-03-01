@@ -9,6 +9,8 @@ import { Contact } from "./pages/Contact";
 import { Catalog } from "./pages/catalog/Catalog";
 import { RentCar } from "./pages/catalog/RentCar";
 import { Profile } from "./pages/Profile";
+import { Login } from "./pages/auth/Login";
+import { Register } from "./pages/auth/Register";
 
 function App() {
   return (
@@ -22,7 +24,8 @@ function App() {
           <Route path="/about" element={<About />} />
           <Route path="/contact" element={<Contact />} />
           <Route path="/profile" element={<Profile />} />
-
+          <Route path="/login" element={<Login />} />
+          <Route path="/register" element={<Register />} />
           <Route
             path="/terms-and-conditions"
             element={<TermsAndConditions />}

@@ -1,6 +1,8 @@
 import { Link } from "react-router-dom";
 
 export const Nav = () => {
+  const user = true;
+
   return (
     <nav className="navigation">
       <img
@@ -13,7 +15,7 @@ export const Nav = () => {
         <Link to="/cars">Cars</Link>
         <Link to="/about">About</Link>
         <Link to="/contact">Contacts</Link>
-        <Link to="/profile">Profile</Link>
+        <Link to={user ? "/profile" : "/login"}>Profile</Link>
       </div>
     </nav>
   );
