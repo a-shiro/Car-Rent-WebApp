@@ -1,5 +1,5 @@
-import { CarList } from "./CarList";
-import { SideFilters } from "./SideFilters";
+import { CarList } from "./components/CarList";
+import { SideFilters } from "./components/SideFilters";
 
 export const Catalog = () => {
   return (
