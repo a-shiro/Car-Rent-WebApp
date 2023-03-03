@@ -1,5 +1,5 @@
-import { auth } from "../../setup/config/firebase";
-import { signInWithEmailAndPassword } from "firebase/auth";
+import { auth, provider } from "../../setup/config/firebase";
+import { signInWithEmailAndPassword, signInWithPopup } from "firebase/auth";
 import { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 
@@ -20,10 +20,16 @@ export const Login = () => {
     }
   };
 
+  const signInWithGoogle = async () => {
+    await signInWithPopup(auth, provider);
+    navigate("/");
+  };
+
   return (
     <div>
       <h1>Welcome! Please sign in.</h1>
-      <form onClick={signIn}>
+
+      <form onSubmit={signIn}>
         <input
           type="email"
           placeholder="Email"
@@ -40,6 +46,8 @@ export const Login = () => {
         />
         <button>Sign in</button>
       </form>
+
+      <button onClick={signInWithGoogle}>Sign in with Google</button>
 
       <p>
         Dont have an account? <Link to="/register">Register here.</Link>
