@@ -1,8 +1,8 @@
 import { Link } from "react-router-dom";
+import { auth } from "../setup/config/firebase";
+import { signOut } from "firebase/auth";
 
 export const Nav = () => {
-  const user = true;
-
   return (
     <nav className="navigation">
       <img
@@ -15,7 +15,8 @@ export const Nav = () => {
         <Link to="/cars">Cars</Link>
         <Link to="/about">About</Link>
         <Link to="/contact">Contacts</Link>
-        <Link to={user ? "/profile" : "/login"}>Profile</Link>
+        <Link to={auth?.currentUser ? "/profile" : "/login"}>Profile</Link>
+        <button onClick={() => signOut(auth)}>Sign Out</button>
       </div>
     </nav>
   );
