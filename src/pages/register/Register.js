@@ -1,9 +1,11 @@
 import { useState } from "react";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { auth } from "../../setup/config/firebase";
 import { createUserWithEmailAndPassword } from "firebase/auth";
 
 export const Register = () => {
+  const navigate = useNavigate();
+
   const [firstName, setFirstName] = useState("");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
@@ -14,6 +16,7 @@ export const Register = () => {
 
     try {
       await createUserWithEmailAndPassword(auth, email, password);
+      navigate("/");
     } catch (err) {
       console.log(err.message);
     }
