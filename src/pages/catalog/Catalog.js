@@ -1,4 +1,4 @@
-import { CarList } from "./components/CarList";
+import { CarList } from "./components/CarList/CarList";
 import { SideFilters } from "./components/SideFilters";
 
 export const Catalog = () => {
