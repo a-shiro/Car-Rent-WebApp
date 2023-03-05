@@ -9,6 +9,7 @@ import { RentCar } from "../../pages/rent-preview/RentCar";
 import { Profile } from "../../pages/profile/Profile";
 import { Login } from "../../pages/login/Login";
 import { Register } from "../../pages/register/Register";
+import { Administration } from "../../pages/administration/Administration";
 
 export const RoutesManager = () => {
   return (
@@ -19,6 +20,7 @@ export const RoutesManager = () => {
       <Route path="/about" element={<About />} />
       <Route path="/contact" element={<Contact />} />
       <Route path="/profile" element={<Profile />} />
+      <Route path="/administration" element={<Administration />} />
       <Route path="/login" element={<Login />} />
       <Route path="/register" element={<Register />} />
       <Route path="/terms-and-conditions" element={<TermsAndConditions />} />

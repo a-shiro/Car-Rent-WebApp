@@ -1,3 +1,5 @@
+import { Link } from "react-router-dom";
+
 export const Profile = () => {
   return (
     <div>
@@ -12,7 +14,7 @@ export const Profile = () => {
         <p>Email: Josh@mail.com</p>
         <p>Number: 000000000</p>
         <button>Add payment method</button>
-        <button>To Administation</button>
+        <Link to="/administration">To Administation</Link>
       </div>
 
       <div>
