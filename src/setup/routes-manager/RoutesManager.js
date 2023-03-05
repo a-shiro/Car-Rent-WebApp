@@ -16,7 +16,7 @@ export const RoutesManager = () => {
     <Routes>
       <Route path="/" element={<Home />} />
       <Route path="/cars" element={<Catalog />} />
-      <Route path="/whatever-car-and-model" element={<RentCar />} />
+      <Route path="/cars/:id" element={<RentCar />} />
       <Route path="/about" element={<About />} />
       <Route path="/contact" element={<Contact />} />
       <Route path="/profile" element={<Profile />} />

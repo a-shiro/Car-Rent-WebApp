@@ -1,22 +1,29 @@
+import { useLocation } from "react-router-dom";
+
 export const RentCar = () => {
+  const location = useLocation();
+  const { car } = location.state;
+
   return (
     <div>
-      <h1>Rent {">>Car Name Here<<"}</h1>
+      <h1>
+        Rent {car.Brand} {car.Model}
+      </h1>
       <div style={{ display: "flex" }}>
-        <img src="https://www.topgear.com/sites/default/files/2021/12/topgear_-_shelby_gt500-_002.jpg?w=424&h=239" />
+        <img src={car.imgUrl} width="400px" height="250px" />
 
         <div>
           <div>
-            <h2>from $$$ per day</h2>
+            <h2>from {car.pricePerDay}$ per day</h2>
             <p>Minimum rental period is 2 days.</p>
           </div>
 
           <div>
             <h2>Car specs</h2>
-            <p>Engine: 4.5</p>
-            <p>HP: 570</p>
-            <p>0-100: 3.5</p>
-            <p>Top speed: 360</p>
+            <p>Engine: {car.Engine}</p>
+            <p>HP: {car.HP}</p>
+            <p>0-100: {car.zeroToSixty}</p>
+            <p>Top speed: {car.topSpeed}</p>
           </div>
 
           <button>Rent now</button>

@@ -27,7 +27,11 @@ export const CarPreview = () => {
   return (
     <Fragment>
       {carList.map((car) => (
-        <Link to="/whatever-car-and-model" key={car.id}>
+        <Link
+          to={`/cars/${car.Model.toLowerCase()}`}
+          state={{ car: car }}
+          key={car.id}
+        >
           <img src={car.imgUrl} width="400px" />
           <p>
             {car.Brand} {car.Model}
