@@ -1,8 +1,10 @@
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { auth } from "../setup/config/firebase";
 import { signOut } from "firebase/auth";
 
 export const Nav = () => {
+  const navigate = useNavigate();
+
   return (
     <nav className="navigation">
       <img
@@ -16,7 +18,14 @@ export const Nav = () => {
         <Link to="/about">About</Link>
         <Link to="/contact">Contacts</Link>
         <Link to={auth?.currentUser ? "/profile" : "/login"}>Profile</Link>
-        <button onClick={() => signOut(auth)}>Sign Out</button>
+        <button
+          onClick={async () => {
+            await signOut(auth);
+            navigate("/");
+          }}
+        >
+          Sign Out
+        </button>
       </div>
     </nav>
   );
