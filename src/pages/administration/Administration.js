@@ -14,8 +14,10 @@ export const Administration = () => {
   const [carTopSpeed, setCarTopSpeed] = useState("");
   const [carZeroToSixty, setCarZeroToSixty] = useState("");
 
-  const onSubmitCar = async () => {
+  const onSubmitCar = async (e) => {
+    e.preventDefault();
     try {
+      console.log("here");
       await addDoc(collection(database, "cars"), {
         Brand: carBrand,
         Model: carModel,
@@ -71,7 +73,6 @@ export const Administration = () => {
             onChange={(e) => setCarImgUrl(e.target.value)}
             placeholder="imgUrl"
             type="text"
-            required
           />
           <input
             onChange={(e) => setCarPricePerDay(Number(e.target.value))}
