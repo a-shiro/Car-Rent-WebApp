@@ -28,13 +28,13 @@ export const CarPreview = () => {
     <Fragment>
       {carList.map((car) => (
         <Link
-          to={`/cars/${car.Model.toLowerCase()}`}
+          to={`/cars/${car.model.toLowerCase()}`}
           state={{ car: car }}
           key={car.id}
         >
           <img src={car.imgUrl} width="400px" />
           <p>
-            {car.Brand} {car.Model}
+            {car.brand} {car.model}
           </p>
           <p>from {car.pricePerDay} $</p>
         </Link>

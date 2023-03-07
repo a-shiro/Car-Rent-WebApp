@@ -7,7 +7,7 @@ export const RentCar = () => {
   return (
     <div>
       <h1>
-        Rent {car.Brand} {car.Model}
+        Rent {car.brand} {car.model}
       </h1>
       <div style={{ display: "flex" }}>
         <img src={car.imgUrl} width="400px" height="250px" />
@@ -20,7 +20,7 @@ export const RentCar = () => {
 
           <div>
             <h2>Car specs</h2>
-            <p>Engine: {car.Engine}</p>
+            <p>Engine: {car.engine}</p>
             <p>HP: {car.HP}</p>
             <p>0-100: {car.zeroToSixty}</p>
             <p>Top speed: {car.topSpeed}</p>
