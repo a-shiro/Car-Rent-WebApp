@@ -3,36 +3,36 @@ import { addDoc, collection } from "firebase/firestore";
 import { database } from "../../../setup/config/firebase";
 
 export const CreateForm = () => {
-  const [formValues, setFormValues] = useState({
+  const [formData, setFormData] = useState({
     carBrand: {
       value: "",
       name: "carBrand",
       placeholder: "Brand",
-      type: "string",
+      type: "text",
     },
     carModel: {
       value: "",
       name: "carModel",
       placeholder: "Model",
-      type: "string",
+      type: "text",
     },
     carType: {
       value: "",
       name: "carType",
       placeholder: "Type",
-      type: "string",
+      type: "text",
     },
     carEngine: {
       value: "",
       name: "carEngine",
       placeholder: "Engine",
-      type: "string",
+      type: "text",
     },
     carImgUrl: {
       value: "",
       name: "carImgUrl",
       placeholder: "Image URL",
-      type: "string",
+      type: "text",
     },
     carHorsePower: {
       value: "",
@@ -65,15 +65,15 @@ export const CreateForm = () => {
 
     try {
       await addDoc(collection(database, "cars"), {
-        brand: formValues.carBrand.value,
-        model: formValues.carModel.value,
-        type: formValues.carType.value,
-        engine: formValues.carEngine.value,
-        horsePower: formValues.carHorsePower.value,
-        imgUrl: formValues.carImgUrl.value,
-        pricePerDay: formValues.carPricePerDay.value,
-        topSpeed: formValues.carTopSpeed.value,
-        zeroToSixty: formValues.carZeroToSixty.value,
+        brand: formData.carBrand.value,
+        model: formData.carModel.value,
+        type: formData.carType.value,
+        engine: formData.carEngine.value,
+        horsePower: formData.carHorsePower.value,
+        imgUrl: formData.carImgUrl.value,
+        pricePerDay: formData.carPricePerDay.value,
+        topSpeed: formData.carTopSpeed.value,
+        zeroToSixty: formData.carZeroToSixty.value,
       });
     } catch (err) {
       console.error(err);
@@ -81,25 +81,27 @@ export const CreateForm = () => {
   };
 
   const onChangeHandler = (e) => {
-    const keyName = e.target.name;
-    const fieldObject = formValues[e.target.name];
+    const data = formData[e.target.name];
+    const key = e.target.name;
+    const value =
+      e.target.type === "text" ? e.target.value : Number(e.target.value);
 
-    setFormValues(() => ({
-      ...formValues,
-      [keyName]: { ...fieldObject, value: e.target.value },
+    setFormData(() => ({
+      ...formData,
+      [key]: { ...data, value },
     }));
   };
 
   return (
     <div>
       <form onSubmit={onSubmitHandler}>
-        {Object.keys(formValues).map((key) => (
+        {Object.keys(formData).map((key) => (
           <input
-            name={formValues[key].name}
-            value={formValues[key].value}
+            name={formData[key].name}
+            value={formData[key].value}
             onChange={onChangeHandler}
-            placeholder={formValues[key].placeholder}
-            type={formValues[key].type}
+            placeholder={formData[key].placeholder}
+            type={formData[key].type}
             required
             key={key}
           />
