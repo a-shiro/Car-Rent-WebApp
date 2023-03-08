@@ -1,21 +1,42 @@
 import { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
-import { auth } from "../../setup/config/firebase";
 import { createUserWithEmailAndPassword } from "firebase/auth";
+import { addDoc, collection } from "firebase/firestore";
+import { auth, database } from "../../setup/config/firebase";
 
 export const Register = () => {
+  const [formValues, setFormValues] = useState({
+    firstName: "",
+    lastName: "",
+    email: "",
+    password: "",
+    confirmPassword: "",
+  });
+
+  const collectionRef = collection(database, "users");
   const navigate = useNavigate();
 
-  const [firstName, setFirstName] = useState("");
-  const [email, setEmail] = useState("");
-  const [password, setPassword] = useState("");
-  const [confirmPassword, setConfirmPassword] = useState("");
+  const onChangeHandler = (e) => {
+    const fieldName = e.target.name;
+    setFormValues({ ...formValues, [fieldName]: e.target.value });
+  };
 
-  const registerUser = async (e) => {
+  const onSubmitHandler = async (e) => {
     e.preventDefault();
 
     try {
-      await createUserWithEmailAndPassword(auth, email, password);
+      await createUserWithEmailAndPassword(
+        auth,
+        formValues.email,
+        formValues.password
+      );
+      await addDoc(collectionRef, {
+        firstName: formValues.firstName,
+        lastName: formValues.lastName,
+        isAdmin: false,
+        uid: auth.currentUser.uid,
+      });
+
       navigate("/");
     } catch (err) {
       console.log(err.message);
@@ -26,32 +47,47 @@ export const Register = () => {
     <div>
       <h1>Register</h1>
 
-      <form onSubmit={registerUser}>
+      <form onSubmit={onSubmitHandler}>
         <input
+          name="firstName"
+          value={formValues.firstName}
+          onChange={onChangeHandler}
+          placeholder="First Name"
           type="text"
           required
-          placeholder="First Name"
-          onChange={(e) => setFirstName(e.target.value)}
         />
         <input
+          name="lastName"
+          value={formValues.lastName}
+          onChange={onChangeHandler}
+          placeholder="Last Name"
+          type="text"
+          required
+        />
+        <input
+          name="email"
+          value={formValues.email}
+          onChange={onChangeHandler}
+          placeholder="Email"
           type="email"
           required
-          placeholder="Email"
-          onChange={(e) => setEmail(e.target.value)}
         />
         <input
-          type="password"
-          required
+          name="password"
+          value={formValues.password}
+          onChange={onChangeHandler}
           placeholder="Password"
-          onChange={(e) => setPassword(e.target.value)}
-        />
-        <input
           type="password"
           required
-          placeholder="Confirm Password"
-          onChange={(e) => setConfirmPassword(e.target.value)}
         />
-
+        <input
+          name="confirmPassword"
+          value={formValues.confirmPassword}
+          onChange={onChangeHandler}
+          placeholder="Confirm Password"
+          type="password"
+          required
+        />
         <button>Register</button>
       </form>
 
