@@ -3,14 +3,14 @@ import { useParams } from "react-router-dom";
 import { getDocs, collection, where, query } from "firebase/firestore";
 import { database } from "../../setup/config/firebase";
 
-export const RentCar = () => {
-  const [car, setCar] = useState({});
+export const CarDetails = () => {
   const { carModel } = useParams();
+  const [car, setCar] = useState({});
 
   useEffect(() => {
     const fetchData = async () => {
       const collectionRef = collection(database, "cars");
-      const q = query(collectionRef, where("model", "==", carModel));
+      const q = query(collectionRef, where("path", "==", carModel));
       const querySnapshot = await getDocs(q);
       querySnapshot.forEach((doc) => {
         setCar(doc.data());
@@ -19,8 +19,6 @@ export const RentCar = () => {
 
     fetchData();
   }, []);
-
-  console.log(car);
 
   return (
     <div>
@@ -39,7 +37,7 @@ export const RentCar = () => {
           <div>
             <h2>Car specs</h2>
             <p>Engine: {car.engine}</p>
-            <p>HP: {car.HP}</p>
+            <p>HP: {car.horsePower}</p>
             <p>0-100: {car.zeroToSixty}</p>
             <p>Top speed: {car.topSpeed}</p>
           </div>

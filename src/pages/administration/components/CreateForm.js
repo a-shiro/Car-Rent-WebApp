@@ -60,6 +60,8 @@ export const CreateForm = () => {
     },
   });
 
+  const [carDetailsPath, setCarDetailsPath] = useState("");
+
   const onSubmitHandler = async (e) => {
     e.preventDefault();
 
@@ -74,6 +76,7 @@ export const CreateForm = () => {
         pricePerDay: formData.carPricePerDay.value,
         topSpeed: formData.carTopSpeed.value,
         zeroToSixty: formData.carZeroToSixty.value,
+        path: carDetailsPath,
       });
     } catch (err) {
       console.error(err);
@@ -85,6 +88,9 @@ export const CreateForm = () => {
     const key = e.target.name;
     const value =
       e.target.type === "text" ? e.target.value : Number(e.target.value);
+
+    const path = createCarDetailsPath(formData.carModel.value);
+    setCarDetailsPath(path);
 
     setFormData(() => ({
       ...formData,
@@ -112,3 +118,10 @@ export const CreateForm = () => {
     </div>
   );
 };
+
+function createCarDetailsPath(model) {
+  return model
+    .split(" ")
+    .map((el) => el.toLowerCase())
+    .join("-");
+}

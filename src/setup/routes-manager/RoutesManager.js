@@ -5,7 +5,7 @@ import { PageNotFound } from "../../pages/404/404";
 import { About } from "../../pages/about/About";
 import { Contact } from "../../pages/contact/Contact";
 import { Catalog } from "../../pages/catalog/Catalog";
-import { RentCar } from "../../pages/rent-preview/RentCar";
+import { CarDetails } from "../../pages/car-details/CarDetails";
 import { Profile } from "../../pages/profile/Profile";
 import { Login } from "../../pages/login/Login";
 import { Register } from "../../pages/register/Register";
@@ -16,7 +16,7 @@ export const RoutesManager = () => {
     <Routes>
       <Route path="/" element={<Home />} />
       <Route path="/cars" element={<Catalog />} />
-      <Route path="/cars/:carModel" element={<RentCar />} />
+      <Route path="/cars/:carModel" element={<CarDetails />} />
       <Route path="/about" element={<About />} />
       <Route path="/contact" element={<Contact />} />
       <Route path="/profile" element={<Profile />} />
