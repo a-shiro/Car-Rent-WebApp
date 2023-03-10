@@ -33,8 +33,9 @@ export const Register = () => {
       await addDoc(collectionRef, {
         firstName: formValues.firstName,
         lastName: formValues.lastName,
-        isAdmin: false,
+        phoneNumber: "",
         uid: auth.currentUser.uid,
+        isAdmin: false,
       });
 
       navigate("/");

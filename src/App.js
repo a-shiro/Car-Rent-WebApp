@@ -1,15 +1,15 @@
 import { Nav } from "./common/Navigation";
 import { Footer } from "./common/Footer";
-import { BrowserRouter } from "react-router-dom";
 import { RoutesManager } from "./setup/routes-manager/RoutesManager";
+import { Fragment } from "react";
 
 function App() {
   return (
-    <BrowserRouter>
+    <Fragment>
       <Nav />
       <RoutesManager />
       <Footer />
-    </BrowserRouter>
+    </Fragment>
   );
 }
 
