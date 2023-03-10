@@ -1,8 +1,26 @@
-import { useLocation } from "react-router-dom";
+import { useState, useEffect } from "react";
+import { useParams } from "react-router-dom";
+import { getDocs, collection, where, query } from "firebase/firestore";
+import { database } from "../../setup/config/firebase";
 
 export const RentCar = () => {
-  const location = useLocation();
-  const { car } = location.state;
+  const [car, setCar] = useState({});
+  const { carModel } = useParams();
+
+  useEffect(() => {
+    const fetchData = async () => {
+      const collectionRef = collection(database, "cars");
+      const q = query(collectionRef, where("model", "==", carModel));
+      const querySnapshot = await getDocs(q);
+      querySnapshot.forEach((doc) => {
+        setCar(doc.data());
+      });
+    };
+
+    fetchData();
+  }, []);
+
+  console.log(car);
 
   return (
     <div>
