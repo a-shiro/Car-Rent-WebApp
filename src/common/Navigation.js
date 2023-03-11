@@ -1,9 +1,11 @@
-import { Link, useNavigate } from "react-router-dom";
-import { auth } from "../setup/config/firebase";
-import { signOut } from "firebase/auth";
+import { Link } from "react-router-dom";
+import { useSignOut } from "../setup/auth/hooks/useSignOut";
 
 export const Nav = () => {
-  const navigate = useNavigate();
+  const [signOut] = useSignOut();
+
+  const hasActiveUser =
+    localStorage.getItem("currentUserId") !== null ? true : false;
 
   return (
     <nav className="navigation">
@@ -17,15 +19,8 @@ export const Nav = () => {
         <Link to="/cars">Cars</Link>
         <Link to="/about">About</Link>
         <Link to="/contact">Contacts</Link>
-        <Link to={auth?.currentUser ? "/profile" : "/login"}>Profile</Link>
-        <button
-          onClick={async () => {
-            await signOut(auth);
-            navigate("/");
-          }}
-        >
-          Sign Out
-        </button>
+        <Link to={hasActiveUser ? "/profile" : "/login"}>Profile</Link>
+        <button onClick={signOut}>Sign Out</button>
       </div>
     </nav>
   );

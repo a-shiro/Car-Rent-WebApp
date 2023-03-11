@@ -1,6 +1,6 @@
 import { useNavigate } from "react-router-dom";
 import { signInWithEmailAndPassword, signInWithPopup } from "firebase/auth";
-import { auth } from "../../../setup/config/firebase";
+import { auth } from "../../config/firebase";
 
 export const useSignIn = () => {
   const navigate = useNavigate();
