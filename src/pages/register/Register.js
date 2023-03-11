@@ -1,8 +1,6 @@
 import { useState } from "react";
-import { Link, useNavigate } from "react-router-dom";
-import { createUserWithEmailAndPassword } from "firebase/auth";
-import { addDoc, collection } from "firebase/firestore";
-import { auth, database } from "../../setup/config/firebase";
+import { Link } from "react-router-dom";
+import { useRegister } from "../../setup/auth/hooks/useRegister";
 
 export const Register = () => {
   const [formValues, setFormValues] = useState({
@@ -13,8 +11,7 @@ export const Register = () => {
     confirmPassword: "",
   });
 
-  const collectionRef = collection(database, "users");
-  const navigate = useNavigate();
+  const [register] = useRegister();
 
   const onChangeHandler = (e) => {
     const fieldName = e.target.name;
@@ -22,29 +19,7 @@ export const Register = () => {
   };
 
   const onSubmitHandler = async (e) => {
-    e.preventDefault();
-
-    try {
-      await createUserWithEmailAndPassword(
-        auth,
-        formValues.email,
-        formValues.password
-      );
-      await addDoc(collectionRef, {
-        firstName: formValues.firstName,
-        lastName: formValues.lastName,
-        email: formValues.email,
-        phoneNumber: "",
-        uid: auth.currentUser.uid,
-        isAdmin: false,
-      });
-
-      localStorage.setItem("currentUserId", auth.currentUser.uid);
-
-      navigate("/");
-    } catch (err) {
-      console.log(err.message);
-    }
+    register(e, formValues);
   };
 
   return (
