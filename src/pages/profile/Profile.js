@@ -5,14 +5,12 @@ import { useState, useEffect } from "react";
 
 export const Profile = () => {
   const [userData, setUserData] = useState("");
+  const userId = localStorage.getItem("currentUserId");
 
   useEffect(() => {
     const fetchData = async () => {
       const collectionRef = collection(database, "users");
-      const q = query(
-        collectionRef,
-        where("uid", "==", auth?.currentUser?.uid)
-      );
+      const q = query(collectionRef, where("uid", "==", userId));
       const querySnapshot = await getDocs(q);
       querySnapshot.forEach((doc) => {
         setUserData(doc.data());
@@ -34,7 +32,7 @@ export const Profile = () => {
         <p>
           Name: {userData?.firstName} {userData?.lastName}
         </p>
-        <p>Email: {auth?.currentUser?.email}</p>
+        <p>Email: {userData?.email}</p>
         <p>Number: 000000000</p>
         <button>Add payment method</button>
         <Link to="/administration">To Administation</Link>

@@ -33,10 +33,13 @@ export const Register = () => {
       await addDoc(collectionRef, {
         firstName: formValues.firstName,
         lastName: formValues.lastName,
+        email: formValues.email,
         phoneNumber: "",
         uid: auth.currentUser.uid,
         isAdmin: false,
       });
+
+      localStorage.setItem("currentUserId", auth.currentUser.uid);
 
       navigate("/");
     } catch (err) {

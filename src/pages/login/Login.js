@@ -14,6 +14,8 @@ export const Login = () => {
 
     try {
       await signInWithEmailAndPassword(auth, email, password);
+      localStorage.setItem("currentUserId", auth.currentUser.uid);
+
       navigate("/");
     } catch (err) {
       console.error(err.message);
@@ -22,6 +24,8 @@ export const Login = () => {
 
   const signInWithGoogle = async () => {
     await signInWithPopup(auth, provider);
+    localStorage.setItem("currentUserId", auth.currentUser.uid);
+
     navigate("/");
   };
 
