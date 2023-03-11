@@ -5,7 +5,7 @@ import { auth } from "../../../setup/config/firebase";
 export const useSignIn = () => {
   const navigate = useNavigate();
 
-  const signIn = async (event, option, data) => {
+  const signIn = async (event, type, data) => {
     event.preventDefault();
 
     const signInOptions = {
@@ -14,7 +14,7 @@ export const useSignIn = () => {
     };
 
     try {
-      await signInOptions[option](auth, ...data);
+      await signInOptions[type](auth, ...data);
       localStorage.setItem("currentUserId", auth.currentUser.uid);
 
       navigate("/");
