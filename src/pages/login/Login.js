@@ -1,39 +1,27 @@
-import { auth, provider } from "../../setup/config/firebase";
-import { signInWithEmailAndPassword, signInWithPopup } from "firebase/auth";
+import { provider } from "../../setup/config/firebase";
 import { useState } from "react";
-import { Link, useNavigate } from "react-router-dom";
+import { Link } from "react-router-dom";
+import { useSignIn } from "./hooks/useSignIn";
 
 export const Login = () => {
-  const navigate = useNavigate();
+  const [signIn] = useSignIn();
 
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
 
-  const signIn = async (e) => {
-    e.preventDefault();
-
-    try {
-      await signInWithEmailAndPassword(auth, email, password);
-      localStorage.setItem("currentUserId", auth.currentUser.uid);
-
-      navigate("/");
-    } catch (err) {
-      console.error(err.message);
-    }
-  };
-
-  const signInWithGoogle = async () => {
-    await signInWithPopup(auth, provider);
-    localStorage.setItem("currentUserId", auth.currentUser.uid);
-
-    navigate("/");
+  const onSignInHandler = (e, type, data) => {
+    signIn(e, type, data);
   };
 
   return (
     <div>
       <h1>Welcome! Please sign in.</h1>
 
-      <form onSubmit={signIn}>
+      <form
+        onSubmit={(e) =>
+          onSignInHandler(e, "emailAndPassword", [email, password])
+        }
+      >
         <input
           type="email"
           placeholder="Email"
@@ -51,7 +39,9 @@ export const Login = () => {
         <button>Sign in</button>
       </form>
 
-      <button onClick={signInWithGoogle}>Sign in with Google</button>
+      <button onClick={(e) => onSignInHandler(e, "google", [provider])}>
+        Sign in with Google
+      </button>
 
       <p>
         Dont have an account? <Link to="/register">Register here.</Link>
