@@ -1,5 +1,5 @@
 import { CarList } from "./components/CarList";
-import { SideFilters } from "./components/SideFilters";
+import { AsideFilters } from "./components/AsideFilters/AsideFilters";
 
 export const Catalog = () => {
   return (
@@ -9,7 +9,7 @@ export const Catalog = () => {
         <h2>Choose a premium rental car</h2>
       </header>
       <div style={{ display: "flex" }}>
-        <SideFilters />
+        <AsideFilters />
         <CarList />
       </div>
     </main>
