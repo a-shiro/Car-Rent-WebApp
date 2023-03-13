@@ -8,20 +8,37 @@ export const Nav = () => {
     localStorage.getItem("currentUserId") !== null ? true : false;
 
   return (
-    <nav className="navigation">
-      <img
-        src="https://hips.hearstapps.com/hmg-prod/images/2019-honda-civic-sedan-1558453497.jpg?resize=480:*"
-        height="100px"
-        width="150px"
-      />
-      <div style={{ display: "inline-block" }}>
-        <Link to="/">Home</Link>
-        <Link to="/cars">Cars</Link>
-        <Link to="/about">About</Link>
-        <Link to="/contact">Contacts</Link>
-        <Link to={hasActiveUser ? "/profile" : "/login"}>Profile</Link>
-        <button onClick={signOut}>Sign Out</button>
-      </div>
-    </nav>
+    <header>
+      <nav>
+        <Link to="/">
+          <img
+            src="https://hips.hearstapps.com/hmg-prod/images/2019-honda-civic-sedan-1558453497.jpg?resize=480:*"
+            alt=""
+            height="100px"
+            width="150px"
+          />
+        </Link>
+        <ul>
+          <li>
+            <Link to="/">Home</Link>
+          </li>
+          <li>
+            <Link to="/cars">Cars</Link>
+          </li>
+          <li>
+            <Link to="/about">About</Link>
+          </li>
+          <li>
+            <Link to="/contact">Contacts</Link>
+          </li>
+          <li>
+            <Link to={hasActiveUser ? "/profile" : "/login"}>Profile</Link>
+          </li>
+          <li>
+            <button onClick={signOut}>Sign Out</button>
+          </li>
+        </ul>
+      </nav>
+    </header>
   );
 };

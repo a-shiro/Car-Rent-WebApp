@@ -11,17 +11,18 @@ export const Footer = () => {
         </div>
         <div>
           <p>Socials:</p>
-          <p>Instagram</p>
-          <p>Facebook</p>
+          <p>Instagram:</p>
+          <p>Facebook:</p>
         </div>
         <div>
           <Link to="/terms-and-conditions">Terms And Conditions</Link>
-          <p>Pricacy Policy</p>
         </div>
       </div>
-      <p style={{ display: "flex", justifyContent: "center" }}>
-        Copyright © 2023 rentX. All rights reserved
-      </p>
+      <div>
+        <p style={{ display: "flex", justifyContent: "center" }}>
+          Copyright © 2023 rentX. All rights reserved
+        </p>
+      </div>
     </footer>
   );
 };
