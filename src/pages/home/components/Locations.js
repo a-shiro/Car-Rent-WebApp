@@ -1,6 +1,6 @@
 export const Locations = () => {
   return (
-    <div className="locations">
+    <section id="locations">
       <h1>Locations</h1>
       <button>Cities</button>
       <button>Countries</button>
@@ -10,6 +10,7 @@ export const Locations = () => {
             width="250px"
             height="250px"
             src="https://lp-cms-production.imgix.net/2021-02/Tokyo%20Main.jpg"
+            alt=""
           />
           <p>Location Name Placeholder</p>
         </div>
@@ -18,6 +19,7 @@ export const Locations = () => {
             width="250px"
             height="250px"
             src="https://lp-cms-production.imgix.net/2021-02/Tokyo%20Main.jpg"
+            alt=""
           />
           <p>Location Name Placeholder</p>
         </div>
@@ -26,6 +28,7 @@ export const Locations = () => {
             width="250px"
             height="250px"
             src="https://lp-cms-production.imgix.net/2021-02/Tokyo%20Main.jpg"
+            alt=""
           />
           <p>Location Name Placeholder</p>
         </div>
@@ -34,10 +37,11 @@ export const Locations = () => {
             width="250px"
             height="250px"
             src="https://lp-cms-production.imgix.net/2021-02/Tokyo%20Main.jpg"
+            alt=""
           />
           <p>Location Name Placeholder</p>
         </div>
       </div>
-    </div>
+    </section>
   );
 };

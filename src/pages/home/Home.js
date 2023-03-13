@@ -6,12 +6,12 @@ import { About } from "./components/About";
 
 export const Home = () => {
   return (
-    <div>
+    <main>
       <Featured />
       <PopularChoices />
       <Locations />
       <Brands />
       <About />
-    </div>
+    </main>
   );
 };

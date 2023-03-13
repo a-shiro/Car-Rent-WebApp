@@ -1,6 +1,6 @@
 export const About = () => {
   return (
-    <div className="about">
+    <section id="about">
       <h1>About Us</h1>
       <div>
         <p>
@@ -20,6 +20,6 @@ export const About = () => {
           ullamcorper. Etiam sed mauris et nunc commodo cursus.
         </p>
       </div>
-    </div>
+    </section>
   );
 };
