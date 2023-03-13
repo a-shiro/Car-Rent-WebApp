@@ -1,6 +1,6 @@
 export const SideFilters = () => {
   return (
-    <div className="filters">
+    <aside>
       <div>
         <label>Car Type</label>
         <select>
@@ -25,6 +25,6 @@ export const SideFilters = () => {
         <input placeholder="from" />
         <input placeholder="to" />
       </div>
-    </div>
+    </aside>
   );
 };
