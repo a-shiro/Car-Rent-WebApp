@@ -23,7 +23,7 @@ export const CollectionTable = () => {
 
   useEffect(() => {
     queryCarList();
-  }, []);
+  }, [carList]);
 
   return (
     <table style={{ border: "1px solid" }}>
