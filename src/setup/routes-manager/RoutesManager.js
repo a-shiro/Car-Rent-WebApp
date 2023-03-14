@@ -10,6 +10,7 @@ import { Profile } from "../../pages/profile/Profile";
 import { Login } from "../../pages/login/Login";
 import { Register } from "../../pages/register/Register";
 import { Administration } from "../../pages/administration/Administration";
+import { TestingPage } from "../../testing-page/TestingPage";
 
 export const RoutesManager = () => {
   return (
@@ -25,6 +26,8 @@ export const RoutesManager = () => {
       <Route path="/register" element={<Register />} />
       <Route path="/terms-and-conditions" element={<TermsAndConditions />} />
       <Route path="*" element={<PageNotFound />} />
+
+      <Route path="/testing-page" element={<TestingPage />} />
     </Routes>
   );
 };

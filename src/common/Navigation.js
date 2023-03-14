@@ -37,6 +37,9 @@ export const Nav = () => {
           <li>
             <button onClick={signOut}>Sign Out</button>
           </li>
+          <li>
+            <Link to="/testing-page">Testing</Link>
+          </li>
         </ul>
       </nav>
     </header>
