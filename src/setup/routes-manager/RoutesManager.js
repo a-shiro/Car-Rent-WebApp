@@ -11,6 +11,7 @@ import { Login } from "../../pages/login/Login";
 import { Register } from "../../pages/register/Register";
 import { Administration } from "../../pages/administration/Administration";
 import { TestingPage } from "../../testing-page/TestingPage";
+import { PrivateRoute } from "./PrivateRoute";
 
 export const RoutesManager = () => {
   return (
@@ -21,13 +22,15 @@ export const RoutesManager = () => {
       <Route path="/about" element={<About />} />
       <Route path="/contact" element={<Contact />} />
       <Route path="/profile" element={<Profile />} />
-      <Route path="/administration" element={<Administration />} />
       <Route path="/login" element={<Login />} />
       <Route path="/register" element={<Register />} />
       <Route path="/terms-and-conditions" element={<TermsAndConditions />} />
-      <Route path="*" element={<PageNotFound />} />
+      <Route element={<PrivateRoute />}>
+        <Route path="/administration" element={<Administration />} />
+      </Route>
 
       <Route path="/testing-page" element={<TestingPage />} />
+      <Route path="*" element={<PageNotFound />} />
     </Routes>
   );
 };

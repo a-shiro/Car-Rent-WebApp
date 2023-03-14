@@ -1,36 +1,41 @@
 import { getDocs, collection, query, where } from "firebase/firestore";
 import { database } from "../setup/config/firebase";
 import { useEffect, useState } from "react";
+import { async } from "@firebase/util";
 
 export const TestingPage = () => {
-  const [queryList, setQueryList] = useState([]);
+  // Firebase query where we filter by docs by a single field
 
-  useEffect(() => {
-    const fetchData = async () => {
-      try {
-        const collectionRef = collection(database, "cars");
-        const q = query(collectionRef, where("brand", "==", "Porsche"));
-        const data = await getDocs(q);
+  // const [queryList, setQueryList] = useState([]);
 
-        const filteredData = data.docs.map((doc) => ({
-          ...doc.data(),
-          id: doc.id,
-        }));
+  // useEffect(() => {
+  //   const fetchData = async () => {
+  //     try {
+  //       const collectionRef = collection(database, "cars");
+  //       const q = query(collectionRef, where("brand", "==", "Porsche"));
+  //       const data = await getDocs(q);
 
-        setQueryList(filteredData);
-      } catch (err) {
-        console.error(err);
-      }
-    };
+  //       const filteredData = data.docs.map((doc) => ({
+  //         ...doc.data(),
+  //         id: doc.id,
+  //       }));
 
-    fetchData();
-  }, []);
+  //       setQueryList(filteredData);
+  //     } catch (err) {
+  //       console.error(err);
+  //     }
+  //   };
+
+  //   fetchData();
+  // }, []);
+
+  // ---------------------------------------------------------
 
   return (
     <div>
-      {queryList.map((car) => (
+      {/* {queryList.map((car) => (
         <h1 key={car.id}>{car.model}</h1>
-      ))}
+      ))} */}
     </div>
   );
 };
