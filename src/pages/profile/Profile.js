@@ -1,24 +1,9 @@
-import { getDocs, collection, query, where } from "firebase/firestore";
-import { auth, database } from "../../setup/config/firebase";
 import { Link } from "react-router-dom";
-import { useState, useEffect } from "react";
+import { useContext } from "react";
+import { UserContext } from "../../contexts/UserContext";
 
 export const Profile = () => {
-  const [userData, setUserData] = useState("");
-  const userId = localStorage.getItem("currentUserId");
-
-  useEffect(() => {
-    const fetchData = async () => {
-      const collectionRef = collection(database, "users");
-      const q = query(collectionRef, where("uid", "==", userId));
-      const querySnapshot = await getDocs(q);
-      querySnapshot.forEach((doc) => {
-        setUserData(doc.data());
-      });
-    };
-
-    fetchData();
-  }, []);
+  const { user } = useContext(UserContext);
 
   return (
     <div>
@@ -30,9 +15,9 @@ export const Profile = () => {
           src="https://static7.depositphotos.com/1144472/739/i/950/depositphotos_7397871-stock-photo-customer-support-phone-operator-at.jpg"
         />
         <p>
-          Name: {userData?.firstName} {userData?.lastName}
+          Name: {user?.firstName} {user?.lastName}
         </p>
-        <p>Email: {userData?.email}</p>
+        <p>Email: {user?.email}</p>
         <p>Number: 000000000</p>
         <button>Add payment method</button>
         <Link to="/administration">To Administation</Link>
