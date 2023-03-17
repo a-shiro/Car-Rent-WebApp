@@ -2,12 +2,11 @@ import { Nav } from "./common/Navigation";
 import { Footer } from "./common/Footer";
 import { RoutesManager } from "./setup/routes-manager/RoutesManager";
 import { BrowserRouter } from "react-router-dom";
-import { useState, createContext } from "react";
-
-export const UserContext = createContext();
+import { useState } from "react";
+import { UserContext } from "./contexts/UserContext";
 
 function App() {
-  const [user, setUser] = useState("init");
+  const { user, setUser } = useState({});
 
   return (
     <UserContext.Provider value={[user, setUser]}>

@@ -3,12 +3,12 @@ import { Featured } from "./components/Featured";
 import { Locations } from "./components/Locations";
 import { PopularChoices } from "./components/PopularChoices";
 import { About } from "./components/About";
-import { UserContext } from "../../App";
+import { UserContext } from "../../contexts/UserContext";
 import { useContext, useEffect } from "react";
-import { getUser } from "../../utils/getUser";
+import { getUser } from "../../services/getUser";
 
 export const Home = () => {
-  const [user, setUser] = useContext(UserContext);
+  const { setUser } = useContext(UserContext);
   const userId = localStorage.getItem("currentUserId");
 
   useEffect(() => {
