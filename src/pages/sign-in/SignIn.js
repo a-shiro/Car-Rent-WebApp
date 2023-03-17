@@ -1,27 +1,28 @@
-import { provider } from "../../setup/config/firebase";
 import { useState } from "react";
 import { Link } from "react-router-dom";
-import { useSignIn } from "../../setup/auth/hooks/useSignIn";
+import { useSignIn } from "./hooks/useSignIn";
 
-export const Login = () => {
-  const [signIn] = useSignIn();
+export const SignIn = () => {
+  const [signInWithEmailAndPassword, signInWithGoogle] = useSignIn();
 
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
 
-  const onSignInHandler = (e, type, data) => {
-    signIn(e, type, data);
+  const onSignInWithEmailAndPassword = (e) => {
+    e.preventDefault();
+
+    signInWithEmailAndPassword(email, password);
+  };
+
+  const onSignInWithGoogle = () => {
+    signInWithGoogle();
   };
 
   return (
     <div>
       <h1>Welcome! Please sign in.</h1>
 
-      <form
-        onSubmit={(e) =>
-          onSignInHandler(e, "emailAndPassword", [email, password])
-        }
-      >
+      <form onSubmit={onSignInWithEmailAndPassword}>
         <input
           type="email"
           placeholder="Email"
@@ -39,9 +40,7 @@ export const Login = () => {
         <button>Sign in</button>
       </form>
 
-      <button onClick={(e) => onSignInHandler(e, "google", [provider])}>
-        Sign in with Google
-      </button>
+      <button onClick={onSignInWithGoogle}>Sign in with Google</button>
 
       <p>
         Dont have an account? <Link to="/register">Register here.</Link>

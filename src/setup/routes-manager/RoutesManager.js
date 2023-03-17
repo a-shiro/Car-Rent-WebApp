@@ -7,11 +7,10 @@ import { Contact } from "../../pages/contact/Contact";
 import { Catalog } from "../../pages/catalog/Catalog";
 import { CarDetails } from "../../pages/car-details/CarDetails";
 import { Profile } from "../../pages/profile/Profile";
-import { Login } from "../../pages/login/Login";
+import { SignIn } from "../../pages/sign-in/SignIn";
 import { Register } from "../../pages/register/Register";
 import { Administration } from "../../pages/administration/Administration";
 import { TestingPage } from "../../testing-page/TestingPage";
-import { PrivateRoute } from "./PrivateRoute";
 import { AuthRoute } from "./AuthRoute";
 
 export const RoutesManager = () => {
@@ -25,7 +24,7 @@ export const RoutesManager = () => {
       <Route element={<AuthRoute />}>
         <Route path="/profile" element={<Profile />} />
       </Route>
-      <Route path="/login" element={<Login />} />
+      <Route path="/sign-in" element={<SignIn />} />
       <Route path="/register" element={<Register />} />
       <Route path="/terms-and-conditions" element={<TermsAndConditions />} />
       {/* <Route element={<PrivateRoute />}> */}

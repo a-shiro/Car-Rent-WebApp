@@ -1,10 +1,7 @@
 import { Link } from "react-router-dom";
-import { useContext } from "react";
-import { UserContext } from "../../contexts/UserContext";
+import { auth } from "../../setup/config/firebase";
 
 export const Profile = () => {
-  const { user } = useContext(UserContext);
-
   return (
     <div>
       <h1>Profile page</h1>
@@ -14,10 +11,8 @@ export const Profile = () => {
           width="150px"
           src="https://static7.depositphotos.com/1144472/739/i/950/depositphotos_7397871-stock-photo-customer-support-phone-operator-at.jpg"
         />
-        <p>
-          Name: {user?.firstName} {user?.lastName}
-        </p>
-        <p>Email: {user?.email}</p>
+        <p>Name: {auth?.currentUser?.displayName}</p>
+        <p>Email: {auth?.currentUser?.email}</p>
         <p>Number: 000000000</p>
         <button>Add payment method</button>
         <Link to="/administration">To Administation</Link>

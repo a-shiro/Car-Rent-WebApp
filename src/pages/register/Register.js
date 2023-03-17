@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { Link } from "react-router-dom";
-import { useRegister } from "../../setup/auth/hooks/useRegister";
+import { useRegister } from "./hooks/useRegister";
 
 export const Register = () => {
   const [formValues, setFormValues] = useState({

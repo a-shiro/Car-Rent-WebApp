@@ -1,11 +1,10 @@
 import { Link } from "react-router-dom";
-import { useSignOut } from "../setup/auth/hooks/useSignOut";
+import { useSignOut } from "../pages/sign-in/hooks/useSignOut";
 
 export const Nav = () => {
   const [signOut] = useSignOut();
 
-  const hasActiveUser =
-    localStorage.getItem("currentUserId") !== null ? true : false;
+  const userActive = localStorage.getItem("userActive");
 
   return (
     <header>
@@ -32,11 +31,13 @@ export const Nav = () => {
             <Link to="/contact">Contacts</Link>
           </li>
           <li>
-            <Link to={hasActiveUser ? "/profile" : "/login"}>Profile</Link>
+            <Link to={userActive ? "/profile" : "/sign-in"}>Profile</Link>
           </li>
-          <li>
-            <button onClick={signOut}>Sign Out</button>
-          </li>
+          {userActive && (
+            <li>
+              <button onClick={signOut}>Sign Out</button>
+            </li>
+          )}
           <li>
             <Link to="/testing-page">Testing</Link>
           </li>

@@ -1,8 +1,7 @@
 import { Outlet, Navigate } from "react-router-dom";
 
 export const AuthRoute = () => {
-  const userId = localStorage.getItem("currentUserId");
-  const isUserAnnonymous = userId === null ? true : false;
+  const userActive = localStorage.getItem("userActive");
 
-  return isUserAnnonymous ? <Navigate to="/login" /> : <Outlet />;
+  return userActive ? <Outlet /> : <Navigate to="/login" />;
 };
