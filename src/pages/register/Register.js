@@ -10,7 +10,6 @@ export const Register = () => {
     password: "",
     confirmPassword: "",
   });
-
   const [register] = useRegister();
 
   const onChangeHandler = (e) => {
@@ -18,7 +17,7 @@ export const Register = () => {
     setFormValues({ ...formValues, [fieldName]: e.target.value });
   };
 
-  const onSubmitHandler = async (e) => {
+  const onRegisterHandler = (e) => {
     register(e, formValues);
   };
 
@@ -26,7 +25,7 @@ export const Register = () => {
     <div>
       <h1>Register</h1>
 
-      <form onSubmit={onSubmitHandler}>
+      <form onSubmit={onRegisterHandler}>
         <input
           name="firstName"
           value={formValues.firstName}

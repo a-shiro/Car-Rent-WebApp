@@ -12,11 +12,14 @@ export const useRegister = () => {
     e.preventDefault();
 
     try {
+      // Creates user in Firebase auth
       await createUserWithEmailAndPassword(
         auth,
         formValues.email,
         formValues.password
       );
+
+      // Creates a document in the Cloud Firestore users collection
       await addDoc(collectionRef, {
         firstName: formValues.firstName,
         lastName: formValues.lastName,
@@ -27,6 +30,7 @@ export const useRegister = () => {
       });
 
       localStorage.setItem("currentUserId", auth.currentUser.uid);
+      localStorage.setItem("isAdmin", false);
 
       navigate("/");
     } catch (err) {
