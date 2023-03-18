@@ -5,9 +5,7 @@ import { auth } from "../../../setup/config/firebase";
 export const useRegister = () => {
   const navigate = useNavigate();
 
-  const register = async (e, formValues) => {
-    e.preventDefault();
-
+  const register = async (formValues) => {
     try {
       // Creates user in Firebase auth
       await createUserWithEmailAndPassword(

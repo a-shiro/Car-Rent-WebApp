@@ -2,7 +2,7 @@ import { database } from "../../../setup/config/firebase";
 import { getDocs, collection } from "firebase/firestore";
 import { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
-import styles from "../Styles.module.css";
+import styles from "../Catalog.module.css";
 
 export const CarList = () => {
   const [carList, setCarList] = useState([]);
