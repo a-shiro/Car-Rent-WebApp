@@ -1,11 +1,12 @@
 import { useNavigate } from "react-router-dom";
 import { createUserWithEmailAndPassword } from "firebase/auth";
 import { auth } from "../../../setup/config/firebase";
+import { errorList } from "../utils/errors";
 
 export const useRegister = () => {
   const navigate = useNavigate();
 
-  const register = async (formValues) => {
+  const register = async (formValues, setError) => {
     try {
       // Creates user in Firebase auth
       await createUserWithEmailAndPassword(
@@ -19,7 +20,12 @@ export const useRegister = () => {
 
       navigate("/");
     } catch (err) {
-      console.log(err.message);
+      console.error(err.message);
+      const errorObj = errorList.find((x) => x.code === err.code);
+      setError(errorObj.type, {
+        type: errorObj.type,
+        message: errorObj.message,
+      });
     }
   };
 

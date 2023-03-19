@@ -25,6 +25,7 @@ export const Register = () => {
 
   const {
     register: registerValue,
+    setError,
     handleSubmit,
     formState: { errors },
   } = useForm({
@@ -46,7 +47,7 @@ export const Register = () => {
   };
 
   const onRegisterHandler = (data) => {
-    register(data);
+    register(data, setError);
   };
 
   return (
@@ -116,7 +117,7 @@ export const Register = () => {
       </form>
 
       <p>
-        Have an account already? <Link to="/login">Login here.</Link>
+        Have an account already? <Link to="/sign-in">Sign in here.</Link>
       </p>
     </div>
   );
