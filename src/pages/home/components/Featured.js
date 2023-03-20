@@ -1,18 +1,22 @@
 import { Link } from "react-router-dom";
+import styles from "../Home.module.css";
+import vector from "../../../assets/images/car-vector.png";
 
 export const Featured = () => {
   return (
-    <section id="featured">
-      <h1>Welcome at RentX</h1>
-      <p>Finest cars all around the globe</p>
-      <div>
-        <Link to="/about">Read more</Link>
-        <Link to="/cars">Browse cars</Link>
-        <img
-          style={{ objectFit: "cover", width: "100%", height: "100%" }}
-          src="https://hips.hearstapps.com/hmg-prod/images/2019-honda-civic-sedan-1558453497.jpg?resize=480:*"
-          alt=""
-        />
+    <section className={styles.headingSection} id="featured">
+      <img className={styles.coverImg} src={vector} />
+      <div className={styles.headingBox}>
+        <div>
+          <h1 className={styles.title}>Welcome to RentX</h1>
+          <p className={styles.secondaryTitle}>
+            Pick and choose from the finest cars all around the globe.
+          </p>
+        </div>
+        <div className={styles.controls}>
+          <Link to="/cars">Browse cars</Link>
+          <Link to="/about">Read more</Link>
+        </div>
       </div>
     </section>
   );

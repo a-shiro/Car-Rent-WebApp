@@ -1,3 +1,5 @@
+import styles from "../Home.module.css";
+
 export const PopularChoices = () => {
   //  ToDo: implement rented count field in database and query the top 4 - 6 rented cars in this page
 
