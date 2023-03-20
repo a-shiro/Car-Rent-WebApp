@@ -1,0 +1,33 @@
+.NavBar {
+    background-color: #F5EBEB;
+    
+    padding: 1em 3em;
+
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+}
+
+.NavBrand { 
+    color: #867070;
+
+    font-size: 2rem;
+}
+
+.NavLinks {
+    font-size: 1.3rem;
+    font-weight: 400;
+
+    margin: 0;
+    padding: 0;
+
+    display: flex;
+    list-style: none;
+}
+
+.NavLinks li a{
+    color: #867070;
+
+    padding: 0 0.5em;
+}

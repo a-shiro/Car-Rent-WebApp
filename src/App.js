@@ -1,4 +1,5 @@
-import { Nav } from "./common/Navigation";
+import "./App.css";
+import { Nav } from "./common/Navigation/Navigation";
 import { Footer } from "./common/Footer";
 import { RoutesManager } from "./setup/routes-manager/RoutesManager";
 import { BrowserRouter } from "react-router-dom";
