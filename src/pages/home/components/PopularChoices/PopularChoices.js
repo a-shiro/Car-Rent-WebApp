@@ -1,12 +1,13 @@
 import { useState, useEffect } from "react";
-import { getDocs, query, collection, limit } from "firebase/firestore";
-import { database } from "../../../setup/config/firebase";
-import styles from "../Home.module.css";
+import { getDocs, collection, query, limit } from "firebase/firestore";
+import { database } from "../../../../setup/config/firebase";
 import { Link } from "react-router-dom";
+import { Card } from "./Card";
+import styles from "./PopularChoices.module.css";
+import commonStyles from "../../Home.module.css";
 
 export const PopularChoices = () => {
   //  ToDo: implement rented count field in database and query the top 4 - 6 rented cars in this page
-
   const [carList, setCarList] = useState([]);
 
   useEffect(() => {
@@ -30,26 +31,17 @@ export const PopularChoices = () => {
   }, []);
 
   return (
-    <section id="popular-choices">
-      <header className={styles.sectionHeader}>
-        <h1>
-          <span>- Popular</span> <span>Choices -</span>
-        </h1>
+    <section className={styles.PopularChoicesSection}>
+      <header className={styles.Header}>
+        <h1>- Popular Choices -</h1>
       </header>
-      <div className={styles.displayContainer}>
+      <div className={styles.CardsContainer}>
         {carList.map((car) => (
-          <div className={styles.card} key={car.id}>
-            <Link to={`cars/${car.path}`}>
-              <img className={styles.carImg} src={car.imgUrl} alt={car.model} />
-              <span>
-                {car.brand} {car.model}
-              </span>
-            </Link>
-          </div>
+          <Card key={car.id} car={car} />
         ))}
       </div>
-      <div className={styles.buttonContainer}>
-        <Link className={styles.button} to="/cars">
+      <div className={styles.ButtonsContainer}>
+        <Link className={commonStyles.Button} to="/cars">
           All cars
         </Link>
       </div>

@@ -1,0 +1,71 @@
+.PopularChoicesSection {
+    margin: 0 10em;
+}
+
+.Header { 
+    font-size: 2rem;
+    text-transform: uppercase;
+
+    display: flex;
+    justify-content: center;
+    
+    margin: 3.5em 0;
+}
+
+.CardsContainer {
+    display: flex;
+    justify-content: space-between;
+}
+
+.Card {
+    background: rgb(255,255,255);
+    background: linear-gradient(180deg, rgba(255,255,255,0) 50%, rgba(177,142,114,1) 120%);
+    
+    width: 22%;
+
+    border-radius: 0.25em;
+
+    padding-bottom: 3em;
+}
+
+.CardText {
+    color: #1A1713;
+
+    font-size: 1.25rem;
+    
+    display: flex;
+    justify-content: center;
+
+    margin-top: 2em;
+
+    transition: opacity 0.1s linear, color 0.3s;
+}
+
+.CardText:hover {
+    color: white;
+}
+
+.CardImage { 
+    border-radius: 0.25em;
+    
+    display: block;
+
+    width: 320px;
+    height: 200px;
+    max-width: 100%;
+
+    margin: auto;
+
+    transition: height 0.2s, width 0.3s, box-shadow 0.3s;
+}
+
+.CardImage:hover {
+    width: 420px;
+    height: 220px;
+    box-shadow: 0em 1em 1.5em rgb(0, 0, 0, 0.15);
+}
+
+.ButtonsContainer {
+    display: flex;
+    justify-content: center;
+}

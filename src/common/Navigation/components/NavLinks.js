@@ -8,7 +8,7 @@ export const NavLinks = () => {
   const userActive = localStorage.getItem("userActive");
 
   return (
-    <ul className={styles.NavLinks}>
+    <ul className={styles.NavLinksList}>
       <li>
         <Link to="/">Home</Link>
       </li>

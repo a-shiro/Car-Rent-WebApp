@@ -1,7 +1,7 @@
+import { Featured } from "./components/Featured/Featured";
+import { PopularChoices } from "./components/PopularChoices/PopularChoices";
 import { Brands } from "./components/Brands";
-import { Featured } from "./components/Featured";
 import { Locations } from "./components/Locations";
-import { PopularChoices } from "./components/PopularChoices";
 import { About } from "./components/About";
 
 export const Home = () => {
