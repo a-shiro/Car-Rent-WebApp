@@ -29,9 +29,6 @@ export const NavLinks = () => {
           <button onClick={signOut}>Sign Out</button>
         </li>
       )}
-      <li>
-        <Link to="/testing-page">Testing</Link>
-      </li>
     </ul>
   );
 };

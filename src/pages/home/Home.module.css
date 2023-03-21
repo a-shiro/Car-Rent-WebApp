@@ -4,7 +4,7 @@ section {
 
 .headingSection { 
     background: rgb(255,255,255);
-    background: linear-gradient(90deg, rgba(255,255,255,0) 60%, rgba(228,208,208,1) 100%);
+    background: linear-gradient(170deg, rgba(255,255,255,0) 45%, rgba(177,142,114,1) 98%);
     margin: 0;
     height: 45em;
 }
@@ -14,15 +14,16 @@ section {
     position: absolute;
     left: 10em;
     top: 15em;
+    z-index: 1;
 }
 
 .title {
-    color:#D5B4B4 ;
+    color:#1A1713  ;
     font-size: 4rem;
 }
 
 .secondaryTitle {
-    color: #E4D0D0;
+    color: #b7b3ad ;
     
     font-size: 1.5rem;
 
@@ -34,7 +35,7 @@ section {
 }
 
 .controls a {
-    background-color: #867070;
+    background-color: #B18E72  ;
     color: white;
 
     font-size: 1.25rem;
@@ -49,7 +50,7 @@ section {
 
 .controls a:hover {
     opacity: 0.9;
-    color: #D5B4B4;
+    color: #1A1713 ;
 }
 
 .coverImg { 
