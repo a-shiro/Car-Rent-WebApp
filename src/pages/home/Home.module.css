@@ -1,5 +1,7 @@
 section {
     margin: 0 10em;
+
+    position: relative;
 }
 
 .headingSection { 
@@ -9,11 +11,10 @@ section {
     height: 45em;
 }
 
-
 .headingBox {
     position: absolute;
     left: 10em;
-    top: 15em;
+    top: 10em;
     z-index: 1;
 }
 
@@ -56,6 +57,123 @@ section {
 .coverImg { 
     position: absolute;
     right: 8em;
-    bottom: 5em;
+    bottom: -1em;
     width: 50em;
+}
+
+/* for Popular section */
+
+.sectionHeader { 
+    font-size: 2rem;
+    text-transform: uppercase;
+
+    display: flex;
+    justify-content: center;
+    
+    margin: 3.5em 0;
+}
+
+.sectionHeader span {
+    margin: 0 0.15em;
+}
+
+.displayContainer {
+    display: flex;
+    justify-content: space-between;
+}
+
+.card {
+    background: rgb(255,255,255);
+    background: linear-gradient(180deg, rgba(255,255,255,0) 50%, rgba(177,142,114,1) 120%);
+    
+    width: 22%;
+
+    border-radius: 0.25em;
+
+    padding-bottom: 3em;
+}
+
+.card span {
+    color: #1A1713;
+
+    font-size: 1.25rem;
+    
+    display: flex;
+    justify-content: center;
+
+    margin-top: 2em;
+
+    transition: opacity 0.1s linear, color 0.3s;
+}
+
+.card span:hover {
+    color: white;
+}
+
+.carImg { 
+    border-radius: 0.25em;
+    
+    display: block;
+
+    width: 320px;
+    height: 200px;
+    max-width: 100%;
+
+    margin: auto;
+
+    transition: height 0.2s, width 0.3s, box-shadow 0.3s;
+}
+
+.carImg:hover {
+    width: 420px;
+    height: 220px;
+    box-shadow: 0em 1em 1.5em rgb(0, 0, 0, 0.15);
+}
+
+.buttonContainer {
+    display: flex;
+    justify-content: center;
+}
+
+.button {
+    background-color: #B18E72  ;
+    color: white;
+
+    font-size: 1.25rem;
+
+    border-radius: 0.1em;
+
+    margin: 4em 0;
+    padding: 1em 1.5em;
+
+    transition: opacity 0.1s linear, color 0.3s;
+}
+
+.button:hover {
+    opacity: 0.9;
+    color: #1A1713 ;
+}
+
+/* for Location section */
+
+.locationSection {
+    background: rgb(246,218,195);
+    background: linear-gradient(146deg, rgba(246,218,195,1) 0%, rgba(207,167,135,0.6306897759103641) 50%, rgba(177,142,114,1) 100%);
+    padding: 5em 0;
+    margin: 0;
+}
+
+.locationHeader {
+    font-size: 2rem;
+    text-transform: uppercase;
+
+    display: flex;
+    justify-content: center;
+
+    margin-top: 1.5em;
+    margin-bottom: 3.5em;
+}
+
+.container {
+    margin: 0 10em;
 }

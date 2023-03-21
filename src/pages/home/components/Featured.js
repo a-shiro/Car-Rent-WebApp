@@ -15,7 +15,7 @@ export const Featured = () => {
         </div>
         <div className={styles.controls}>
           <Link to="/cars">Browse cars</Link>
-          <Link to="/about">Read more</Link>
+          <Link to="/about">About us</Link>
         </div>
       </div>
     </section>
