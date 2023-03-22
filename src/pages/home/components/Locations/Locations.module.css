@@ -1,0 +1,69 @@
+.LocationsSection {
+    background: rgb(246,218,195);
+    background: linear-gradient(146deg, rgba(246,218,195,1) 0%, rgba(207,167,135,0.6306897759103641) 50%, rgba(177,142,114,1) 100%);
+    padding: 5em 0;
+}
+
+.Header {
+    font-size: 2rem;
+    text-transform: uppercase;
+
+    display: flex;
+    justify-content: center;
+
+    margin-top: 1em;
+    margin-bottom: 2.5em;
+}
+
+.ButtonsContainer {
+    display: flex;
+    justify-content: center;
+}
+
+.CardsContainer {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+
+    max-width: 85%;
+    margin: auto;
+}
+
+.Card {
+    margin: 1.5em 1em;
+    max-width: 100%;
+}
+
+.CardTitleContainer {
+    margin-bottom: 1em;
+}
+
+.CardText {
+    color: #1A1713;
+
+    font-size: 1.25rem;
+    font-weight: 500;
+    
+    margin-top: 1em;
+
+    transition: opacity 0.1s linear, color 0.3s;
+}
+
+.CardText:hover {
+    color: white;
+}
+
+.CardImage {
+    border-radius: 0.25em;
+
+    display: block;
+
+    width: 300px;
+    height: 210px;
+    max-width: 100%;
+}
+
+.Active {
+    color: #1A1713;
+    background-color: #E0DDD7;
+}
