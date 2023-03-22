@@ -1,0 +1,35 @@
+.BrandsSection {
+    padding: 5em 0;
+    margin: 0 10em;
+}
+
+.Header {
+    font-size: 2rem;
+    text-transform: uppercase;
+
+    display: flex;
+    justify-content: center;
+
+    margin-top: 1em;
+    margin-bottom: 2.5em;
+}
+
+.CardsContainer {
+    display: flex;
+    justify-content: start;
+    flex-wrap: wrap;
+
+    margin: auto;
+}
+
+.Card {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 5em;
+    width: 25%;
+}
+
+.CardImage {
+    width:250px;
+    height:150px;
+}

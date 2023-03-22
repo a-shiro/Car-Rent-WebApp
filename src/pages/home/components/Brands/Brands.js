@@ -1,14 +1,12 @@
 import { Card } from "./Card";
-import { Controls } from "./Controls";
-import styles from "./Locations.module.css";
+import styles from "./Brands.module.css";
 
-export const Locations = () => {
+export const Brands = () => {
   return (
-    <section className={styles.LocationsSection}>
+    <section className={styles.BrandsSection}>
       <header className={styles.Header}>
-        <h1>- Locations -</h1>
+        <h1>- Brands -</h1>
       </header>
-
       <div className={styles.CardsContainer}>
         <Card />
         <Card />
@@ -20,8 +18,6 @@ export const Locations = () => {
         <Card />
         <Card />
       </div>
-
-      <Controls />
     </section>
   );
 };

@@ -1,0 +1,48 @@
+.AboutSection {
+    position: relative;
+    z-index: 100;
+
+    background: rgb(246,218,195);
+    background: linear-gradient(146deg, rgba(246,218,195,1) 0%, rgba(207,167,135,0.6306897759103641) 50%, rgba(177,142,114,1) 100%);
+    padding: 5em 0;
+
+    display: flex;
+    justify-content: end;
+}
+
+.Container {
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+
+    width: 35%;
+
+    margin-right: 15em;
+}
+
+.Container p {
+    font-size: 1.1rem;
+    font-weight: 300;    
+    margin: 1.5em 0;
+}
+
+.Header {
+    font-size: 1.25rem;
+    text-transform: uppercase;
+
+    display: flex;
+    justify-content: center;
+
+    margin-bottom: 1.5em;
+}
+
+
+.AboutImage {
+    position: absolute;
+    left: 1em;
+    bottom: -5em;
+    width: 50em;
+    z-index: 1;
+
+    transform: scaleX(-1);
+}
