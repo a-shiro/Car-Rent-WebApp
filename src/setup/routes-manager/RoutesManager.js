@@ -3,7 +3,7 @@ import { Home } from "../../pages/home/Home";
 import { TermsAndConditions } from "../../pages/tac/TermsAndConditions";
 import { PageNotFound } from "../../pages/404/404";
 import { About } from "../../pages/about/About";
-import { Contact } from "../../pages/contact/Contact";
+import { Contacts } from "../../pages/contacts/Contacts";
 import { Catalog } from "../../pages/catalog/Catalog";
 import { CarDetails } from "../../pages/car-details/CarDetails";
 import { Profile } from "../../pages/profile/Profile";
@@ -20,7 +20,7 @@ export const RoutesManager = () => {
       <Route path="/cars" element={<Catalog />} />
       <Route path="/cars/:carModel" element={<CarDetails />} />
       <Route path="/about" element={<About />} />
-      <Route path="/contact" element={<Contact />} />
+      <Route path="/contacts" element={<Contacts />} />
       <Route element={<AuthRoute />}>
         <Route path="/profile" element={<Profile />} />
       </Route>

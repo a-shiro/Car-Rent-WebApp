@@ -19,7 +19,7 @@ export const NavLinks = () => {
         <Link to="/about">About</Link>
       </li>
       <li>
-        <Link to="/contact">Contacts</Link>
+        <Link to="/contacts">Contacts</Link>
       </li>
       <li>
         <Link to={userActive ? "/profile" : "/sign-in"}>Profile</Link>
