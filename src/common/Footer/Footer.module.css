@@ -1,0 +1,31 @@
+footer {
+    background-color: #E0DDD7;
+}
+
+.Container {
+    display: flex;
+    justify-content: space-between;
+    padding: 3em 5em 0 5em;
+}
+
+.ContainerTitle {
+    font-weight: 500;  
+}
+
+.Container a {
+    color: #1A1713;
+}
+
+.Container a:hover {
+    color: #B18E72 ;
+}
+
+.Container p {
+    margin-bottom: 1em;
+}
+
+.CopyrightText {
+    padding: 2em 0;
+    text-align: center;
+    font-weight: 500;
+}
