@@ -2,6 +2,7 @@ import { useState } from "react";
 import { useForm } from "react-hook-form";
 import { Link } from "react-router-dom";
 import { useSignIn } from "./hooks/useSignIn";
+import styles from "./SignIn.module.css";
 
 export const SignIn = () => {
   const {
@@ -27,40 +28,61 @@ export const SignIn = () => {
 
   return (
     <div>
-      <h1>Welcome! Please sign in.</h1>
-
-      <form onSubmit={handleSubmit(onSignInWithEmailAndPassword)}>
-        <input
-          {...register("email")}
-          value={email}
-          type="email"
-          placeholder="Email"
-          onChange={(e) => {
-            setEmail(e.target.value);
-            clearErrors();
-          }}
-        />
-        <input
-          {...register("password")}
-          value={password}
-          type="password"
-          placeholder="Password"
-          onChange={(e) => {
-            setPassword(e.target.value);
-            clearErrors();
-          }}
-        />
-        <button>Sign in</button>
-        {errors.email?.message && <h1>{errors.email.message}</h1>}
-        {errors.password?.message && <h1>{errors.password.message}</h1>}
-        {errors.general?.message && <h1>{errors.general.message}</h1>}
-      </form>
-
-      <button onClick={onSignInWithGoogle}>Sign in with Google</button>
-
-      <p>
-        Dont have an account? <Link to="/register">Register here.</Link>
-      </p>
+      <header className={styles.Header}>
+        <h1>- Sign in -</h1>
+      </header>
+      <div className={styles.FormCard}>
+        <form onSubmit={handleSubmit(onSignInWithEmailAndPassword)}>
+          <input
+            className={`${styles.inputFields} ${
+              errors.email?.message && styles.ErrorInput
+            }`}
+            {...register("email")}
+            value={email}
+            type="email"
+            placeholder="Email"
+            onChange={(e) => {
+              setEmail(e.target.value);
+              clearErrors();
+            }}
+          />
+          <input
+            className={`${styles.inputFields} ${
+              errors.password?.message && styles.ErrorInput
+            }`}
+            {...register("password")}
+            value={password}
+            type="password"
+            placeholder="Password"
+            onChange={(e) => {
+              setPassword(e.target.value);
+              clearErrors();
+            }}
+          />
+          {errors.email?.message && (
+            <span className={styles.ErrorMessage}>{errors.email.message}</span>
+          )}
+          {errors.password?.message && (
+            <span className={styles.ErrorMessage}>
+              {errors.password.message}
+            </span>
+          )}
+          {errors.general?.message && (
+            <span className={styles.ErrorMessage}>
+              {errors.general.message}
+            </span>
+          )}
+          <div className={styles.SubmitContainer}>
+            <button className={styles.Button}>Sign in</button>
+            <button className={styles.Button} onClick={onSignInWithGoogle}>
+              Sign in with Google
+            </button>
+            <p>
+              Dont have an account? <Link to="/register">Register here.</Link>
+            </p>
+          </div>
+        </form>
+      </div>
     </div>
   );
 };

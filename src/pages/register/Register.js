@@ -52,73 +52,77 @@ export const Register = () => {
 
   return (
     <div>
-      <h1>Register</h1>
-
-      <form onSubmit={handleSubmit(onRegisterHandler)}>
-        <input
-          {...registerValue("displayName")}
-          className={`${styles.inputFields} ${
-            errors.displayName?.message && styles.errorInput
-          }`}
-          name="displayName"
-          value={formValues.displayName}
-          onChange={onChangeHandler}
-          placeholder="Username"
-          type="text"
-        />
-        {errors.displayName?.message && (
-          <p className={styles.errorMessage}>{errors.displayName?.message}</p>
-        )}
-        <input
-          {...registerValue("email")}
-          className={`${styles.inputFields} ${
-            errors.email?.message && styles.errorInput
-          }`}
-          name="email"
-          value={formValues.email}
-          onChange={onChangeHandler}
-          placeholder="Email"
-          type="email"
-        />
-        {errors.email?.message && (
-          <p className={styles.errorMessage}>{errors.email?.message}</p>
-        )}
-        <input
-          {...registerValue("password")}
-          className={`${styles.inputFields} ${
-            errors.password?.message && styles.errorInput
-          }`}
-          name="password"
-          value={formValues.password}
-          onChange={onChangeHandler}
-          placeholder="Password"
-          type="password"
-        />
-        {errors.password?.message && (
-          <p className={styles.errorMessage}>{errors.password?.message}</p>
-        )}
-        <input
-          {...registerValue("confirmPassword")}
-          className={`${styles.inputFields} ${
-            errors.confirmPassword?.message && styles.errorInput
-          }`}
-          name="confirmPassword"
-          value={formValues.confirmPassword}
-          onChange={onChangeHandler}
-          placeholder="Confirm Password"
-          type="password"
-        />
-        {errors.confirmPassword?.message && (
-          <p className={styles.errorMessage}>
-            {errors.confirmPassword?.message}
-          </p>
-        )}
-        <button>Register</button>
-      </form>
-
-      <p>
-        Have an account already? <Link to="/sign-in">Sign in here.</Link>
-      </p>
+      <header className={styles.Header}>
+        <h1>- Register -</h1>
+      </header>
+      <div className={styles.FormCard}>
+        <form onSubmit={handleSubmit(onRegisterHandler)}>
+          <input
+            {...registerValue("displayName")}
+            className={`${styles.inputFields} ${
+              errors.displayName?.message && styles.ErrorInput
+            }`}
+            name="displayName"
+            value={formValues.displayName}
+            onChange={onChangeHandler}
+            placeholder="Username"
+            type="text"
+          />
+          <input
+            {...registerValue("email")}
+            className={`${styles.inputFields} ${
+              errors.email?.message && styles.ErrorInput
+            }`}
+            name="email"
+            value={formValues.email}
+            onChange={onChangeHandler}
+            placeholder="Email"
+            type="email"
+          />
+          <input
+            {...registerValue("password")}
+            className={`${styles.inputFields} ${
+              errors.password?.message && styles.ErrorInput
+            }`}
+            name="password"
+            value={formValues.password}
+            onChange={onChangeHandler}
+            placeholder="Password"
+            type="password"
+          />
+          <input
+            {...registerValue("confirmPassword")}
+            className={`${styles.inputFields} ${
+              errors.confirmPassword?.message && styles.ErrorInput
+            }`}
+            name="confirmPassword"
+            value={formValues.confirmPassword}
+            onChange={onChangeHandler}
+            placeholder="Confirm Password"
+            type="password"
+          />
+          {errors.displayName?.message && (
+            <p className={styles.ErrorMessage}>{errors.displayName?.message}</p>
+          )}
+          {errors.email?.message && (
+            <p className={styles.ErrorMessage}>{errors.email?.message}</p>
+          )}
+          {errors.password?.message && (
+            <p className={styles.ErrorMessage}>{errors.password?.message}</p>
+          )}
+          {errors.confirmPassword?.message && (
+            <p className={styles.ErrorMessage}>
+              {errors.confirmPassword?.message}
+            </p>
+          )}
+          <div className={styles.SubmitContainer}>
+            <button className={styles.Button}>Register</button>
+            <p>
+              Have an account already? <Link to="/sign-in">Sign in here.</Link>
+            </p>
+          </div>
+        </form>
+      </div>
     </div>
   );
 };
