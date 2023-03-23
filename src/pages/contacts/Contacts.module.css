@@ -1,13 +1,46 @@
+.MainContainer { 
+    background: rgb(246,218,195);
+    background: linear-gradient(180deg, rgba(246,218,195,0) 40%, rgba(177,142,114,1) 130%);
+}
+
 .Header {
+    font-size: 1.25rem;
+    text-transform: uppercase;
     text-align: center;
+    padding: 5em 0;
+}
+
+.TitleText {
+    color: #B18E72 ;
+    font-size: 1.5rem;
+    font-weight: 500;
+}
+
+.PhoneInfoContainer {
+    margin-bottom: 1em;
+}
+
+.Container {
+    display: flex;
+    justify-content: space-around;
+
+    align-items: center;
+
+    padding: 0 20em;
+}
+
+.Container p {
+    font-size: 1.15rem;
+    margin-bottom: 0.35em;
+}
+
+.ImageContainer {
+    display: flex;
+    justify-content: center;
 }
 
 .VectorImage {
-        position: absolute;
-        left: 1em;
-        bottom: -5em;
-        width: 50em;
-        z-index: 1;
-    
-        transform: scaleX(-1);
+    width: 40em;
+    display: block;
+    transform: scaleX(-1);
 }

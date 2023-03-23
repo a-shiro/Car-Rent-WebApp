@@ -1,6 +1,6 @@
 .AboutSection {
     position: relative;
-    z-index: 10;
+    z-index: 50;
 
     background: rgb(246,218,195);
     background: linear-gradient(146deg, rgba(246,218,195,1) 0%, rgba(207,167,135,0.6306897759103641) 50%, rgba(177,142,114,1) 100%);
