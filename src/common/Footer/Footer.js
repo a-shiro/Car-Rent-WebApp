@@ -18,7 +18,7 @@ export const Footer = () => {
         </div>
         <div>
           <p className={styles.ContainerTitle}>Links:</p>
-          <Link to="/terms-and-conditions">Terms And Conditions</Link>
+          <a>Terms And Conditions</a>
         </div>
       </div>
       <div>

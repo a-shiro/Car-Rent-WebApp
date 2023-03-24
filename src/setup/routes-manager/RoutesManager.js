@@ -1,6 +1,5 @@
 import { Routes, Route } from "react-router-dom";
 import { Home } from "../../pages/home/Home";
-import { TermsAndConditions } from "../../pages/tac/TermsAndConditions";
 import { PageNotFound } from "../../pages/404/404";
 import { About } from "../../pages/about/About";
 import { Contacts } from "../../pages/contacts/Contacts";
@@ -26,7 +25,6 @@ export const RoutesManager = () => {
       </Route>
       <Route path="/sign-in" element={<SignIn />} />
       <Route path="/register" element={<Register />} />
-      <Route path="/terms-and-conditions" element={<TermsAndConditions />} />
       {/* <Route element={<PrivateRoute />}> */}
       <Route path="/administration" element={<Administration />} />
       {/* </Route> */}
