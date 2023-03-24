@@ -1,0 +1,60 @@
+.MainContainer { 
+    background: rgb(246,218,195);
+    background: linear-gradient(180deg, rgba(246,218,195,0) 40%, rgba(177,142,114,1) 130%);
+}
+
+.Header {
+    font-size: 1.25rem;
+    text-transform: uppercase;
+    text-align: center;
+    margin-top: 5em;
+}
+
+.Text {
+    color: #B18E72 ;
+    font-size: 2rem;
+    font-weight: 500;
+    margin: 2em 0;
+}
+
+.Container {
+    display: flex;
+    flex-direction: column;
+
+    align-items: center;
+}
+
+.ButtonsContainer {
+    margin-top: 2em;
+}
+
+.Button {
+    background-color: #B18E72  ;
+    color: white;
+
+    font-size: 1.1rem;
+
+    border: none;
+    border-radius: 0.1em;
+
+    margin: 0em 0.5em;
+    padding: 1em;
+
+    transition: opacity 0.1s linear, color 0.3s;
+}
+
+.Button:hover {
+    color: #1A1713 ;
+    opacity: 0.9;
+}
+
+.ImageContainer {
+    display: flex;
+    justify-content: center;
+}
+
+.VectorImage {
+    width: 40em;
+    display: block;
+    transform: scaleX(-1);
+}

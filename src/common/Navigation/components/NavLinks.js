@@ -26,7 +26,7 @@ export const NavLinks = () => {
       </li>
       {userActive && (
         <li>
-          <button onClick={signOut}>Sign Out</button>
+          <a onClick={signOut}>Sign Out</a>
         </li>
       )}
     </ul>
