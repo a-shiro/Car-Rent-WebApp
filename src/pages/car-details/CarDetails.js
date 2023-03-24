@@ -2,10 +2,15 @@ import { useState, useEffect } from "react";
 import { useParams } from "react-router-dom";
 import { getDocs, collection, where, query } from "firebase/firestore";
 import { database } from "../../setup/config/firebase";
+import { CarDescription } from "./CarDescription";
+import { RentalConditions } from "./RentalConditions";
+import styles from "./CarDetails.module.css";
 
 export const CarDetails = () => {
   const { carModel } = useParams();
   const [car, setCar] = useState({});
+  const [descriptionActive, setDescriptionActive] = useState(true);
+  const [conditionsActive, setConditionsActive] = useState(false);
 
   useEffect(() => {
     const fetchData = async () => {
@@ -20,36 +25,71 @@ export const CarDetails = () => {
     fetchData();
   }, []);
 
-  return (
-    <div>
-      <h1>
-        Rent {car.brand} {car.model}
-      </h1>
-      <div style={{ display: "flex" }}>
-        <img src={car.imgUrl} width="400px" height="250px" />
+  const onClickHandler = (e) => {
+    if (!e.target.className.includes("Active")) {
+      setDescriptionActive(!descriptionActive);
+      setConditionsActive(!conditionsActive);
+    }
+  };
 
-        <div>
-          <div>
-            <h2>from {car.pricePerDay}$ per day</h2>
+  return (
+    <div className={styles.Container}>
+      <h1 className={styles.Title}>
+        - Rent a {car.brand} {car.model} -
+      </h1>
+      <div className={styles.DetailsCard}>
+        <div className={styles.ImageContainer}>
+          <img src={car.imgUrl} className={styles.CardImage} />
+        </div>
+
+        <div className={styles.Details}>
+          <div className={styles.DetailsTitleContainer}>
+            <h2 className={styles.DetailsTitle}>
+              from <span>{car.pricePerDay}$</span> per day
+            </h2>
             <p>Minimum rental period is 2 days.</p>
           </div>
 
-          <div>
-            <h2>Car specs</h2>
-            <p>Engine: {car.engine}</p>
-            <p>HP: {car.horsePower}</p>
-            <p>0-100: {car.zeroToSixty}</p>
-            <p>Top speed: {car.topSpeed}</p>
+          <div className={styles.DetailsInfoContainer}>
+            <h2 className={styles.DetailsTitle}>Car specifications</h2>
+            <p>
+              - Engine: <span>{car.engine}</span>
+            </p>
+            <p>
+              - Horse power: <span>{car.horsePower}</span>
+            </p>
+            <p>
+              - 0-100 km/h: <span>{car.zeroToSixty}s</span>
+            </p>
+            <p>
+              - Top speed: <span>{car.topSpeed} km/h</span>
+            </p>
           </div>
 
-          <button>Rent now</button>
+          <button className={styles.Button}>Rent now</button>
         </div>
       </div>
 
-      <div>
-        <p>Description</p>
-        <p>Available in</p>
+      <div className={styles.ButtonsContainer}>
+        <button
+          onClick={onClickHandler}
+          className={`${styles.Button} ${
+            descriptionActive ? styles.Active : ""
+          }`}
+        >
+          Description
+        </button>
+        <button
+          onClick={onClickHandler}
+          className={`${styles.Button} ${
+            conditionsActive ? styles.Active : ""
+          }`}
+        >
+          Rental conditions
+        </button>
       </div>
+
+      {descriptionActive ? <CarDescription car={car} /> : <RentalConditions />}
     </div>
   );
 };

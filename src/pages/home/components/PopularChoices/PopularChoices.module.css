@@ -50,8 +50,9 @@
     
     display: block;
 
-    width: 320px;
-    height: 200px;
+    object-fit: cover;
+    width: 92%;
+    height: 12.5em;
     max-width: 100%;
 
     margin: auto;

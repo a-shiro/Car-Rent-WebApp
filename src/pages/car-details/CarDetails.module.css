@@ -1,0 +1,111 @@
+.Container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.Title {
+    margin-top: 2em;
+    font-size: 2.5rem;
+    font-weight: 400;
+    text-transform: uppercase;
+}
+
+.DetailsCard {
+    display: flex;
+    justify-content: space-between;
+    margin: 4em 0;
+}
+
+.Details { 
+    width: 25%;
+}
+
+.DetailsTitleContainer {
+    margin-bottom: 2em;
+}
+
+.DetailsTitle {
+    font-size: 1.75rem;
+    font-weight: 300;
+    margin-bottom: 0.25em;
+}
+
+.DetailsTitleContainer span, .DetailsInfoContainer span {
+    font-weight: 500;
+    color: #B18E72 ;
+}
+
+.DetailsTitleContainer p {
+    font-size: 1.25rem;
+    font-weight: 300;
+}
+
+.DetailsInfoContainer p{
+    margin: .75em 0;
+    font-weight: 300;
+    font-size: 1.1rem;
+}
+
+.ImageContainer {
+    width: 70%;
+    height: 35em;
+}
+
+.CardImage {
+    object-fit: cover;
+    width: 100%;
+    height: 100%;
+    display: block;
+    border-radius: 0.25em;
+}
+
+.ButtonsContainer {
+    width: 70.5em;
+}
+
+.ButtonsContainer button {
+    width: 50%;
+}
+
+.Button {
+    background-color: #B18E72  ;
+    color: white;
+
+    font-size: 1rem;
+
+    border: none;
+    border-radius: 0.1em;
+
+    margin-top: 1em;
+    padding: 1em 2em;
+
+    transition: opacity 0.1s linear, color 0.3s;
+}
+
+.Button:hover {
+    color: #1A1713 ;
+    opacity: 0.9;
+}
+
+.Active {
+    color: #1A1713;
+    background-color: #E0DDD7 ;
+}
+
+.ConditionalContainer {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: 3em 1em;
+}
+
+.ConditionalContainer p {
+    margin-bottom: 2em;
+    width: 60%;
+}
+
+.ConditionalContainer h1 {
+    font-weight: 400;
+    margin-bottom: .5em;
+}
