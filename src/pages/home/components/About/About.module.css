@@ -36,6 +36,10 @@
     margin-bottom: 1.5em;
 }
 
+.Header h1 {
+    font-weight: 400;
+}
+
 
 .AboutImage {
     position: absolute;

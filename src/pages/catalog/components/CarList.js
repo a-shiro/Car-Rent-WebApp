@@ -28,13 +28,20 @@ export const CarList = () => {
   return (
     <div className={styles.CarList}>
       {carList.map((car) => (
-        <Link to={`/cars/${car.path}`} key={car.id}>
-          <img src={car.imgUrl} alt="" width="400px" />
-          <p>
-            {car.brand} {car.model}
-          </p>
-          <p>from {car.pricePerDay} $</p>
-        </Link>
+        <div className={styles.Card} key={car.id}>
+          <Link to={`${car.path}`}>
+            <span className={styles.CardText}>
+              {car.brand}
+              <span className={styles.CardModel}>&nbsp;{car.model}</span>
+            </span>
+            <span className={styles.CardPrice}>from {car.pricePerDay}$</span>
+            <img
+              className={styles.CardImage}
+              src={car.imgUrl}
+              alt={car.model}
+            />
+          </Link>
+        </div>
       ))}
     </div>
   );

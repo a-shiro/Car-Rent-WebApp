@@ -1,4 +1,5 @@
 import { SelectDropdown } from "./components/SelectDropdown";
+import styles from "../../Catalog.module.css";
 
 export const AsideFilters = () => {
   const carTypes = [
@@ -25,30 +26,36 @@ export const AsideFilters = () => {
 
   return (
     <aside>
-      <div>
-        <p>Car Type</p>
-        <SelectDropdown options={carTypes} />
-      </div>
-      <div>
-        <p>Brand</p>
-        <SelectDropdown options={carBrands} />
-        {/* ToDo: add a brands collection to the database and
+      <div className={styles.BackgroundContainer}>
+        <div className={styles.FilterContainer}>
+          <p className={styles.AsideTitle}>Car Type</p>
+          <SelectDropdown options={carTypes} />
+        </div>
+        <div className={styles.FilterContainer}>
+          <p className={styles.AsideTitle}>Brand</p>
+          <SelectDropdown options={carBrands} />
+          {/* ToDo: add a brands collection to the database and
            query a brand element here to display all brands */}
-      </div>
-      <div>
-        <label id="priceRange">Price range</label>
-        <input
-          name="priceRangeFrom"
-          type="number"
-          htmlFor="priceRange"
-          placeholder="from"
-        />
-        <input
-          name="priceRangeTo"
-          type="number"
-          htmlFor="priceRange"
-          placeholder="to"
-        />
+        </div>
+        <div className={styles.FilterContainer}>
+          <label id="priceRange" className={styles.AsideTitle}>
+            Price range
+          </label>
+          <input
+            className={styles.AsideInput}
+            name="priceRangeFrom"
+            type="number"
+            htmlFor="priceRange"
+            placeholder="from $"
+          />
+          <input
+            className={styles.AsideInput}
+            name="priceRangeTo"
+            type="number"
+            htmlFor="priceRange"
+            placeholder="to $"
+          />
+        </div>
       </div>
     </aside>
   );

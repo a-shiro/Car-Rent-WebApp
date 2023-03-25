@@ -5,6 +5,10 @@
     margin: 4em 0;
 }
 
+.Header h1 {
+    font-weight: 400;
+}
+
 .FormCard {
     display: flex;
     justify-content: center;

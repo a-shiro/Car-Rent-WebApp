@@ -5,6 +5,10 @@
     text-align: center;
 }
 
+.Header h1 {
+    font-weight: 400;
+}
+
 .Container {
     padding-bottom: 10em;
 }

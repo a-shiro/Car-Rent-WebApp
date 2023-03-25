@@ -10,6 +10,10 @@
     padding: 5em 0;
 }
 
+.Header h1 {
+    font-weight: 400;
+}
+
 .TitleText {
     color: #B18E72 ;
     font-size: 1.5rem;
