@@ -73,7 +73,7 @@ export const CarDetails = () => {
       <div className={styles.ButtonsContainer}>
         <button
           onClick={onClickHandler}
-          className={`${styles.Button} ${
+          className={`${styles.ToggleButton} ${
             descriptionActive ? styles.Active : ""
           }`}
         >
@@ -81,7 +81,7 @@ export const CarDetails = () => {
         </button>
         <button
           onClick={onClickHandler}
-          className={`${styles.Button} ${
+          className={`${styles.ToggleButton} ${
             conditionsActive ? styles.Active : ""
           }`}
         >

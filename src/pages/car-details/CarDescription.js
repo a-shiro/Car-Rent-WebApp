@@ -3,6 +3,7 @@ import styles from "./CarDetails.module.css";
 export const CarDescription = ({ car }) => {
   return (
     <div className={styles.ConditionalContainer}>
+      <h1>Description</h1>
       <p>
         Lorem ipsum dolor sit amet consectetur adipisicing elit. Reiciendis iste
         adipisci obcaecati nulla voluptatibus exercitationem nihil corrupti
@@ -24,11 +25,9 @@ export const CarDescription = ({ car }) => {
         dolor laudantium alias minima temporibus delectus velit distinctio ipsam
         voluptatum, corporis deleniti! Aperiam sed beatae, deleniti totam optio,
       </p>
-
-      <h1>
+      <h2>
         Advantages of renting {car.brand} {car.model}
-      </h1>
-
+      </h2>
       <p>
         Lorem ipsum dolor sit amet consectetur adipisicing elit. Reiciendis iste
         adipisci obcaecati nulla voluptatibus exercitationem nihil corrupti

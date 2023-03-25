@@ -3,6 +3,7 @@ import styles from "./CarDetails.module.css";
 export const RentalConditions = () => {
   return (
     <div className={styles.ConditionalContainer}>
+      <h1>Rental conditions</h1>
       <p>
         Lorem ipsum dolor sit amet consectetur adipisicing elit. Reiciendis iste
         adipisci obcaecati nulla voluptatibus exercitationem nihil corrupti
