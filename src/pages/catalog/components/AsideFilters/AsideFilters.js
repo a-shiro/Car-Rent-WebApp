@@ -38,21 +38,17 @@ export const AsideFilters = () => {
            query a brand element here to display all brands */}
         </div>
         <div className={styles.FilterContainer}>
-          <label id="priceRange" className={styles.AsideTitle}>
-            Price range
-          </label>
+          <p className={styles.AsideTitle}>Price range</p>
           <input
             className={styles.AsideInput}
             name="priceRangeFrom"
             type="number"
-            htmlFor="priceRange"
             placeholder="from $"
           />
           <input
             className={styles.AsideInput}
             name="priceRangeTo"
             type="number"
-            htmlFor="priceRange"
             placeholder="to $"
           />
         </div>

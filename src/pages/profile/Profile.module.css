@@ -1,0 +1,89 @@
+.Container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+}
+
+.ProfileContainer {
+    margin: 5em;
+    padding: 5em 0;
+    width: 30%;
+    background-color: white;
+    border-radius: .25em;
+    box-shadow: 0 0 1em .5em rgba(0, 0, 0, .1);
+}
+
+
+.ProfileContainerTitle {
+    text-align: center;
+    text-transform: uppercase;
+    font-weight: 400;
+}
+
+.ProfileInfo{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.ProfileInfo p {
+    font-size: 1.5rem;
+    font-weight: 300;
+    margin: 1.5em 0;
+}
+
+.ProfileInfo span {
+    color: #B18E72;
+}
+
+.ProfileImage {
+    margin: 2em 0;
+    width: 120px;
+}
+
+
+.RentingContainer div {
+    padding: 5em 0;
+    text-align: center;
+}
+
+.RentingContainer h1 {
+    font-size: 2.5rem;
+    font-weight: 400;
+    text-transform: uppercase;
+    margin-bottom: 1em;
+}
+
+.RentingContainer span {
+    font-size: 2rem;
+    font-weight: 300;
+}
+
+.ButtonsContainer {
+    margin: 2em 0;
+}
+
+.ButtonsContainer a {
+    font-size: 1.05rem;
+    margin: 0 1em;
+    padding: 1em 2em;
+    border-radius: .15em;
+    background-color: #B18E72;
+    color: white;
+    transition: color 0.1s;
+}
+
+.ButtonsContainer a:hover {
+    color: #1A1713;
+    opacity: 0.9;
+}
+
+
+.VectorImage {
+    position: absolute;
+    right: 8em;
+    bottom: 2em;
+    width: 40em;
+    display: block;
+}
