@@ -9,7 +9,6 @@ import { Profile } from "../../pages/profile/Profile";
 import { SignIn } from "../../pages/sign-in/SignIn";
 import { Register } from "../../pages/register/Register";
 import { Administration } from "../../pages/administration/Administration";
-import { TestingPage } from "../../testing-page/TestingPage";
 import { AuthRoute } from "./AuthRoute";
 
 export const RoutesManager = () => {
@@ -29,8 +28,6 @@ export const RoutesManager = () => {
       <Route path="/administration" element={<Administration />} />
       {/* </Route> */}
       <Route path="*" element={<PageNotFound />} />
-
-      <Route path="/testing-page" element={<TestingPage />} />
     </Routes>
   );
 };
