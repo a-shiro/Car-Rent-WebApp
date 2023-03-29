@@ -15,15 +15,10 @@
 }
 
 form {
-    background-color: #E0DDD7;
-    border-radius: 0.25em;
-
     display: flex;
     flex-direction: column;
     justify-content: center;
 
-    padding: 5em;
-    margin-bottom: 5em;
 }
 
 .inputFields {
