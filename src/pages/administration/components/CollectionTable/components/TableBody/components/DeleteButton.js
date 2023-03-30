@@ -1,14 +1,8 @@
-import { deleteDoc, doc } from "firebase/firestore";
-import { database } from "../../../../../../../setup/config/firebase";
+import { deleteDataById } from "../../../../../../../services/queries";
 
 export const DeleteButton = ({ id }) => {
   const deleteCar = async () => {
-    try {
-      const carDoc = doc(database, "cars", id);
-      await deleteDoc(carDoc);
-    } catch (err) {
-      console.error(err);
-    }
+    await deleteDataById("cars", id);
   };
 
   return <button onClick={deleteCar}>Delete</button>;

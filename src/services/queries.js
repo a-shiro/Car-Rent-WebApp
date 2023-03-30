@@ -1,4 +1,13 @@
-import { collection, query, limit, where, getDocs } from "firebase/firestore";
+import {
+  collection,
+  query,
+  limit,
+  where,
+  getDocs,
+  addDoc,
+  deleteDoc,
+  doc,
+} from "firebase/firestore";
 import { database } from "../setup/config/firebase";
 
 export async function getData(collectionName, docLimit) {
@@ -31,6 +40,24 @@ export async function getDataWhere(
     }));
 
     return filteredData[0];
+  } catch (err) {
+    console.error(err);
+  }
+}
+
+export async function postData(collectionName, body) {
+  try {
+    const collectionRef = collection(database, collectionName);
+    await addDoc(collectionRef, body);
+  } catch (err) {
+    console.error(err);
+  }
+}
+
+export async function deleteDataById(collectionName, id) {
+  try {
+    const carDoc = doc(database, collectionName, id);
+    await deleteDoc(carDoc);
   } catch (err) {
     console.error(err);
   }

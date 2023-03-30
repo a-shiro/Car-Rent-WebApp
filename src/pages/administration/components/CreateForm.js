@@ -1,6 +1,6 @@
 import { useState } from "react";
-import { addDoc, collection } from "firebase/firestore";
-import { database } from "../../../setup/config/firebase";
+import { postData } from "../../../services/queries";
+import styles from "../Administration.module.css";
 
 export const CreateForm = () => {
   const [formData, setFormData] = useState({
@@ -65,22 +65,18 @@ export const CreateForm = () => {
   const onSubmitHandler = async (e) => {
     e.preventDefault();
 
-    try {
-      await addDoc(collection(database, "cars"), {
-        brand: formData.carBrand.value,
-        model: formData.carModel.value,
-        type: formData.carType.value,
-        engine: formData.carEngine.value,
-        horsePower: formData.carHorsePower.value,
-        imgUrl: formData.carImgUrl.value,
-        pricePerDay: formData.carPricePerDay.value,
-        topSpeed: formData.carTopSpeed.value,
-        zeroToSixty: formData.carZeroToSixty.value,
-        path: carDetailsPath,
-      });
-    } catch (err) {
-      console.error(err);
-    }
+    postData("cars", {
+      brand: formData.carBrand.value,
+      model: formData.carModel.value,
+      type: formData.carType.value,
+      engine: formData.carEngine.value,
+      horsePower: formData.carHorsePower.value,
+      imgUrl: formData.carImgUrl.value,
+      pricePerDay: formData.carPricePerDay.value,
+      topSpeed: formData.carTopSpeed.value,
+      zeroToSixty: formData.carZeroToSixty.value,
+      path: carDetailsPath,
+    });
   };
 
   const onChangeHandler = (e) => {
@@ -99,10 +95,11 @@ export const CreateForm = () => {
   };
 
   return (
-    <div>
-      <form onSubmit={onSubmitHandler}>
+    <div className={styles.FormCard}>
+      <form className={styles.Form} onSubmit={onSubmitHandler}>
         {Object.keys(formData).map((key) => (
           <input
+            className={styles.InputFields}
             name={formData[key].name}
             value={formData[key].value}
             onChange={onChangeHandler}
