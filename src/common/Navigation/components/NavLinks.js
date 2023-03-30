@@ -1,5 +1,5 @@
 import { Link } from "react-router-dom";
-import { useSignOut } from "../../../pages/sign-in/hooks/useSignOut";
+import { useSignOut } from "../../../pages/auth/sign-in/hooks/useSignOut";
 import styles from "../Navigation.module.css";
 
 export const NavLinks = () => {

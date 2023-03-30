@@ -9,6 +9,12 @@
     padding: 2em;
 }
 
+.Form {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
 .InputFields {
     border: none;
     border-radius: 0.25em;
@@ -19,11 +25,17 @@
     outline: none;
 }
 
-.SignInButton {
+.SubmitContainer {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.FormButton {
     font-size: 1rem;
 
     margin: 1em 4.5em 0 4.5em;
-    padding: 0.75em;
+    padding: .75em 2em;
 }
 
 .RegisterParagraph {
@@ -40,6 +52,7 @@
 
 .ErrorMessage {
     color: red;
+    margin-bottom: .25em;
 }
 
 .ErrorInput {

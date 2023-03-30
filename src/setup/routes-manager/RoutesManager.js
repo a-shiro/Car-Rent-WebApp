@@ -6,8 +6,8 @@ import { Contacts } from "../../pages/contacts/Contacts";
 import { Catalog } from "../../pages/catalog/Catalog";
 import { CarDetails } from "../../pages/car-details/CarDetails";
 import { Profile } from "../../pages/profile/Profile";
-import { SignIn } from "../../pages/sign-in/SignIn";
-import { Register } from "../../pages/register/Register";
+import { SignIn } from "../../pages/auth/sign-in/SignIn";
+import { Register } from "../../pages/auth/register/Register";
 import { Administration } from "../../pages/administration/Administration";
 import { AuthRoute } from "./AuthRoute";
 

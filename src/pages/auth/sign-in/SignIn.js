@@ -3,12 +3,14 @@ import { useForm } from "react-hook-form";
 import { Link } from "react-router-dom";
 import { useSignIn } from "./hooks/useSignIn";
 import styles from "./SignIn.module.css";
-import commonStyles from "../../common/Styles.module.css";
+import commonStyles from "../../../common/Styles.module.css";
 import { ErrorMessage } from "./ErrorMessage";
 
 export const SignIn = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+
+  const [signInWithEmailAndPassword, signInWithGoogle] = useSignIn();
 
   const {
     register,
@@ -17,8 +19,6 @@ export const SignIn = () => {
     handleSubmit,
     formState: { errors },
   } = useForm({});
-
-  const [signInWithEmailAndPassword, signInWithGoogle] = useSignIn();
 
   const onSignInWithEmailAndPassword = (data) => {
     signInWithEmailAndPassword(data, setError);
@@ -35,7 +35,10 @@ export const SignIn = () => {
       </h1>
       <div className={`${commonStyles.FlexContainer} ${commonStyles.Column}`}>
         <div className={styles.FormCard}>
-          <form onSubmit={handleSubmit(onSignInWithEmailAndPassword)}>
+          <form
+            className={styles.Form}
+            onSubmit={handleSubmit(onSignInWithEmailAndPassword)}
+          >
             <input
               className={`${styles.InputFields} ${
                 errors.email?.message && styles.ErrorInput
@@ -65,9 +68,8 @@ export const SignIn = () => {
             {Object.keys(errors).length !== 0 && (
               <ErrorMessage error={errors} />
             )}
-
             <button
-              className={`${commonStyles.ButtonBrown} ${styles.SignInButton}`}
+              className={`${commonStyles.ButtonBrown} ${styles.FormButton}`}
             >
               Sign in
             </button>
@@ -76,13 +78,13 @@ export const SignIn = () => {
             className={`${commonStyles.FlexContainer} ${commonStyles.Column}`}
           >
             <button
-              className={`${commonStyles.ButtonBrown} ${styles.SignInButton}`}
+              className={`${commonStyles.ButtonBrown} ${styles.FormButton}`}
               onClick={onSignInWithGoogle}
             >
               Sign in with Google
             </button>
             <p className={styles.RegisterParagraph}>
-              Dont have an account?&nbsp;
+              Don't have an account?&nbsp;
               <Link to="/register">Register here.</Link>
             </p>
           </div>

@@ -3,7 +3,7 @@ import {
   signInWithEmailAndPassword as firebaseSignInWithEmailAndPassword,
   signInWithPopup,
 } from "firebase/auth";
-import { auth, provider } from "../../../setup/config/firebase";
+import { auth, provider } from "../../../../setup/config/firebase";
 import { errorList } from "../utils/errors";
 
 export const useSignIn = () => {
