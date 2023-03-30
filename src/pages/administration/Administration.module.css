@@ -1,0 +1,45 @@
+.Heading {
+    text-align: center;
+    margin-bottom: 2em;
+}
+
+.FormCard {
+    background-color: #E0DDD7;
+    border-radius: .25em;
+    padding: 2em;
+
+    width: 10%;
+}
+
+.Form {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.InputFields {
+    border: none;
+    border-radius: 0.25em;
+    
+    padding: 1em;
+    margin-bottom: 2em;
+
+    outline: none;
+}
+
+.TableContainer {
+    margin: 0 2em;
+    justify-content: space-between;
+}
+
+.Table {
+    table-layout:fixed;
+    width: 85%;
+}
+
+td {
+    padding-left: .5em;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
