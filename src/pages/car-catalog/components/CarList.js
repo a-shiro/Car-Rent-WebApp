@@ -1,7 +1,6 @@
-import { database } from "../../../setup/config/firebase";
-import { getDocs, collection } from "firebase/firestore";
 import { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
+import { fetchData } from "../../../services/queries";
 import styles from "../Catalog.module.css";
 
 export const CarList = () => {
@@ -9,17 +8,8 @@ export const CarList = () => {
 
   useEffect(() => {
     const queryCarList = async () => {
-      try {
-        const data = await getDocs(collection(database, "cars"));
-        const filteredData = data.docs.map((doc) => ({
-          ...doc.data(),
-          id: doc.id,
-        }));
-
-        setCarList(filteredData);
-      } catch (err) {
-        console.error(err);
-      }
+      const data = await fetchData("cars");
+      setCarList(data);
     };
 
     queryCarList();

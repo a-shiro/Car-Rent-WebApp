@@ -1,29 +1,20 @@
 import { useState, useEffect } from "react";
-import { getDocs, collection } from "firebase/firestore";
-import { database } from "../../../../setup/config/firebase";
+import { fetchData } from "../../../../services/queries";
 import { TableBody } from "./components/TableBody/TableBody";
 import { TableHead } from "./components/TableHead/TableHead";
 
 export const CollectionTable = () => {
   const [carList, setCarList] = useState([]);
 
-  const queryCarList = async () => {
-    try {
-      const data = await getDocs(collection(database, "cars"));
-      const filteredData = data.docs.map((doc) => ({
-        ...doc.data(),
-        id: doc.id,
-      }));
-
-      setCarList(filteredData);
-    } catch (err) {
-      console.error(err);
-    }
-  };
-
   useEffect(() => {
+    const queryCarList = async () => {
+      const data = await fetchData("cars");
+
+      setCarList(data);
+    };
+
     queryCarList();
-  }, [carList]);
+  }, []);
 
   return (
     <table style={{ border: "1px solid" }}>

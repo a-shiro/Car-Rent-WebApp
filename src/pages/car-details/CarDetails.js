@@ -1,9 +1,8 @@
 import { useState, useEffect } from "react";
 import { useParams } from "react-router-dom";
-import { getDocs, collection, where, query } from "firebase/firestore";
-import { database } from "../../setup/config/firebase";
 import { CarDescription } from "./CarDescription";
 import { RentalConditions } from "./RentalConditions";
+import { fetchDataWhere } from "../../services/queries";
 import styles from "./CarDetails.module.css";
 
 export const CarDetails = () => {
@@ -14,12 +13,13 @@ export const CarDetails = () => {
 
   useEffect(() => {
     const fetchData = async () => {
-      const collectionRef = collection(database, "cars");
-      const q = query(collectionRef, where("path", "==", carModel));
-      const querySnapshot = await getDocs(q);
-      querySnapshot.forEach((doc) => {
-        setCar(doc.data());
+      const data = await fetchDataWhere("cars", {
+        fieldName: "path",
+        operator: "==",
+        fieldValue: carModel,
       });
+
+      setCar(data);
     };
 
     fetchData();
@@ -35,17 +35,17 @@ export const CarDetails = () => {
   return (
     <div className={styles.Container}>
       <h1 className={styles.Title}>
-        - Rent a {car.brand} {car.model} -
+        - Rent a {car?.brand} {car?.model} -
       </h1>
       <div className={styles.DetailsCard}>
         <div className={styles.ImageContainer}>
-          <img src={car.imgUrl} className={styles.CardImage} />
+          <img src={car?.imgUrl} className={styles.CardImage} />
         </div>
 
         <div className={styles.Details}>
           <div className={styles.DetailsTitleContainer}>
             <h2 className={styles.DetailsTitle}>
-              from <span>{car.pricePerDay}$</span> per day
+              from <span>{car?.pricePerDay}$</span> per day
             </h2>
             <p>Minimum rental period is 2 days.</p>
           </div>
@@ -53,16 +53,16 @@ export const CarDetails = () => {
           <div className={styles.DetailsInfoContainer}>
             <h2 className={styles.DetailsTitle}>Car specifications</h2>
             <p>
-              - Engine: <span>{car.engine}</span>
+              - Engine: <span>{car?.engine}</span>
             </p>
             <p>
-              - Horse power: <span>{car.horsePower}</span>
+              - Horse power: <span>{car?.horsePower}</span>
             </p>
             <p>
-              - 0-100 km/h: <span>{car.zeroToSixty}s</span>
+              - 0-100 km/h: <span>{car?.zeroToSixty}s</span>
             </p>
             <p>
-              - Top speed: <span>{car.topSpeed} km/h</span>
+              - Top speed: <span>{car?.topSpeed} km/h</span>
             </p>
           </div>
 

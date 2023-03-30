@@ -3,7 +3,7 @@ import { Home } from "../../pages/home/Home";
 import { PageNotFound } from "../../pages/404/404";
 import { About } from "../../pages/about/About";
 import { Contacts } from "../../pages/contacts/Contacts";
-import { Catalog } from "../../pages/catalog/Catalog";
+import { Catalog } from "../../pages/car-catalog/Catalog";
 import { CarDetails } from "../../pages/car-details/CarDetails";
 import { Profile } from "../../pages/profile/Profile";
 import { SignIn } from "../../pages/auth/sign-in/SignIn";
