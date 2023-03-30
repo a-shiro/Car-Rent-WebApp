@@ -1,7 +1,7 @@
 import { collection, query, limit, where, getDocs } from "firebase/firestore";
 import { database } from "../setup/config/firebase";
 
-export async function fetchData(collectionName, docLimit) {
+export async function getData(collectionName, docLimit) {
   try {
     const collectionRef = collection(database, collectionName);
     const q = query(collectionRef, docLimit && limit(docLimit));
@@ -17,7 +17,7 @@ export async function fetchData(collectionName, docLimit) {
   }
 }
 
-export async function fetchDataWhere(
+export async function getDataWhere(
   collectionName,
   { fieldName, operator, fieldValue }
 ) {

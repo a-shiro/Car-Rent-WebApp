@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
-import { fetchData } from "../../../services/queries";
+import { getData } from "../../../services/queries";
 import styles from "../Catalog.module.css";
 
 export const CarList = () => {
@@ -8,7 +8,7 @@ export const CarList = () => {
 
   useEffect(() => {
     const queryCarList = async () => {
-      const data = await fetchData("cars");
+      const data = await getData("cars");
       setCarList(data);
     };
 

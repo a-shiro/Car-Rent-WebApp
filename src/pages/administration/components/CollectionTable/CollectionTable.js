@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react";
-import { fetchData } from "../../../../services/queries";
+import { getData } from "../../../../services/queries";
 import { TableBody } from "./components/TableBody/TableBody";
 import { TableHead } from "./components/TableHead/TableHead";
 
@@ -8,7 +8,7 @@ export const CollectionTable = () => {
 
   useEffect(() => {
     const queryCarList = async () => {
-      const data = await fetchData("cars");
+      const data = await getData("cars");
 
       setCarList(data);
     };

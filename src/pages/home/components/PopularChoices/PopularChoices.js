@@ -1,7 +1,7 @@
 import { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import { Card } from "./Card";
-import { fetchData } from "../../../../services/queries";
+import { getData } from "../../../../services/queries";
 import styles from "./PopularChoices.module.css";
 import commonStyles from "../../Home.module.css";
 
@@ -11,7 +11,7 @@ export const PopularChoices = () => {
 
   useEffect(() => {
     const queryCarList = async () => {
-      const data = await fetchData("cars", 4);
+      const data = await getData("cars", 4);
       setCarList(data);
     };
 

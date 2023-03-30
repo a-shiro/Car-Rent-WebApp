@@ -2,7 +2,7 @@ import { useState, useEffect } from "react";
 import { useParams } from "react-router-dom";
 import { CarDescription } from "./CarDescription";
 import { RentalConditions } from "./RentalConditions";
-import { fetchDataWhere } from "../../services/queries";
+import { getDataWhere } from "../../services/queries";
 import styles from "./CarDetails.module.css";
 
 export const CarDetails = () => {
@@ -13,7 +13,7 @@ export const CarDetails = () => {
 
   useEffect(() => {
     const fetchData = async () => {
-      const data = await fetchDataWhere("cars", {
+      const data = await getDataWhere("cars", {
         fieldName: "path",
         operator: "==",
         fieldValue: carModel,
