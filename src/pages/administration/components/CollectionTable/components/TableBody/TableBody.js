@@ -6,17 +6,16 @@ export const TableBody = ({ carList }) => {
     <tbody>
       {carList.map((car) => (
         <tr key={car.id}>
-          <td style={{ border: "1px solid" }}>{car.id}</td>
-          <td style={{ border: "1px solid" }}>{car.brand}</td>
-          <td style={{ border: "1px solid" }}>{car.model}</td>
-          <td style={{ border: "1px solid" }}>{car.type}</td>
-          <td style={{ border: "1px solid" }}>{car.engine}</td>
-          <td style={{ border: "1px solid" }}>{car.horsePower}</td>
-          <td style={{ border: "1px solid" }}>{car.imgUrl}</td>
-          <td style={{ border: "1px solid" }}>{car.pricePerDay}</td>
-          <td style={{ border: "1px solid" }}>{car.topSpeed}</td>
-          <td style={{ border: "1px solid" }}>{car.zeroToSixty}</td>
-          <td style={{ display: "flex" }}>
+          <td>{car.brand}</td>
+          <td>{car.model}</td>
+          <td>{car.type}</td>
+          <td>{car.engine}</td>
+          <td>{car.horsePower}</td>
+          <td>{car.topSpeed}</td>
+          <td>{car.zeroToSixty}</td>
+          <td>{car.pricePerDay}</td>
+          <td>{car.imgUrl}</td>
+          <td>
             <UpdateButton id={car.id} />
             <DeleteButton id={car.id} />
           </td>

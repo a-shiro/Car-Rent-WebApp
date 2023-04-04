@@ -96,6 +96,7 @@ export const CreateForm = () => {
 
   return (
     <div className={styles.FormCard}>
+      <h1 className={styles.FormHeading}>Add item</h1>
       <form className={styles.Form} onSubmit={onSubmitHandler}>
         {Object.keys(formData).map((key) => (
           <input
@@ -110,7 +111,7 @@ export const CreateForm = () => {
           />
         ))}
 
-        <button>Add</button>
+        <button className={styles.AddButton}>Add</button>
       </form>
     </div>
   );
