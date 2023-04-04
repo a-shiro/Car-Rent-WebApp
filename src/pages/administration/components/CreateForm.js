@@ -1,5 +1,7 @@
-import { useState } from "react";
+import { useState, useContext } from "react";
 import { postData } from "../../../services/queries";
+import { CarsContext } from "../Administration";
+import { getData } from "../../../services/queries";
 import styles from "../Administration.module.css";
 
 export const CreateForm = () => {
@@ -61,6 +63,7 @@ export const CreateForm = () => {
   });
 
   const [carDetailsPath, setCarDetailsPath] = useState("");
+  const [carList, setCarList] = useContext(CarsContext);
 
   const onSubmitHandler = async (e) => {
     e.preventDefault();
@@ -77,6 +80,9 @@ export const CreateForm = () => {
       zeroToSixty: formData.carZeroToSixty.value,
       path: carDetailsPath,
     });
+
+    const data = await getData("cars");
+    setCarList(data);
   };
 
   const onChangeHandler = (e) => {
