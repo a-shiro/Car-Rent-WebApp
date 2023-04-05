@@ -1,4 +1,4 @@
-import { useState, useContext } from "react";
+import { useState, useContext, useEffect } from "react";
 import { updateDataById } from "../../../services/queries";
 import { CarsContext } from "../Administration";
 import { getData } from "../../../services/queries";
@@ -7,55 +7,55 @@ import styles from "../Administration.module.css";
 export const UpdateForm = ({ document }) => {
   const [formData, setFormData] = useState({
     carBrand: {
-      value: document.brand,
+      value: "",
       name: "carBrand",
       placeholder: "Brand",
       type: "text",
     },
     carModel: {
-      value: document.model,
+      value: "",
       name: "carModel",
       placeholder: "Model",
       type: "text",
     },
     carType: {
-      value: document.type,
+      value: "",
       name: "carType",
       placeholder: "Type",
       type: "text",
     },
     carEngine: {
-      value: document.engine,
+      value: "",
       name: "carEngine",
       placeholder: "Engine",
       type: "text",
     },
     carImgUrl: {
-      value: document.imgUrl,
+      value: "",
       name: "carImgUrl",
       placeholder: "Image URL",
       type: "text",
     },
     carHorsePower: {
-      value: document.horsePower,
+      value: "",
       name: "carHorsePower",
       placeholder: "Horse power",
       type: "number",
     },
     carPricePerDay: {
-      value: document.pricePerDay,
+      value: "",
       name: "carPricePerDay",
       placeholder: "Price per day",
       type: "number",
     },
     carTopSpeed: {
-      value: document.topSpeed,
+      value: "",
       name: "carTopSpeed",
       placeholder: "Top speed",
       type: "number",
     },
     carZeroToSixty: {
-      value: document.zeroToSixty,
+      value: "",
       name: "carZeroToSixty",
       placeholder: "Zero to Sixty",
       type: "number",
@@ -64,6 +64,65 @@ export const UpdateForm = ({ document }) => {
 
   const [carDetailsPath, setCarDetailsPath] = useState("");
   const [carList, setCarList] = useContext(CarsContext);
+
+  useEffect(() => {
+    setFormData({
+      carBrand: {
+        value: document.brand,
+        name: "carBrand",
+        placeholder: "Brand",
+        type: "text",
+      },
+      carModel: {
+        value: document.model,
+        name: "carModel",
+        placeholder: "Model",
+        type: "text",
+      },
+      carType: {
+        value: document.type,
+        name: "carType",
+        placeholder: "Type",
+        type: "text",
+      },
+      carEngine: {
+        value: document.engine,
+        name: "carEngine",
+        placeholder: "Engine",
+        type: "text",
+      },
+      carImgUrl: {
+        value: document.imgUrl,
+        name: "carImgUrl",
+        placeholder: "Image URL",
+        type: "text",
+      },
+      carHorsePower: {
+        value: document.horsePower,
+        name: "carHorsePower",
+        placeholder: "Horse power",
+        type: "number",
+      },
+      carPricePerDay: {
+        value: document.pricePerDay,
+        name: "carPricePerDay",
+        placeholder: "Price per day",
+        type: "number",
+      },
+      carTopSpeed: {
+        value: document.topSpeed,
+        name: "carTopSpeed",
+        placeholder: "Top speed",
+        type: "number",
+      },
+      carZeroToSixty: {
+        value: document.zeroToSixty,
+        name: "carZeroToSixty",
+        placeholder: "Zero to Sixty",
+        type: "number",
+      },
+    });
+  }, [document]);
 
   const onSubmitHandler = async (e) => {
     e.preventDefault();
