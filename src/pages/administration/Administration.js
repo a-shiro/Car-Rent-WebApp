@@ -26,7 +26,10 @@ export const Administration = () => {
               className={`${commonStyles.FlexContainer} ${styles.TableContainer}`}
             >
               {updateVisible ? (
-                <UpdateForm document={document} />
+                <UpdateForm
+                  document={document}
+                  setUpdateVisible={setUpdateVisible}
+                />
               ) : (
                 <CreateForm />
               )}

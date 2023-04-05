@@ -4,63 +4,8 @@ import { CarsContext } from "../Administration";
 import { getData } from "../../../services/queries";
 import styles from "../Administration.module.css";
 
-export const UpdateForm = ({ document }) => {
-  const [formData, setFormData] = useState({
-    carBrand: {
-      value: "",
-      name: "carBrand",
-      placeholder: "Brand",
-      type: "text",
-    },
-    carModel: {
-      value: "",
-      name: "carModel",
-      placeholder: "Model",
-      type: "text",
-    },
-    carType: {
-      value: "",
-      name: "carType",
-      placeholder: "Type",
-      type: "text",
-    },
-    carEngine: {
-      value: "",
-      name: "carEngine",
-      placeholder: "Engine",
-      type: "text",
-    },
-    carImgUrl: {
-      value: "",
-      name: "carImgUrl",
-      placeholder: "Image URL",
-      type: "text",
-    },
-    carHorsePower: {
-      value: "",
-      name: "carHorsePower",
-      placeholder: "Horse power",
-      type: "number",
-    },
-    carPricePerDay: {
-      value: "",
-      name: "carPricePerDay",
-      placeholder: "Price per day",
-      type: "number",
-    },
-    carTopSpeed: {
-      value: "",
-      name: "carTopSpeed",
-      placeholder: "Top speed",
-      type: "number",
-    },
-    carZeroToSixty: {
-      value: "",
-      name: "carZeroToSixty",
-      placeholder: "Zero to Sixty",
-      type: "number",
-    },
-  });
+export const UpdateForm = ({ document, setUpdateVisible }) => {
+  const [formData, setFormData] = useState({});
 
   const [carDetailsPath, setCarDetailsPath] = useState("");
   const [carList, setCarList] = useContext(CarsContext);
@@ -142,6 +87,7 @@ export const UpdateForm = ({ document }) => {
 
     const data = await getData("cars");
     setCarList(data);
+    setUpdateVisible(false);
   };
 
   const onChangeHandler = (e) => {
