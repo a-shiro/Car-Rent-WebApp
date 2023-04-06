@@ -24,6 +24,11 @@
     justify-content: center;
 }
 
+.ButtonsContainer button {
+    margin: 0 0 1em 0;
+}
+
+
 .CardsContainer {
     display: flex;
     justify-content: center;
@@ -45,16 +50,17 @@
 .CardText {
     color: #1A1713;
 
-    font-size: 1.25rem;
-    font-weight: 500;
+    font-size: 1.5rem;
+    font-weight: 400;
     
     margin-top: 1em;
 
-    transition: opacity 0.1s linear, color 0.3s;
+    transition: opacity 0.1s linear, color 0.1s;
 }
 
 .CardText:hover {
     color: white;
+    cursor: pointer;
 }
 
 .CardImage {
@@ -62,9 +68,8 @@
 
     display: block;
 
-    width: 300px;
-    height: 210px;
-    max-width: 100%;
+    width: 360px;
+    height: 240px;
 }
 
 .Active {

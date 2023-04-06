@@ -1,11 +1,12 @@
-import { useState } from "react";
 import styles from "./Locations.module.css";
 import commonStyles from "../../Home.module.css";
 
-export const Controls = () => {
-  const [citiesActive, setCitiesActive] = useState(true);
-  const [countriesActive, setCountriesActive] = useState(false);
-
+export const Controls = ({
+  citiesActive,
+  setCitiesActive,
+  countriesActive,
+  setCountriesActive,
+}) => {
   const onClickHandler = (e) => {
     if (!e.target.className.includes("Active")) {
       setCitiesActive(!citiesActive);
