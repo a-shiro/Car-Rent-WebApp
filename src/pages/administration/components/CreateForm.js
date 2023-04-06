@@ -83,6 +83,16 @@ export const CreateForm = () => {
 
     const data = await getData("cars");
     setCarList(data);
+
+    formData.carBrand.value = "";
+    formData.carModel.value = "";
+    formData.carType.value = "";
+    formData.carEngine.value = "";
+    formData.carHorsePower.value = "";
+    formData.carImgUrl.value = "";
+    formData.carPricePerDay.value = "";
+    formData.carTopSpeed.value = "";
+    formData.carZeroToSixty.value = "";
   };
 
   const onChangeHandler = (e) => {
