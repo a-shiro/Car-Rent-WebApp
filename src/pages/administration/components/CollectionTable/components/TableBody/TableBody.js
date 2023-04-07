@@ -15,6 +15,7 @@ export const TableBody = ({ carList }) => {
           <td>{car.zeroToSixty}</td>
           <td>{car.pricePerDay}</td>
           <td>{car.imgUrl}</td>
+          <td>{car.sideImgUrl}</td>
           <td>
             <UpdateButton id={car.id} />
             <DeleteButton id={car.id} />

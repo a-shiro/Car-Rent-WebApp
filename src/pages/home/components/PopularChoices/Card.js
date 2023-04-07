@@ -5,7 +5,11 @@ export const Card = ({ car }) => {
   return (
     <div className={styles.Card} key={car.id}>
       <Link to={`cars/${car.path}`}>
-        <img className={styles.CardImage} src={car.imgUrl} alt={car.model} />
+        <img
+          className={styles.CardImage}
+          src={car.sideImgUrl}
+          alt={car.model}
+        />
         <span className={styles.CardText}>
           {car.brand} {car.model}
         </span>

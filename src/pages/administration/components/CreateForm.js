@@ -36,6 +36,12 @@ export const CreateForm = () => {
       placeholder: "Image URL",
       type: "text",
     },
+    carSideImgUrl: {
+      value: "",
+      name: "carSideImgUrl",
+      placeholder: "Side image URL",
+      type: "text",
+    },
     carHorsePower: {
       value: "",
       name: "carHorsePower",
@@ -75,6 +81,7 @@ export const CreateForm = () => {
       engine: formData.carEngine.value,
       horsePower: formData.carHorsePower.value,
       imgUrl: formData.carImgUrl.value,
+      sideImgUrl: formData.carSideImgUrl.value,
       pricePerDay: formData.carPricePerDay.value,
       topSpeed: formData.carTopSpeed.value,
       zeroToSixty: formData.carZeroToSixty.value,
@@ -90,6 +97,7 @@ export const CreateForm = () => {
     formData.carEngine.value = "";
     formData.carHorsePower.value = "";
     formData.carImgUrl.value = "";
+    formData.carSideImgUrl.value = "";
     formData.carPricePerDay.value = "";
     formData.carTopSpeed.value = "";
     formData.carZeroToSixty.value = "";

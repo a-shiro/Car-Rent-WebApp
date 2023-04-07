@@ -42,6 +42,12 @@ export const UpdateForm = ({ document, setUpdateVisible }) => {
         placeholder: "Image URL",
         type: "text",
       },
+      carSideImgUrl: {
+        value: document.sideImgUrl,
+        name: "carSideImgUrl",
+        placeholder: "Side image URL",
+        type: "text",
+      },
       carHorsePower: {
         value: document.horsePower,
         name: "carHorsePower",
@@ -79,6 +85,7 @@ export const UpdateForm = ({ document, setUpdateVisible }) => {
       engine: formData.carEngine.value,
       horsePower: formData.carHorsePower.value,
       imgUrl: formData.carImgUrl.value,
+      sideImgUrl: formData.carSideImgUrl.value,
       pricePerDay: formData.carPricePerDay.value,
       topSpeed: formData.carTopSpeed.value,
       zeroToSixty: formData.carZeroToSixty.value,

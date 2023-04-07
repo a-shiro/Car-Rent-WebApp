@@ -11,6 +11,7 @@ export const TableHead = () => {
         <th>Zero to sixty</th>
         <th>Price per day</th>
         <th>Image URL</th>
+        <th>Side Image URL</th>
         <th>Actions</th>
       </tr>
     </thead>
