@@ -77,24 +77,8 @@ aside {
 }
 
 .CardImage { 
-    border-radius: 0.25em;
-    
     display: block;
-
-    object-fit: cover;
-    width: 92%;
-    height: 12.5em;
-    max-width: 100%;
-
-    margin: auto;
-
-    transition: height 0.2s, width 0.3s, box-shadow 0.3s;
-}
-
-.CardImage:hover {
-    width: 420px;
-    height: 220px;
-    box-shadow: 0em 1em 1.5em rgb(0, 0, 0, 0.15);
+    width: 75%;
 }
 
 .FilterContainer {

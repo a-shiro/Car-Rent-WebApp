@@ -27,7 +27,7 @@ export const CarList = () => {
             <span className={styles.CardPrice}>from {car.pricePerDay}$</span>
             <img
               className={styles.CardImage}
-              src={car.imgUrl}
+              src={car.sideImgUrl}
               alt={car.model}
             />
           </Link>
