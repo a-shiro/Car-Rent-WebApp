@@ -2,7 +2,8 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
-
+    background: rgb(246,218,195);
+    background: linear-gradient(180deg, rgba(246,218,195,0) 40%, rgba(177,142,114,1) 130%);
 }
 
 .ProfileContainer {
@@ -13,7 +14,6 @@
     border-radius: .25em;
     box-shadow: 0 0 1em .5em rgba(0, 0, 0, .1);
 }
-
 
 .ProfileContainerTitle {
     text-align: center;
