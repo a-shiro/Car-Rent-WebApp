@@ -1,0 +1,84 @@
+  .brand-title {
+      font-size: 1.75rem;
+      margin: .5em 0 .5em .5em;
+  }
+  
+  .navbar {
+      background-color: #1A1713;
+      color: white;
+      
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      align-items: start;
+  }
+  
+  .links-container {
+      align-self: center;
+  }
+  
+  .navbar-list {
+      margin: 0;
+      padding: 0;
+  
+      display: none; 
+      flex-direction: column;
+      background-color: #1A1713;
+  }
+  
+  .navbar-list li {
+      list-style: none;
+      text-align: center;
+  
+      font-size: 1.15rem;
+      margin: .25em 0;
+  }
+  
+  .navbar-list a {
+      color: white;
+      text-decoration: none;
+  }
+  
+  .toggle-button {
+      position: absolute;
+      top: 1em;
+      right: 1em;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      width: 30px;
+      height: 21px;
+  }
+  
+  .bar {
+      height: 3px;
+      width: 100%;
+      background-color: white;
+      border-radius: 10px;
+  }
+  
+  .active { 
+      display: flex;
+    }
+  
+  /* Laptops and PC breakpoint */
+  @media (min-width: 1000px) {
+      .navbar {
+          flex-direction: row;
+      }
+   
+      .toggle-button {
+          display: none;
+      }
+  
+      .navbar-list {
+          display: flex;
+          flex-direction: row;
+      }
+  
+      .navbar-list li {
+          margin: 0 .5em;
+      }
+  }
+  
+  
