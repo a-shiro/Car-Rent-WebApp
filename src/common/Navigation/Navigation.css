@@ -1,84 +1,93 @@
-  .brand-title {
-      font-size: 1.75rem;
-      margin: .5em 0 .5em .5em;
+.navbar {
+    background-color: white;
+    color: black;
+    
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: start;
+
+    margin: 1em 2em;
+}
+
+.brand-logo {
+    font-size: 2.5rem;
+    font-weight: 500;
+}
+
+.links-list-container {
+    align-self: center;
+}
+
+.links-list {
+    margin: 0;
+    padding: 0;
+
+    display: none; 
+    flex-direction: column;
+    background-color: white;
+}
+
+.links-list li {
+    list-style: none;
+    text-align: center;
+
+    font-size: 1.15rem;
+    font-weight: 400;
+    margin: .25em 0;
+}
+
+.links-list a {
+    color: black;
+    text-transform: uppercase;
+    text-decoration: none;
+}
+
+.toggle-button {
+    position: absolute;
+    top: 1.85em;
+    right: 2em;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    width: 30px;
+    height: 21px;
+}
+
+.bar {
+    height: 3px;
+    width: 100%;
+    background-color: black;
+    border-radius: 10px;
+}
+
+.active { 
+    display: flex;
   }
-  
-  .navbar {
-      background-color: #1A1713;
-      color: white;
-      
-      display: flex;
-      flex-direction: column;
-      justify-content: space-between;
-      align-items: start;
-  }
-  
-  .links-container {
-      align-self: center;
-  }
-  
-  .navbar-list {
-      margin: 0;
-      padding: 0;
-  
-      display: none; 
-      flex-direction: column;
-      background-color: #1A1713;
-  }
-  
-  .navbar-list li {
-      list-style: none;
-      text-align: center;
-  
-      font-size: 1.15rem;
-      margin: .25em 0;
-  }
-  
-  .navbar-list a {
-      color: white;
-      text-decoration: none;
-  }
-  
-  .toggle-button {
-      position: absolute;
-      top: 1em;
-      right: 1em;
-      display: flex;
-      flex-direction: column;
-      justify-content: space-between;
-      width: 30px;
-      height: 21px;
-  }
-  
-  .bar {
-      height: 3px;
-      width: 100%;
-      background-color: white;
-      border-radius: 10px;
-  }
-  
-  .active { 
-      display: flex;
+
+
+/* Laptops and PC breakpoint */
+@media (min-width: 1000px) {
+    .container {
+        padding: 5em;
+        flex-direction: row;
+        justify-content: space-evenly;
     }
-  
-  /* Laptops and PC breakpoint */
-  @media (min-width: 1000px) {
-      .navbar {
-          flex-direction: row;
-      }
-   
-      .toggle-button {
-          display: none;
-      }
-  
-      .navbar-list {
-          display: flex;
-          flex-direction: row;
-      }
-  
-      .navbar-list li {
-          margin: 0 .5em;
-      }
-  }
-  
-  
+
+    .navbar {
+        flex-direction: row;
+    }
+ 
+    .toggle-button {
+        display: none;
+    }
+
+    .links-list {
+        display: flex;
+        flex-direction: row;
+    }
+
+    .links-list li {
+        margin: 0 .5em;
+    }
+}

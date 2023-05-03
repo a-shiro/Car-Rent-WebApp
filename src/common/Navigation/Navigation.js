@@ -2,11 +2,11 @@ import { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import "./Navigation.css";
 
-export const Nav = () => {
+const Nav = () => {
   const [navListElement, setNavListElement] = useState(null);
 
   useEffect(() => {
-    setNavListElement(document.getElementsByClassName("navbar-list")[0]);
+    setNavListElement(document.getElementsByClassName("links-list")[0]);
   }, []);
 
   const toggleHandler = () => {
@@ -15,14 +15,10 @@ export const Nav = () => {
 
   return (
     <nav className="navbar">
-      <div className="brand-title">RentX</div>
-      <a href="#" className="toggle-button" onClick={toggleHandler}>
-        <span className="bar"></span>
-        <span className="bar"></span>
-        <span className="bar"></span>
-      </a>
-      <div className="links-container">
-        <ul className="navbar-list">
+      <div className="brand-logo">RentX</div>
+
+      <div className="links-list-container">
+        <ul className="links-list">
           <li>
             <Link to="/">Home</Link>
           </li>
@@ -37,6 +33,14 @@ export const Nav = () => {
           </li>
         </ul>
       </div>
+
+      <a href="#" className="toggle-button" onClick={toggleHandler}>
+        <span className="bar"></span>
+        <span className="bar"></span>
+        <span className="bar"></span>
+      </a>
     </nav>
   );
 };
+
+export default Nav;
