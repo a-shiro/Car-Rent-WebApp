@@ -15,7 +15,11 @@ const Nav = () => {
 
   return (
     <nav className="navbar">
-      <div className="brand-logo">RentX</div>
+      <div>
+        <Link to="/" className="brand-logo">
+          RentX
+        </Link>
+      </div>
 
       <div className="links-list-container">
         <ul className="links-list">
