@@ -21,7 +21,8 @@
 }
 
 .cta-container {
-    margin: 0 0 2em 0;
+    padding: 1em 0;
+    margin-bottom: 1em;
 }
 
 .cta-button {
