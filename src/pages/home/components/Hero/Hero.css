@@ -1,0 +1,87 @@
+.container {
+    display: flex;
+    flex-direction: column;
+    padding: 1em;
+}
+
+.hero-title {
+    font-weight: 600;
+    font-size: 2.5rem;
+}
+
+.hero-subtitle {
+    font-size: 1.25rem;
+    margin: 1em 0;
+}
+
+.hero-image {
+    display: block;
+    filter: brightness(95%);
+    border-radius: 2px;
+}
+
+.cta-container {
+    margin: 0 0 2em 0;
+}
+
+.cta-button {
+    background-color: white;
+    color: black;
+    border: 1px solid black;
+    
+    font-size: 1.5em;
+
+    margin: 0 .5em 0 0;
+    padding: .5em 1em .5em 1em ;
+
+    cursor: pointer;
+
+    transition: color .2s ease, background-color .2s ease;
+}
+
+.cta-button:hover {
+    background-color: black;
+    color: white;
+}
+
+/* Laptops and PC breakpoint */
+@media (min-width: 1000px) {
+    .container {
+        padding: 2.5em;
+        flex-direction: row;
+        justify-content: space-evenly;
+    }
+
+    .hero-image {
+        max-width: 500px;
+        width: 45%;
+        object-fit: cover;
+        object-position: right;
+    }
+
+    .hero-title-container {
+        width: 45%;
+    }
+    
+    .hero-title {
+        font-weight: 600;
+        font-size: 3.25rem;
+    }
+
+    .hero-subtitle {
+        font-size: 1.5rem;
+        margin: 1.5em 0;
+    }
+}
+
+/* PC breakpoint */
+@media (min-width: 1600px) {
+    .container {
+        padding: 5em;
+    }
+
+    .hero-image {
+        max-width: 900px;
+        width: 55%;
+    }
+}

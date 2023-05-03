@@ -65,15 +65,8 @@
     display: flex;
   }
 
-
 /* Laptops and PC breakpoint */
 @media (min-width: 1000px) {
-    .container {
-        padding: 5em;
-        flex-direction: row;
-        justify-content: space-evenly;
-    }
-
     .navbar {
         flex-direction: row;
     }
