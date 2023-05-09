@@ -1,18 +1,35 @@
 import { Link } from "react-router-dom";
-import styles from "./PopularChoices.module.css";
+import { useEffect, useState } from "react";
+import "./PopularChoices.css";
 
-export const Card = ({ car }) => {
+export const Card = ({ carData, index }) => {
+  const [screenSize, setScreenSize] = useState("");
+
+  useEffect(() => {
+    switch (index) {
+      case 1:
+        setScreenSize("medium-screen");
+        break;
+      case 2:
+        setScreenSize("large-screen");
+        break;
+      case 3:
+        setScreenSize("xl-screen");
+        break;
+    }
+
+    console.log(screenSize);
+  }, []);
+
   return (
-    <div className={styles.Card} key={car.id}>
-      <Link to={`cars/${car.path}`}>
+    <div className={`card ${screenSize}`} key={carData.id}>
+      <Link className="card-title" to={`cars/${carData.path}`}>
+        {carData.brand} {carData.model}
         <img
-          className={styles.CardImage}
-          src={car.sideImgUrl}
-          alt={car.model}
+          className="card-image"
+          src={carData.sideImgUrl}
+          alt="car-sideshot"
         />
-        <span className={styles.CardText}>
-          {car.brand} {car.model}
-        </span>
       </Link>
     </div>
   );

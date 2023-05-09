@@ -2,11 +2,12 @@ import { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import { Card } from "./Card";
 import { getData } from "../../../../services/queries";
-import styles from "./PopularChoices.module.css";
-import commonStyles from "../../Home.module.css";
+import "./PopularChoices.css";
 
 export const PopularChoices = () => {
-  //  ToDo: implement rented count field in database and query the top 4 - 6 rented cars in this page
+  //  ToDo: add query for the top 8 rented cars in this page
+  // ToDo: add carousel slider for the cards
+
   const [carList, setCarList] = useState([]);
 
   useEffect(() => {
@@ -19,17 +20,15 @@ export const PopularChoices = () => {
   }, []);
 
   return (
-    <section className={styles.PopularChoicesSection}>
-      <header className={styles.Header}>
-        <h1>- Popular Choices -</h1>
-      </header>
-      <div className={styles.CardsContainer}>
-        {carList.map((car) => (
-          <Card key={car.id} car={car} />
-        ))}
-      </div>
-      <div className={styles.ButtonsContainer}>
-        <Link className={commonStyles.Button} to="/cars">
+    <section className="popular-section">
+      <div>
+        <h1>Popular Choices</h1>
+        <div className="card-wrapper">
+          {carList.map((car, index) => (
+            <Card carData={car} index={index} key={car.id} />
+          ))}
+        </div>
+        <Link to="/cars" className="cta-button">
           All cars
         </Link>
       </div>
