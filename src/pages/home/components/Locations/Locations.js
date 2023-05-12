@@ -1,12 +1,13 @@
-import { useEffect, useState } from "react";
+import { Fragment, useEffect, useState } from "react";
 import { Card } from "./Card";
-import { Controls } from "./Controls";
-import styles from "./Locations.module.css";
 import { getData } from "../../../../services/queries";
+import "./Locations.css";
+import leftWorldMap from "../../../../assets/images/left-world-map-vector.png";
+import middleWorldMap from "../../../../assets/images/middle-world-map-vector.png";
+import rightWorldMap from "../../../../assets/images/right-world-map-vector.png";
 
 export const Locations = () => {
-  const [citiesActive, setCitiesActive] = useState(true);
-  const [countriesActive, setCountriesActive] = useState(false);
+  const [countriesSelected, setCountriesSelected] = useState(true);
   const [citiesList, setCitiesList] = useState([]);
   const [countriesList, setCountriesList] = useState([]);
 
@@ -22,32 +23,63 @@ export const Locations = () => {
     queryLocations();
   }, []);
 
-  return (
-    <section className={styles.LocationsSection}>
-      <header className={styles.Header}>
-        <h1>- Select place -</h1>
-      </header>
+  const toggleHandler = (e) => {
+    const [countriesButton, citiesButton] = e.target.parentElement.children;
 
-      <Controls
-        citiesActive={citiesActive}
-        setCitiesActive={setCitiesActive}
-        countriesActive={countriesActive}
-        setCountriesActive={setCountriesActive}
+    if (!e.target.classList.contains("selected")) {
+      countriesButton.classList.toggle("selected");
+      citiesButton.classList.toggle("selected");
+
+      setCountriesSelected(!countriesSelected);
+    }
+  };
+
+  return (
+    <section className="location-section">
+      <img
+        className="background-image-left"
+        src={leftWorldMap}
+        alt="background-image"
+      />
+      <img
+        className="background-image-middle"
+        src={middleWorldMap}
+        alt="background-image"
+      />
+      <img
+        className="background-image-right"
+        src={rightWorldMap}
+        alt="background-image"
       />
 
-      {citiesActive ? (
-        <div className={styles.CardsContainer}>
-          {citiesList.map((city) => (
-            <Card key={city.id} data={city} />
-          ))}
+      <div>
+        <h1>Select Place</h1>
+
+        <div className="controls-wrapper">
+          <button className="toggler-button selected" onClick={toggleHandler}>
+            Countries
+          </button>
+          <button className="toggler-button" onClick={toggleHandler}>
+            Cities
+          </button>
         </div>
-      ) : (
-        <div className={styles.CardsContainer}>
-          {countriesList.map((country) => (
-            <Card key={country.id} data={country} />
-          ))}
+
+        <div className="location-card-wrapper">
+          {countriesSelected ? (
+            <Fragment>
+              {countriesList.map((country) => (
+                <Card data={country} />
+              ))}
+            </Fragment>
+          ) : (
+            <Fragment>
+              {citiesList.map((city) => (
+                <Card data={city} />
+              ))}
+            </Fragment>
+          )}
         </div>
-      )}
+      </div>
     </section>
   );
 };
