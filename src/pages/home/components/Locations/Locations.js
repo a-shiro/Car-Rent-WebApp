@@ -6,7 +6,7 @@ import leftWorldMap from "../../../../assets/images/left-world-map-vector.png";
 import middleWorldMap from "../../../../assets/images/middle-world-map-vector.png";
 import rightWorldMap from "../../../../assets/images/right-world-map-vector.png";
 
-export const Locations = () => {
+const Locations = () => {
   const [countriesSelected, setCountriesSelected] = useState(true);
   const [citiesList, setCitiesList] = useState([]);
   const [countriesList, setCountriesList] = useState([]);
@@ -68,13 +68,13 @@ export const Locations = () => {
           {countriesSelected ? (
             <Fragment>
               {countriesList.map((country) => (
-                <Card data={country} />
+                <Card data={country} key={country.id} />
               ))}
             </Fragment>
           ) : (
             <Fragment>
               {citiesList.map((city) => (
-                <Card data={city} />
+                <Card data={city} key={city.id} />
               ))}
             </Fragment>
           )}
@@ -83,3 +83,5 @@ export const Locations = () => {
     </section>
   );
 };
+
+export default Locations;

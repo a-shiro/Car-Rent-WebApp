@@ -4,7 +4,7 @@ import { Card } from "./Card";
 import { getData } from "../../../../services/queries";
 import "./PopularChoices.css";
 
-export const PopularChoices = () => {
+const PopularChoices = () => {
   //  ToDo: add query for the top 8 rented cars in this page
   // ToDo: add carousel slider for the cards
 
@@ -35,3 +35,5 @@ export const PopularChoices = () => {
     </section>
   );
 };
+
+export default PopularChoices;
