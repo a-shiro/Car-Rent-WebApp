@@ -1,13 +1,9 @@
-import styles from "./Brands.module.css";
+import "./Brands.css";
 
 export const Card = ({ data }) => {
   return (
-    <div className={styles.Card}>
-      <img
-        className={styles.CardImage}
-        src={data.imgUrl}
-        alt={`${data.name}-logo`}
-      />
+    <div className="brand-card">
+      <img src={data.imgUrl} alt={`${data.name}-logo`} />
     </div>
   );
 };

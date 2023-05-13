@@ -1,9 +1,9 @@
-import { Card } from "./Card";
-import styles from "./Brands.module.css";
 import { useEffect, useState } from "react";
 import { getData } from "../../../../services/queries";
+import { Card } from "./Card";
+import "./Brands.css";
 
-export const Brands = () => {
+const Brands = () => {
   const [brandsList, setBrandsList] = useState([]);
 
   useEffect(() => {
@@ -17,15 +17,18 @@ export const Brands = () => {
   }, []);
 
   return (
-    <section className={styles.BrandsSection}>
-      <header className={styles.Header}>
-        <h1>- Brands -</h1>
-      </header>
-      <div className={styles.CardsContainer}>
-        {brandsList.map((brand) => (
-          <Card key={brand.id} data={brand} />
-        ))}
+    <section className="brand-section">
+      <div>
+        <h1>Available Brands</h1>
+
+        <div className="brands-card-wrapper">
+          {brandsList.map((brand) => (
+            <Card data={brand} key={brand.id} />
+          ))}
+        </div>
       </div>
     </section>
   );
 };
+
+export default Brands;

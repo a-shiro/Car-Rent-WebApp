@@ -1,0 +1,62 @@
+.brand-section {
+    background-color: #F7F7F7;
+    text-align: center;
+
+    display: none;
+
+    padding: 4em 0;
+
+}
+
+.brand-section h1 {
+    font-size: 2.5rem;
+    font-weight: 400;
+}
+
+.brands-card-wrapper {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    gap: 1.5em;
+
+    max-width: 600px;
+    margin: 4em auto;
+
+}
+
+.brand-card {
+    display: flex;
+    width: 288px;
+    height: 240px;
+    background-image: url(https://rentluxecar.com/images/dotted-bg.png);
+}
+
+.brand-card img {
+    width: 80%;
+    display: block;
+    margin: auto;
+    box-shadow: rgba(0, 0, 0, 0.1) 0px 4px 12px;
+    cursor: pointer;
+}
+
+@media (min-width: 750px) {
+    .brand-section {
+        display: block;
+    }
+}
+
+@media(min-width: 1000px) {
+    .brands-card-wrapper {
+        max-width: 912px;
+    }
+
+    .brand-section h1 {
+        font-size: 3rem;
+    }
+}
+
+@media (min-width: 1600px) {
+    .brands-card-wrapper {
+        max-width: 1536px;
+    }
+}
