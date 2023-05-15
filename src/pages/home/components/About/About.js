@@ -42,8 +42,8 @@ const About = () => {
           <p className="contacts-paragraph">
             Feel free to give us a <a href="#">call</a> at any time or come to a
             RentX <a href="#">location</a> of your choice. Our call center
-            and/or locations supports 5 languages ​​(EN - DE - ES - IT - RU) and
-            we can advise you on the car that suits you best.
+            and/or locations support 5 languages (EN - DE - ES - IT - RU) and we
+            can advise you on the car that suits you best.
           </p>
         </div>
         <img src={aboutImage} alt="about-image" />
