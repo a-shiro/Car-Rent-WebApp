@@ -2,7 +2,7 @@
     box-sizing: border-box;
 }
 
-body, h1, p {
+body, h1, h6, p {
     margin: 0;
 
     font-family: Barlow, sans-serif;
