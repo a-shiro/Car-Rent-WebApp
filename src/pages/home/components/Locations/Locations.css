@@ -102,6 +102,8 @@
     color: black;
 
     transition: transform .1s linear;
+
+    cursor: pointer;
 }
 
 .location-card:hover {
