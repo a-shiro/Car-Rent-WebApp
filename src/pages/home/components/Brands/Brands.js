@@ -19,6 +19,9 @@ const Brands = () => {
   return (
     <section className="brand-section">
       <div>
+        <div className="brand-section-clip-top"></div>
+        <div className="brand-section-clip-bottom"></div>
+
         <h1>Available Brands</h1>
 
         <div className="brands-card-wrapper">

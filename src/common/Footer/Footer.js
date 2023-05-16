@@ -3,6 +3,8 @@ import "./Footer.css";
 export const Footer = () => {
   return (
     <footer>
+      <div className="footer-clip"></div>
+
       <div className="info-wrapper">
         <div>
           <h6 className="info-title">Contacts:</h6>

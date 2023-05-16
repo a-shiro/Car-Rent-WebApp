@@ -3,6 +3,7 @@ import { Link } from "react-router-dom";
 import { Card } from "./Card";
 import { getData } from "../../../../services/queries";
 import "./PopularChoices.css";
+import "../../../../App.css";
 
 const PopularChoices = () => {
   //  ToDo: add query for the top 8 rented cars in this page
@@ -22,8 +23,8 @@ const PopularChoices = () => {
   return (
     <section className="popular-section">
       <div>
-        <div className="clip-top"></div>
-        <div className="clip-bottom"></div>
+        <div className="popular-section-clip-top"></div>
+        <div className="popular-section-clip-bottom"></div>
 
         <h1>Popular Choices</h1>
         <div className="card-wrapper">
