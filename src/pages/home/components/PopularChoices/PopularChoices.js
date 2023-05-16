@@ -22,6 +22,9 @@ const PopularChoices = () => {
   return (
     <section className="popular-section">
       <div>
+        <div className="clip-top"></div>
+        <div className="clip-bottom"></div>
+
         <h1>Popular Choices</h1>
         <div className="card-wrapper">
           {carList.map((car, index) => (
