@@ -17,20 +17,22 @@ export const Card = ({ carData, index }) => {
         setScreenSize("xl-screen");
         break;
     }
-
-    console.log(screenSize);
   }, []);
 
   return (
-    <div className={`card ${screenSize}`} key={carData.id}>
-      <Link className="card-title" to={`cars/${carData.path}`}>
+    <Link
+      to={`cars/${carData.path}`}
+      className={`card ${screenSize}`}
+      key={carData.id}
+    >
+      <div className="card-clip"></div>
+      <div className="card-clip-2"></div>
+      <div className="card-clip-3"></div>
+
+      <span className="card-title" to={`cars/${carData.path}`}>
         {carData.brand} {carData.model}
-        <img
-          className="card-image"
-          src={carData.sideImgUrl}
-          alt="car-sideshot"
-        />
-      </Link>
-    </div>
+      </span>
+      <img className="card-image" src={carData.sideImgUrl} alt="car-sideshot" />
+    </Link>
   );
 };
