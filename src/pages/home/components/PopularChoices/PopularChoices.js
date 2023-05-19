@@ -25,6 +25,7 @@ const PopularChoices = () => {
       <div>
         <div className="popular-section-clip-top"></div>
         <div className="popular-section-clip-bottom"></div>
+        <div className="checker-pattern"></div>
 
         <h1>Popular Choices</h1>
         <div className="card-wrapper">

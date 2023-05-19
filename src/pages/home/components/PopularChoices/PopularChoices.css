@@ -27,6 +27,18 @@
     position: relative;
 }
 
+.checker-pattern {
+    position:  absolute;
+    z-index: 0;
+    width: 100%;
+    height: 100px;
+    top: 14em;
+    background-size: 50px 50px;
+    background-position: 0 0, 25px 25px;
+    background-image: linear-gradient(45deg, rgb(220, 220, 220) 25%, transparent 25%, transparent 75%, rgb(220, 220, 220) 75%, rgb(220, 220, 220)),
+                          linear-gradient(45deg, rgb(220, 220, 220) 25%, transparent 25%, transparent 75%, rgb(220, 220, 220) 75%, rgb(220, 220, 220));
+}
+
 .popular-section h1 {
     font-size: 2.5rem;
     font-weight: 400;
@@ -177,6 +189,10 @@
     .large-screen { 
         display: flex;
     }
+
+    .checker-pattern {
+        top: 15em;
+    }
 }
 
 @media (min-width: 1600px) {
@@ -199,5 +215,9 @@
 
     .xl-screen {
         display: flex;
+    }
+
+    .checker-pattern {
+        top: 22em;
     }
 }
