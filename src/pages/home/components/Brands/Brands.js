@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import { getData } from "../../../../services/queries";
 import { Card } from "./Card";
+import mercedesVector from "../../../../assets/svgs/mercedes-vector.svg";
 import "./Brands.css";
 
 const Brands = () => {
@@ -21,6 +22,11 @@ const Brands = () => {
       <div>
         <div className="brand-section-clip-top"></div>
         <div className="brand-section-clip-bottom"></div>
+        <img
+          className="background-vector-image"
+          src={mercedesVector}
+          alt="mercedes-vector"
+        />
 
         <h1>Available Brands</h1>
 
