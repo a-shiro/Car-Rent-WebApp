@@ -1,20 +1,18 @@
-import { CarList } from "./components/CarList";
+import "./Catalog.css";
 import { AsideFilters } from "./components/AsideFilters/AsideFilters";
-import styles from "./Catalog.module.css";
+import { CarList } from "./components/CarList";
 
-export const Catalog = () => {
+const Catalog = () => {
   return (
     <main>
-      <header className={styles.Header}>
-        <h1 className={styles.HeaderTitle}>- Rent luxury cars -</h1>
-        <h2 className={styles.HeaderSubTitle}>
-          Choose a premium rental car around the world
-        </h2>
-      </header>
-      <div className={styles.Container}>
-        <AsideFilters />
-        <CarList />
-      </div>
+      <section className="catalog-section">
+        <div className="catalog-container">
+          <AsideFilters />
+          <CarList />
+        </div>
+      </section>
     </main>
   );
 };
+
+export default Catalog;

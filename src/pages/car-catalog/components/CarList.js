@@ -1,7 +1,7 @@
 import { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import { getData } from "../../../services/queries";
-import styles from "../Catalog.module.css";
+import "../Catalog.css";
 
 export const CarList = () => {
   const [carList, setCarList] = useState([]);
@@ -16,23 +16,24 @@ export const CarList = () => {
   }, []);
 
   return (
-    <div className={styles.CarList}>
-      {carList.map((car) => (
-        <div className={styles.Card} key={car.id}>
-          <Link to={`${car.path}`}>
-            <span className={styles.CardText}>
-              {car.brand}
-              <span className={styles.CardModel}>&nbsp;{car.model}</span>
-            </span>
-            <span className={styles.CardPrice}>from {car.pricePerDay}$</span>
-            <img
-              className={styles.CardImage}
-              src={car.sideImgUrl}
-              alt={car.model}
-            />
+    <div className="catalog-card-wrapper">
+      {carList.map((car) => {
+        return (
+          <Link to={`${car.path}`} key={car.id}>
+            <div className="catalog-card">
+              <div className="catalog-card-clip"></div>
+              <span className="catalog-card-title">
+                {car.brand} {car.model}
+              </span>
+              <img
+                className="catalog-card-image"
+                src={car.sideImgUrl}
+                alt="car-side-image"
+              />
+            </div>
           </Link>
-        </div>
-      ))}
+        );
+      })}
     </div>
   );
 };
