@@ -25,6 +25,9 @@ export const CarList = () => {
               <span className="catalog-card-title">
                 {car.brand} {car.model}
               </span>
+              <span className="catalog-card-price">
+                starting at {car.pricePerDay}$
+              </span>
               <img
                 className="catalog-card-image"
                 src={car.sideImgUrl}
