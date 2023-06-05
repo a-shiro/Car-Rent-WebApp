@@ -5,7 +5,7 @@
 .details-title { 
     text-align: center;
 
-    font-size: 1.85rem;
+    font-size: 1.75rem;
     font-weight: 500;
 }
 
@@ -53,7 +53,16 @@
 }
 
 .button-next {
-    left: 5.5em;
+    left: 6.5em;
+}
+
+.button-prev img, .button-next img {
+    width: 20px;
+    padding-top: 5px;
+}
+
+.button-next img {
+    transform: scaleX(-1);
 }
 
 .details-info-wrapper span {
@@ -229,7 +238,7 @@
     }
 
     .details-title {
-        font-size: 2.25rem;
+        font-size: 2.75rem;
     }
 
     .option-button {

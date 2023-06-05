@@ -1,6 +1,7 @@
 import { useState, useEffect } from "react";
 import { useParams } from "react-router-dom";
 import { getDataWhere } from "../../services/queries";
+import arrowVector from "../../assets/images/arrow.webp";
 import "./Details.css";
 
 const Details = () => {
@@ -58,22 +59,24 @@ const Details = () => {
   return (
     <main>
       <section className="details-section">
-        <h1 className="details-title">Porsche 911 Cabrio</h1>
+        <h1 className="details-title">
+          {car.brand} {car.model}
+        </h1>
         <div className="details-info-wrapper">
           <div className="rent-car-image-wrapper">
             <img className="rent-car-image" src={activeImage} />
             <button onClick={prevImageHandler} className="button-prev">
-              &lt;
+              <img className="prev" src={arrowVector} />
             </button>
             <button onClick={nextImageHandler} className="button-next">
-              &gt;
+              <img src={arrowVector} />
             </button>
           </div>
 
           <div className="car-info-wrapper">
             <div className="rent-details">
               <span className="price">
-                from <b>900$</b> per day
+                from <b>{car.pricePerDay}$</b> per day
               </span>
               <span>The minimum rental period is 2 days.</span>
             </div>
@@ -83,19 +86,19 @@ const Details = () => {
                 <tbody>
                   <tr>
                     <td>Engine</td>
-                    <td>4.0 litre</td>
+                    <td>{car.engine}</td>
                   </tr>
                   <tr>
                     <td>Horse Power</td>
-                    <td>600</td>
+                    <td>{car.horsePower}</td>
                   </tr>
                   <tr>
                     <td>0-100 km/h</td>
-                    <td>3.5s</td>
+                    <td>{car.zeroToSixty}s</td>
                   </tr>
                   <tr>
                     <td>Top Speed</td>
-                    <td>360</td>
+                    <td>{car.topSpeed} km/h</td>
                   </tr>
                 </tbody>
               </table>
