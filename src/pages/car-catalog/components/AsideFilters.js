@@ -1,5 +1,5 @@
 import { Fragment, useEffect, useState } from "react";
-import "../../Catalog.css";
+import "../Catalog.css";
 
 export const AsideFilters = () => {
   const [filtersWrapper, setFiltersWrapper] = useState(null);

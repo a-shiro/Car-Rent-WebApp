@@ -1,6 +1,6 @@
-import "./Catalog.css";
-import { AsideFilters } from "./components/AsideFilters/AsideFilters";
+import { AsideFilters } from "./components/AsideFilters";
 import { CarList } from "./components/CarList";
+import "./Catalog.css";
 
 const Catalog = () => {
   return (
