@@ -8,6 +8,7 @@
     align-items: start;
 
     margin: 1em 2em;
+
 }
 
 .brand-logo {
@@ -33,9 +34,9 @@
     list-style: none;
     text-align: center;
 
-    font-size: 1.25rem;
+    font-size: 1.35rem;
     font-weight: 400;
-    margin: .25em 0;
+    margin: .5em 0;
 }
 
 .links-list a {
@@ -68,8 +69,10 @@
     border-radius: 10px;
 }
 
-.active { 
+.small-active { 
     display: flex;
+
+    padding: 2em 0;
   }
 
 /* Laptops and PC breakpoint */

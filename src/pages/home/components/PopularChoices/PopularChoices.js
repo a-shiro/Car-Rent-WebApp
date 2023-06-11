@@ -23,8 +23,6 @@ const PopularChoices = () => {
   return (
     <section className="popular-section">
       <div>
-        <div className="popular-section-clip-top"></div>
-        <div className="popular-section-clip-bottom"></div>
         <div className="checker-pattern"></div>
 
         <h1>Popular Choices</h1>

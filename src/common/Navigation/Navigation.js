@@ -10,7 +10,7 @@ const Nav = () => {
   }, []);
 
   const toggleHandler = () => {
-    navListElement.classList.toggle("active");
+    navListElement.classList.toggle("small-active");
   };
 
   return (

@@ -20,7 +20,6 @@ const Brands = () => {
   return (
     <section className="brand-section">
       <div>
-        <div className="brand-section-clip-top"></div>
         <div className="brand-section-clip-bottom"></div>
         <img
           className="background-vector-image"
