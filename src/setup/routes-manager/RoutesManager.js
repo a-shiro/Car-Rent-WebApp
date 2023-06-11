@@ -1,7 +1,7 @@
 import { Routes, Route } from "react-router-dom";
 import { Home } from "../../pages/home/Home";
 import { PageNotFound } from "../../pages/404/404";
-import { About } from "../../pages/about/About";
+import About from "../../pages/about/About";
 import { Contacts } from "../../pages/contacts/Contacts";
 import Catalog from "../../pages/car-catalog/Catalog";
 import Details from "../../pages/details/Details";
