@@ -1,39 +1,74 @@
-import styles from "./Contacts.module.css";
-import vector from "../../assets/images/car-vector.png";
+import mapLocationIcon from "../../assets/images/map-location.png";
+import phoneIcon from "../../assets/images/phone.png";
+import "../home/components/PopularChoices/PopularChoices";
+import "./Contacts.css";
 
-export const Contacts = () => {
+const Contacts = () => {
   return (
-    <div className={styles.MainContainer}>
-      <header className={styles.Header}>
-        <h1>- Our Contacts -</h1>
+    <main>
+      <header className="header-contacts">
+        <h1>Our Contacts</h1>
       </header>
-      <div className={styles.Container}>
-        <div>
-          <div className={styles.PhoneInfoContainer}>
-            <p className={styles.TitleText}>Phone</p>
-            <p> +359 88 888 8888</p>
+
+      <section className="info-section-contacts">
+        <div className="info-wrapper-contacts">
+          <div className="info-icon-wrapper-contacts">
+            <img className="info-icon-contacts" src={phoneIcon} />
           </div>
           <div>
-            <p className={styles.TitleText}>Email </p>
+            <span>Phone:</span>
+            <p> +359 88 888 8888</p>
+            <span>Email:</span>
             <p>rentx@email.com</p>
           </div>
+          <a
+            href="https://www.flaticon.com/free-icons/phone"
+            title="phone icons"
+          >
+            Phone icons created by Freepik - Flaticon
+          </a>
         </div>
-        <div>
-          <p className={styles.TitleText}>Office address (Main)</p>
-          <p>California, San Francisco</p>
-          <p>94016</p>
-          <p>We work 24/7</p>
+
+        <hr className="large" />
+
+        <div className="info-wrapper-contacts">
+          <div className="info-icon-wrapper-contacts">
+            <img src={mapLocationIcon} />
+          </div>
+          <div>
+            <span>Office address:</span>
+            <p>California, San Francisco</p>
+            <p>94016</p>
+            <p>We work 24/7</p>
+          </div>
+          <a href="https://www.flaticon.com/free-icons/pin" title="pin icons">
+            Pin icons created by Freepik - Flaticon
+          </a>
         </div>
-        <div>
-          <p className={styles.TitleText}>Office address (Secondary)</p>
-          <p>Nevada, Las Vegas</p>
-          <p>88901</p>
-          <p>We work 24/7</p>
+
+        <hr className="large" />
+
+        <div className="info-wrapper-contacts">
+          <div className="info-icon-wrapper-contacts">
+            <img className="info-icon-contacts" src={mapLocationIcon} />
+          </div>
+          <div>
+            <span>Office address:</span>
+            <p>Nevada, Las Vegas</p>
+            <p>88901</p>
+            <p>We work 24/7</p>
+          </div>
+          <a href="https://www.flaticon.com/free-icons/pin" title="pin icons">
+            Pin icons created by Freepik - Flaticon
+          </a>
         </div>
-      </div>
-      <div className={styles.ImageContainer}>
-        <img src={vector} className={styles.VectorImage} />
-      </div>
-    </div>
+      </section>
+
+      <section>
+        <img />
+      </section>
+    </main>
   );
 };
+
+export default Contacts;

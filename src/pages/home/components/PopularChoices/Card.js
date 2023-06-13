@@ -21,7 +21,7 @@ export const Card = ({ carData, index }) => {
 
   return (
     <Link
-      to={`cars/${carData.path}`}
+      to={`/cars/${carData.path}`}
       className={`card ${screenSize}`}
       key={carData.id}
     >
