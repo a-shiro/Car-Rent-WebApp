@@ -1,5 +1,6 @@
 import mapLocationIcon from "../../assets/images/map-location.png";
 import phoneIcon from "../../assets/images/phone.png";
+import carVector from "../../assets/images/car-vector.png";
 import "../home/components/PopularChoices/PopularChoices";
 import "./Contacts.css";
 
@@ -65,7 +66,7 @@ const Contacts = () => {
       </section>
 
       <section>
-        <img />
+        <img className="vector-image-contacts" src={carVector} />
       </section>
     </main>
   );
