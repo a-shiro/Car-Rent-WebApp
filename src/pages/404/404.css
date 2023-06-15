@@ -1,0 +1,50 @@
+.wrapper-404 {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    padding: 1em;
+
+    max-width: 600px;
+    margin: auto;
+
+    text-align: center;
+}
+
+.title-wrapper-404 > h1 {
+    font-size: 10rem;
+    font-weight: 500;
+}
+
+.title-wrapper-404 > p {
+    font-size: 1.75rem;
+}
+
+.button-wrapper-404 {
+    margin-top: 5em;
+}
+
+.button-wrapper-404 > a {
+    border: 1px solid black;
+
+    color: black;
+    
+    padding: .75em 1em;
+
+    font-size: 1.3rem;
+
+    transition: background-color .1s, color .1s;
+}
+
+.button-wrapper-404 > a:hover {
+    color: white;
+    background-color: black;
+}
+
+.button-wrapper-404 > a:first-child {
+    margin-right: 1em;
+}
+
+.vector-image-404 { 
+    width: 100%;
+}
