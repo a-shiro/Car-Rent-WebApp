@@ -7,18 +7,42 @@ const Admin = () => {
   const [tableHeads, setTableHeads] = useState(null);
   const [activeCollection, setActiveCollection] = useState("cars");
 
+  const camelize = (str) => {
+    return str
+      .replace(/(?:^\w|[A-Z]|\b\w)/g, function (word, index) {
+        return index === 0 ? word.toLowerCase() : word.toUpperCase();
+      })
+      .replace(/\s+/g, "");
+  };
+
+  const sortData = (headsData, collectionData) => {
+    const sortedData = [];
+
+    for (const obj of collectionData) {
+      const newArr = [];
+
+      for (const index in Object.entries(obj)) {
+        const key = camelize(headsData[index]);
+        newArr.push(obj[key]);
+      }
+
+      sortedData.push(newArr);
+    }
+
+    return sortedData;
+  };
+
   useEffect(() => {
     const queryData = async () => {
-      // ToDo: Dynamically change queries
-
-      const thData = await getData("tableHeads");
       const collectionData = await getData(activeCollection);
+      let thData = await getData("tableHeads");
+      thData = thData[0][activeCollection];
+      console.log(thData);
 
-      setTableHeads(thData[0]);
+      const sortedData = sortData(thData, collectionData);
 
-      console.log(collectionData);
-
-      setCollectionList(collectionData);
+      setTableHeads(thData);
+      setCollectionList(sortedData);
     };
 
     queryData();
@@ -29,18 +53,18 @@ const Admin = () => {
       <table className="table-admin">
         <thead>
           {tableHeads &&
-            tableHeads[activeCollection].map((x) => (
-              <tr>
+            tableHeads.map((x) => (
+              <tr key={tableHeads.indexOf(x)}>
                 <th>{x}</th>
               </tr>
             ))}
         </thead>
         <tbody>
           {collectionList &&
-            collectionList.map((x) => (
-              <tr>
-                {Object.entries(x).map((y) => (
-                  <td>{y[1]}</td>
+            collectionList.map((arr) => (
+              <tr key={collectionList.indexOf(arr)}>
+                {arr.map((x) => (
+                  <td key={arr.indexOf(x) + arr[arr.length - 1]}>{x}</td>
                 ))}
               </tr>
             ))}

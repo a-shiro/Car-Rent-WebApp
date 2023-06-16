@@ -48,7 +48,7 @@
     align-items: center;
 }
 
-.table-admin > tbody > tr:nth-child(odd) {
+.table-admin > tbody > tr > td:nth-child(odd) {
     background-color: white;
 }
 
