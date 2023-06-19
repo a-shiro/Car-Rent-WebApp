@@ -1,10 +1,28 @@
+.table-section-admin {
+    margin: 3em auto;
+    width: 90%;
+}
+
+.table-title-wrapper-admin > h1 { 
+    font-size: 2rem;
+
+    margin-bottom: .5em;
+
+    font-weight: 500;
+}
+
+.table-title-wrapper-admin > h1 > span {
+    text-transform: capitalize;
+    
+    font-weight: 400;
+}
+
 .table-admin {
     background-color: #f7f7f7;
-    
-    margin: 1em;
 
-    max-width: 500px;
-    overflow-x: scroll;
+    height: 600px;
+
+    overflow-x: hidden;
     
     border: 1px solid rgb(199, 199, 199); 
     border-collapse: collapse;
@@ -14,7 +32,11 @@
     display: block;
 } 
 
-.table-admin > thead{
+.table-admin:hover {
+    overflow-x: scroll;
+}
+
+.table-admin > thead {
     display: flex;
 }
 
@@ -35,7 +57,7 @@
 .table-admin > thead > tr > th {
     font-weight: 500;
 
-    width: 7em;
+    width: 8em;
 
     padding: .65em;
 
@@ -53,6 +75,10 @@
 }
 
 .table-admin > tbody > tr > td {
+    display: inline-block;
+
+    text-align: center;
+
     box-sizing: content-box;
 
     font-weight: 500;
@@ -60,12 +86,58 @@
     border: 1px solid rgb(199, 199, 199); 
     
     white-space: nowrap;
-    text-overflow: hidden;
+    text-overflow: ellipsis;
     overflow: hidden;
 
-    width: 7em;
+    width: 8em;
+    height: 1.25em;
 
     margin-left: -1px;
     margin-top: -1px;
     padding: .65em;
+}
+
+.actions-wrapper-admin {
+    position: relative;
+}
+
+.action-button-admin {
+    position: absolute;
+    top: -.25em;
+
+    padding: .5em 1em;
+    
+    border: 0;
+    border-radius: 1px;
+}
+
+.actions-wrapper-admin > button:first-child{
+    left: .5em;
+
+    background-color: crimson;
+    color: #f7f7f7;
+}
+
+.actions-wrapper-admin > button:last-child {
+    right: .5em;
+}
+
+@media (min-width: 1000px ) {
+    .table-title-wrapper-admin > h1 {
+        font-size: 2.5rem;
+    }
+
+    .table-admin > thead > tr > th { 
+        padding: .65em .25em;
+    }
+
+    .table-admin > tbody > tr > td { 
+        padding: .65em .25em;
+    }
+}
+
+@media (min-width: 1600px) {
+    .table-admin {
+        height: 700px;
+    }
 }

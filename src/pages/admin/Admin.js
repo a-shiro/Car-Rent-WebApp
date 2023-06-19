@@ -1,4 +1,4 @@
-import { useState, useEffect } from "react";
+import React, { useState, useEffect, createElement } from "react";
 import { getData } from "../../services/queries";
 import "./Admin.css";
 
@@ -15,6 +15,39 @@ const Admin = () => {
       .replace(/\s+/g, "");
   };
 
+  const addButtons = (data) => {
+    const actionsWrapper = createElement(
+      "div",
+      {
+        className: "actions-wrapper-admin",
+      },
+      createElement(
+        "button",
+        {
+          className: "action-button-admin",
+          onClick: () => {
+            console.log("delete");
+          },
+          id: data[data.length - 1],
+        },
+        "Delete"
+      ),
+      createElement(
+        "button",
+        {
+          className: "action-button-admin",
+          onClick: () => {
+            console.log("edit");
+          },
+          id: data[data.length - 1],
+        },
+        "Edit"
+      )
+    );
+
+    data.push(actionsWrapper);
+  };
+
   const sortData = (headsData, collectionData) => {
     const sortedData = [];
 
@@ -25,6 +58,8 @@ const Admin = () => {
         const key = camelize(headsData[index]);
         newArr.push(obj[key]);
       }
+
+      addButtons(newArr);
 
       sortedData.push(newArr);
     }
@@ -37,7 +72,6 @@ const Admin = () => {
       const collectionData = await getData(activeCollection);
       let thData = await getData("tableHeads");
       thData = thData[0][activeCollection];
-      console.log(thData);
 
       const sortedData = sortData(thData, collectionData);
 
@@ -46,30 +80,50 @@ const Admin = () => {
     };
 
     queryData();
-  }, []);
+  }, [activeCollection]);
+
+  // ToDo: Add change collection and reload content properly
 
   return (
     <main>
-      <table className="table-admin">
-        <thead>
-          {tableHeads &&
-            tableHeads.map((x) => (
-              <tr key={tableHeads.indexOf(x)}>
-                <th>{x}</th>
-              </tr>
-            ))}
-        </thead>
-        <tbody>
-          {collectionList &&
-            collectionList.map((arr) => (
-              <tr key={collectionList.indexOf(arr)}>
-                {arr.map((x) => (
-                  <td key={arr.indexOf(x) + arr[arr.length - 1]}>{x}</td>
-                ))}
-              </tr>
-            ))}
-        </tbody>
-      </table>
+      <section className="table-section-admin">
+        <div className="table-title-wrapper-admin">
+          <h1>
+            Active collection: <span>{activeCollection}</span>
+          </h1>
+        </div>
+
+        <table className="table-admin">
+          <thead>
+            {tableHeads &&
+              tableHeads.map((x) => (
+                <tr key={tableHeads.indexOf(x)}>
+                  <th>{x}</th>
+                </tr>
+              ))}
+          </thead>
+          <tbody>
+            {collectionList &&
+              collectionList.map((arr) => (
+                <tr key={collectionList.indexOf(arr)}>
+                  {arr.map((x) => (
+                    <td key={arr.indexOf(x) + arr[arr.length - 1]}>{x}</td>
+                  ))}
+                </tr>
+              ))}
+          </tbody>
+        </table>
+
+        <button
+          onClick={() => {
+            setActiveCollection(
+              activeCollection === "cars" ? "brands" : "cars"
+            );
+          }}
+        >
+          Change
+        </button>
+      </section>
     </main>
   );
 };
