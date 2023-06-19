@@ -122,6 +122,47 @@
     right: .5em;
 }
 
+.dropdown-toggle-admin {
+    width: 200px;
+
+    font-size: 1.25rem;
+    font-family: Barlow, sans-serif;
+    
+    text-align: start;
+
+    padding: .75em;
+    margin-top: 2em;
+    
+    border: 1px solid rgb(199, 199, 199);
+    border-radius: 2px;
+
+    cursor: pointer;
+}
+
+.dropdown-admin {
+    display: none;
+
+    background-color: #f7f7f7;
+
+    padding: 1em;
+
+    text-transform: capitalize;
+
+    list-style: none;
+
+    border: 1px solid rgb(199, 199, 199);
+}
+
+.dropdown-admin > li {
+    margin-bottom: .75em;
+
+    cursor: pointer;
+}
+
+.visible-admin {
+    display: block;
+}
+
 @media (min-width: 1000px ) {
     .table-section-admin {
         margin: 6em auto;

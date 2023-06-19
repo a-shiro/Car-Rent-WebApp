@@ -5,7 +5,17 @@ import "./Admin.css";
 const Admin = () => {
   const [collectionList, setCollectionList] = useState(null);
   const [tableHeads, setTableHeads] = useState(null);
+  const [tableCollections, setTableCollections] = useState(null);
   const [activeCollection, setActiveCollection] = useState("cars");
+
+  const toggleDropdown = () => {
+    document.querySelector(".dropdown-admin").classList.toggle("visible-admin");
+  };
+
+  const changeCollection = (e) => {
+    setActiveCollection(e.target.textContent);
+    document.querySelector(".dropdown-admin").classList.remove("visible-admin");
+  };
 
   const camelize = (str) => {
     return str
@@ -71,11 +81,14 @@ const Admin = () => {
     const queryData = async () => {
       const collectionData = await getData(activeCollection);
       let thData = await getData("tableHeads");
-      thData = thData[0][activeCollection];
 
-      const sortedData = sortData(thData, collectionData);
+      const sortedData = sortData(thData[0][activeCollection], collectionData);
 
-      setTableHeads(thData);
+      const allCollections = Object.keys(thData[0]);
+      allCollections.pop();
+
+      setTableCollections(allCollections);
+      setTableHeads(thData[0][activeCollection]);
       setCollectionList(sortedData);
     };
 
@@ -114,15 +127,21 @@ const Admin = () => {
           </tbody>
         </table>
 
-        <button
-          onClick={() => {
-            setActiveCollection(
-              activeCollection === "cars" ? "brands" : "cars"
-            );
-          }}
-        >
-          Change
-        </button>
+        <div>
+          <button className="dropdown-toggle-admin" onClick={toggleDropdown}>
+            Collections
+          </button>
+
+          {tableCollections && (
+            <ul className="dropdown-admin">
+              {tableCollections.map((collection) => (
+                <li onClick={changeCollection} key={collection}>
+                  {collection}
+                </li>
+              ))}
+            </ul>
+          )}
+        </div>
       </section>
     </main>
   );
