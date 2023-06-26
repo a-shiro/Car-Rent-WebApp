@@ -113,55 +113,124 @@
 
 .actions-wrapper-admin > button:first-child{
     left: .5em;
-
-    background-color: crimson;
-    color: #f7f7f7;
 }
 
 .actions-wrapper-admin > button:last-child {
     right: .5em;
+
+    color: #f7f7f7;
+    background-color: crimson;
+}
+
+.dropdown-wrapper-admin {
+    position: relative;
 }
 
 .dropdown-toggle-admin {
+    background-color: white;
+
     width: 200px;
 
-    font-size: 1.25rem;
+    font-size: 1.15rem;
+    font-weight: 500;
     font-family: Barlow, sans-serif;
     
     text-align: start;
 
     padding: .75em;
-    margin-top: 2em;
+    margin-top: 1em;
     
     border: 1px solid rgb(199, 199, 199);
     border-radius: 2px;
 
+    box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;
+
     cursor: pointer;
+    
+    text-transform: capitalize;
+}
+
+.add-button-admin {
+    background-color: white;
+
+    padding: .75em 1.5em;
+    margin-left: .75em;
+
+    font-family: Barlow, sans-serif;
+    font-weight: 500;
+    font-size: 1.15rem;
+
+    border: 1px solid black;
+    border-radius: 1px;
+
+    transition: background-color .3s, color .3s;
+
+    cursor: pointer;
+}
+
+.add-button-admin:hover {
+    background-color: black;
+    color: white;
 }
 
 .dropdown-admin {
     display: none;
 
-    background-color: #f7f7f7;
+    background-color: white;
 
-    padding: 1em;
+    position: absolute;
+
+    padding: 0 1em;
 
     text-transform: capitalize;
 
     list-style: none;
 
     border: 1px solid rgb(199, 199, 199);
+
+    box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;
+
+    width: 200px;
+    max-width: 500px;
+    
+    z-index: 1;
 }
 
 .dropdown-admin > li {
-    margin-bottom: .75em;
+    margin: 1em 0;
 
     cursor: pointer;
+}
+
+.modal-admin {
+    display: none;
+    
+    position: fixed;
+    left: 0;
+    top: 0;
+    
+    z-index: 1;
+
+    width: 100%;
+    height: 100%;
+
+    overflow: auto;
+    
+    background-color: rgba(0,0,0,0.4);
+}
+
+.modal-form-admin {
+    position: fixed;
+    top: 5em;
+
+    background-color: white;
+    width: 90%;
 }
 
 .visible-admin {
     display: block;
 }
+
 
 @media (min-width: 1000px ) {
     .table-section-admin {
