@@ -222,9 +222,13 @@
 .modal-form-admin {
     position: fixed;
     top: 5em;
+    left: 1em;
+
+    border-radius: 2px;
 
     background-color: white;
     width: 90%;
+    height: 700px;
 }
 
 .visible-admin {

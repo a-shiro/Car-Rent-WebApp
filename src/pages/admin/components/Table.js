@@ -3,7 +3,7 @@ export const Table = ({
   setActiveCollection,
   tableHeads,
   tableData,
-  dropdownOptions,
+  collectionOptions,
 }) => {
   const visibilityHandler = (e) => {
     const id = e.target.getAttribute("data-target");
@@ -63,9 +63,9 @@ export const Table = ({
           </button>
         </div>
 
-        {dropdownOptions && (
+        {collectionOptions && (
           <ul id="dropdown" className="dropdown-admin">
-            {dropdownOptions.map((collection) => (
+            {collectionOptions.map((collection) => (
               <li onClick={changeCollectionHandler} key={collection}>
                 {collection}
               </li>
