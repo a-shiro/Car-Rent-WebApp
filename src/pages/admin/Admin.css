@@ -219,22 +219,69 @@
     background-color: rgba(0,0,0,0.4);
 }
 
-.modal-form-admin {
+.form-wrapper-admin {
     position: fixed;
     top: 5em;
     left: 1em;
 
     border-radius: 2px;
 
-    background-color: white;
+    background-color: #f7f7f7;
+    
     width: 90%;
     height: 700px;
+
+    padding: 2em 1em;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: start;
+    align-items: center;
+
+    overflow-y: scroll;
+}
+
+.form-wrapper-admin > h1 {
+    font-weight: 500;
+    font-size: 2.25rem;
+}
+
+.form-admin > label {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    margin: 1em 0;
+}
+
+.form-admin > label > input {
+    margin: auto;
+    padding: .75em;
+    width: 100%;    
+
+    display: block;
+
+    border: 1px solid rgb(199, 199, 199);
+    border-radius: 2px;
+    box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;
+
+    outline: none;
+}
+
+.form-admin > label > input::placeholder {
+    font-size: 1.05rem;
+    font-family: Barlow, sans-serif;
+}
+
+.form-admin > label > input[type~="file"] {
+    border: none;
+    box-shadow: none;
+    cursor: pointer;
 }
 
 .visible-admin {
     display: block;
 }
-
 
 @media (min-width: 1000px ) {
     .table-section-admin {

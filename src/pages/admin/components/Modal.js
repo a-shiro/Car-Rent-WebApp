@@ -1,7 +1,11 @@
-import { Fragment, useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 
 export const Modal = ({ tableHeads, tableData }) => {
   const [formFields, setFormFields] = useState(null);
+
+  const changeHandler = (e) => {
+    console.log(e.target);
+  };
 
   useEffect(() => {
     const createFormSchema = (fields, values) => {
@@ -11,9 +15,13 @@ export const Modal = ({ tableHeads, tableData }) => {
         const fieldName = name;
         let dataType = typeof values[index];
 
+        // ToDo: Add a way to send files to database
         if (dataType === "object") {
-          dataType = "file";
+          dataType = "string";
         }
+        // /\
+        // |________________________
+        // Fix dataType to be file |
 
         schema.push([fieldName, dataType]);
       });
@@ -31,16 +39,24 @@ export const Modal = ({ tableHeads, tableData }) => {
 
   return (
     <div id="modal" className="modal-admin">
-      <div className="modal-form-admin">
+      <div className="form-wrapper-admin">
         <h1>Add</h1>
         {formFields && (
-          <form>
+          <form className="form-admin">
             {formFields.map(([name, type]) => (
-              <Fragment key={name}>
-                <label>{name}:</label>
-                <input type={type} />
-              </Fragment>
+              <label htmlFor={name.toLowerCase()} key={name}>
+                <input
+                  value=""
+                  onChange={changeHandler}
+                  id={name.toLowerCase()}
+                  type={type}
+                  placeholder={name}
+                />
+              </label>
             ))}
+            <div>
+              <input type="submit" />
+            </div>
           </form>
         )}
       </div>
