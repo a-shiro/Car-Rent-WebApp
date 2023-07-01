@@ -21,7 +21,7 @@ export const Card = ({ carData, index }) => {
 
   return (
     <Link
-      to={`/cars/${carData.path}`}
+      to={`/cars/${carData.urlPath}`}
       className={`card ${screenSize}`}
       key={carData.id}
     >
@@ -29,10 +29,10 @@ export const Card = ({ carData, index }) => {
       <div className="card-clip-2"></div>
       <div className="card-clip-3"></div>
 
-      <span className="card-title" to={`cars/${carData.path}`}>
+      <span className="card-title">
         {carData.brand} {carData.model}
       </span>
-      <img className="card-image" src={carData.sideImgUrl} alt="car-sideshot" />
+      <img className="card-image" src={carData.thumbnail} alt="car-thumbnail" />
     </Link>
   );
 };

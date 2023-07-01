@@ -4,7 +4,7 @@ import Locations from "./components/Locations/Locations";
 import Brands from "./components/Brands/Brands";
 import About from "./components/About/About";
 
-export const Home = () => {
+const Home = () => {
   return (
     <main>
       <Hero />
@@ -15,3 +15,5 @@ export const Home = () => {
     </main>
   );
 };
+
+export default Home;

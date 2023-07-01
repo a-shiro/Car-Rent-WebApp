@@ -10,12 +10,12 @@
 }
 
 .title-container-hero > h1 {
-    font-weight: 600;
-    font-size: 2.25rem;
+    font-weight: 500;
+    font-size: 2.15rem;
 }
 
 .title-container-hero > p {
-    font-size: 1.25rem;
+    font-size: 1.15rem;
     margin: .25em 0 1em 0;
 
     max-width: 800px;

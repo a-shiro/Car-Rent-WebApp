@@ -21,20 +21,20 @@ const PopularChoices = () => {
   }, []);
 
   return (
-    <section className="popular-section">
-      <div>
-        <div className="checker-pattern"></div>
+    <section className="section-popular">
+      <div className="checker-pattern"></div>
 
-        <h1>Popular Choices</h1>
-        <div className="card-wrapper">
-          {carList.map((car, index) => (
-            <Card carData={car} index={index} key={car.id} />
-          ))}
-        </div>
-        <Link to="/cars" className="cta-button">
-          All cars
-        </Link>
+      <h1>Popular Choices</h1>
+
+      <div className="card-wrapper">
+        {carList.map((car, index) => (
+          <Card carData={car} index={index} key={car.id} />
+        ))}
       </div>
+
+      <Link to="/cars" className="cta-button">
+        All cars
+      </Link>
     </section>
   );
 };
