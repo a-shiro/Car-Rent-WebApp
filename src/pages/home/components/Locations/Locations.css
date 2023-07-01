@@ -52,7 +52,7 @@
 
     border: 1px solid black;
 
-    font-size: 1.25em;
+    font-size: 1.25rem;
     font-family: Montserrat, sans-serif;
 
     padding: .5em 1em .5em 1em ;
@@ -84,6 +84,7 @@
 .card-wrapper-locations {
     display: flex;
     flex-direction: column;
+    
     max-width: 900px;
     margin: auto;
 }
@@ -131,7 +132,6 @@
 
     .section-locations h1 {
         font-size: 3rem;
-        font-weight: 400;
     }
 
     .card-wrapper-locations {
@@ -145,6 +145,10 @@
         width: 50%;
         margin: 0 0 2em 0;
         margin-bottom: 0;
+    }
+
+    .button-locations {
+        font-size: 1.45rem;
     }
 }
 

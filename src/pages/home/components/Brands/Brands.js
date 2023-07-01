@@ -18,18 +18,18 @@ const Brands = () => {
   }, []);
 
   return (
-    <section className="brand-section">
+    <section className="section-brands">
       <div>
-        <div className="brand-section-clip-bottom"></div>
+        <div className="section-clip-bottom"></div>
         <img
-          className="background-vector-image"
+          className="background-image-brands"
           src={mercedesVector}
           alt="mercedes-vector"
         />
 
         <h1>Available Brands</h1>
 
-        <div className="brands-card-wrapper">
+        <div className="card-wrapper-brands">
           {brandsList.map((brand) => (
             <Card data={brand} key={brand.id} />
           ))}

@@ -1,4 +1,4 @@
-.brand-section-clip-bottom {
+.section-clip-bottom {
     width: 100%;
     height: 50%;
     
@@ -12,7 +12,7 @@
     clip-path: polygon(100% 100%, 0 100%, 100% 90%);
 }
 
-.background-vector-image {
+.background-image-brands {
     position: absolute;
     right: 2em;
     bottom: 0em;
@@ -21,7 +21,7 @@
     z-index: 0;
 }
 
-.brand-section {
+.section-brands {
     background-color: #F7F7F7;
     text-align: center;
 
@@ -32,12 +32,12 @@
     position: relative;
 }
 
-.brand-section h1 {
-    font-size: 2.5rem;
+.section-brands h1 {
+    font-size: 2.15rem;
     font-weight: 400;
 }
 
-.brands-card-wrapper {
+.card-wrapper-brands {
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;
@@ -47,7 +47,7 @@
     margin: 4em auto;
 }
 
-.brand-card {
+.card-brands {
     display: flex;
     
     width: 288px;
@@ -58,36 +58,42 @@
     z-index: 1;
 }
 
-.brand-card img {
-    width: 80%;
+.card-brands img {
     display: block;
+    
+    width: 70%;
     margin: auto;
+    
     box-shadow: rgba(0, 0, 0, 0.1) 0px 4px 12px;
     cursor: pointer;
 }
 
 @media (min-width: 750px) {
-    .brand-section {
+    .section-brands {
         display: block;
     }
 }
 
 @media(min-width: 1000px) {
-     .brand-section-clip-bottom {
+     .section-clip-bottom {
         height: 70%;
     }
+    
+    .section-brands h1 {
+        font-size: 3rem;
+    }
 
-    .brands-card-wrapper {
+    .card-wrapper-brands {
         max-width: 912px;
     }
 
-    .brand-section h1 {
-        font-size: 3rem;
+    .card-brands > img {
+        width: 80%;
     }
 }
 
 @media (min-width: 1600px) {
-    .brands-card-wrapper {
+    .card-wrapper-brands {
         max-width: 1536px;
     }
 }
