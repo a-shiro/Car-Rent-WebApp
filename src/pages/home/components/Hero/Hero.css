@@ -75,7 +75,7 @@
 
     .title-container-hero {
         margin: 0;
-        width: 50%;
+        width: 45%;
     }
     
     .title-container-hero > h1 {
@@ -99,7 +99,7 @@
     }
 
     .image-hero {
-        width: 55%;
+        width: 50%;
         max-width: 900px;
     }
 }

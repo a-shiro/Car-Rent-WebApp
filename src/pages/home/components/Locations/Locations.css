@@ -8,6 +8,7 @@
 .background-image-left {
     left: 3%;
     top: 50%;
+
     width: 340px;
 }
 
@@ -15,44 +16,44 @@
     right: 50%;
     bottom: 0;
     left: 45%;
-    width: 220px;
 
+    width: 220px;
 }
 
 .background-image-right {
     right: 3%;
     top: 10%;
+
     width: 460px;
 }
 
-.location-section {
+.section-locations {
     position: relative;
     overflow: hidden;
 
-    text-align: center;
-
     width: 100%;
     padding: 4em 0;
+
+    text-align: center;
 }
 
-.location-section h1 {
-    font-size: 2.5rem;
+.section-locations h1 {
+    font-size: 2.15rem;
     font-weight: 400;
 }
 
-.controls-wrapper {
-    height: 60px;
+.controls-wrapper-locations {
     margin: 5em 0;
 }
 
-.toggler-button {
+.button-locations {
     background-color: white;
     color: black;
 
     border: 1px solid black;
 
-    font-size: 1.5em;
-    font-family: Barlow;
+    font-size: 1.25em;
+    font-family: Montserrat, sans-serif;
 
     padding: .5em 1em .5em 1em ;
 
@@ -62,10 +63,6 @@
                 box-shadow .2s linear,
                 background-color .2s linear,
                 color .1s linear,
-}
-
-.controls-wrapper button:first-child {
-    margin-right: 1em;
 }
 
 .selected {
@@ -80,14 +77,18 @@
                 color .1s linear;
 }
 
-.location-card-wrapper {
+.controls-wrapper-locations button:first-child {
+    margin-right: 1em;
+}
+
+.card-wrapper-locations {
     display: flex;
     flex-direction: column;
     max-width: 900px;
     margin: auto;
 }
 
-.location-card {
+.card-locations {
     max-width: 325px;
 
     margin: auto;
@@ -106,18 +107,18 @@
     cursor: pointer;
 }
 
-.location-card:hover {
+.card-locations:hover {
     transform: scale(1.05);
     transition: transform .1s linear;
 }
 
-.location-card span {
+.card-locations > span {
     font-size: 1.35rem;
     font-weight: 400;
     margin: .2em 0 .3em .5em;
 }
 
-.location-card img {
+.card-locations > img {
     height: 100%;
     display: block;
     border-radius: 2px;
@@ -128,27 +129,27 @@
         top: 25%;
     }
 
-    .location-card-wrapper {
+    .section-locations h1 {
+        font-size: 3rem;
+        font-weight: 400;
+    }
+
+    .card-wrapper-locations {
         flex-direction: row;
         flex-wrap: wrap;
         gap: 30px;
         max-width: 680px;
     }
 
-    .location-card {
+    .card-locations {
         width: 50%;
         margin: 0 0 2em 0;
         margin-bottom: 0;
     }
-
-    .location-section h1 {
-        font-size: 3rem;
-        font-weight: 400;
-    }
 }
 
 @media (min-width: 1600px) {
-    .location-card-wrapper {
+    .card-wrapper-locations {
         max-width: 1390px;
     }
 }

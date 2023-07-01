@@ -35,7 +35,7 @@ const Locations = () => {
   };
 
   return (
-    <section className="location-section">
+    <section className="section-locations">
       <img
         className="background-image-left"
         src={leftWorldMap}
@@ -55,16 +55,16 @@ const Locations = () => {
       <div>
         <h1>Select Place</h1>
 
-        <div className="controls-wrapper">
-          <button className="toggler-button selected" onClick={toggleHandler}>
+        <div className="controls-wrapper-locations">
+          <button className="button-locations selected" onClick={toggleHandler}>
             Countries
           </button>
-          <button className="toggler-button" onClick={toggleHandler}>
+          <button className="button-locations" onClick={toggleHandler}>
             Cities
           </button>
         </div>
 
-        <div className="location-card-wrapper">
+        <div className="card-wrapper-locations">
           {countriesSelected ? (
             <Fragment>
               {countriesList.map((country) => (
