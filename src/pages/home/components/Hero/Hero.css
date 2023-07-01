@@ -1,88 +1,106 @@
-.container {
+.container-hero {
     display: flex;
     flex-direction: column;
     padding: 1em;
 }
 
-.hero-title {
+.title-container-hero {
+    max-width: 720px;
+    margin: auto;
+}
+
+.title-container-hero > h1 {
     font-weight: 600;
-    font-size: 2.5rem;
+    font-size: 2.25rem;
 }
 
-.hero-subtitle {
+.title-container-hero > p {
     font-size: 1.25rem;
-    margin: 1em 0;
+    margin: .25em 0 1em 0;
+
+    max-width: 800px;
 }
 
-.hero-image {
+.image-hero {
     display: block;
     filter: brightness(95%);
     border-radius: 2px;
+
+    margin: auto;
+    width: 100%;
+    max-width: 720px;
 }
 
-.cta-container {
+.cta-container-hero {
     padding: 1em 0;
     margin-bottom: 1em;
 }
 
-.cta-button {
-    background-color: white;
-    color: black;
-    border: 1px solid black;
-    
-    font-size: 1.5em;
-
+.cta-container-hero > a {
     margin: 0 .5em 0 0;
     padding: .5em 1em .5em 1em ;
+    
+    background-color: white;
+    color: black;
 
+    font-size: 1.25em;
+    
+    border: 1px solid black;
     cursor: pointer;
-
     transition: color .2s ease, background-color .2s ease;
 }
 
-.cta-button:hover {
+.cta-container-hero > a:hover {
     background-color: black;
     color: white;
 }
 
-/* Laptops and PC breakpoint */
 @media (min-width: 1000px) {
-    .container {
+    .container-hero {
         padding: 2.5em;
+
         flex-direction: row;
         justify-content: space-evenly;
     }
 
-    .hero-image {
-        max-width: 500px;
+    .image-hero {
+        margin: 1em 0;
         width: 45%;
+        height: 550px;
+
         object-fit: cover;
         object-position: right;
+
     }
 
-    .hero-title-container {
-        width: 40%;
+    .title-container-hero {
+        margin: 0;
+        width: 50%;
     }
     
-    .hero-title {
+    .title-container-hero > h1 {
         font-weight: 600;
         font-size: 3.25rem;
     }
 
-    .hero-subtitle {
+    .title-container-hero > p {
         font-size: 1.5rem;
+
         margin: 1.5em 0;
+    }
+
+    .cta-container-hero > a {
+        font-size: 1.5rem;
     }
 }
 
-/* PC breakpoint */
 @media (min-width: 1600px) {
     .container {
         padding: 5em;
     }
 
-    .hero-image {
-        max-width: 900px;
+    .image-hero {
         width: 55%;
+        max-width: 900px;
     }
 }
