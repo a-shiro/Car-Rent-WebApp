@@ -22,17 +22,17 @@ const PopularChoices = () => {
 
   return (
     <section className="section-popular">
-      <div className="checker-pattern"></div>
+      <div className="checker-pattern-popular"></div>
 
       <h1>Popular Choices</h1>
 
-      <div className="card-wrapper">
+      <div className="card-wrapper-popular">
         {carList.map((car, index) => (
           <Card carData={car} index={index} key={car.id} />
         ))}
       </div>
 
-      <Link to="/cars" className="cta-button">
+      <Link to="/cars" className="button-popular">
         All cars
       </Link>
     </section>

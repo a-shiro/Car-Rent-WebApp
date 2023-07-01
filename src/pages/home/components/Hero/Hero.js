@@ -9,10 +9,9 @@ const Hero = () => {
         <div className="title-container-hero">
           <h1>​ELEVATE YOUR JOURNEY WITH LUXURY CAR RENTALS</h1>
           <p>
-            Indulge in the finest automotive luxury with our premium car rental
-            services. Choose from an exquisite fleet of high-end vehicles and
-            experience the unmatched comfort, performance, and style that define
-            true sophistication.
+            Choose from an exquisite fleet of high-end vehicles and experience
+            the unmatched comfort, performance, and style that define true
+            sophistication.
           </p>
           <div className="cta-container-hero">
             <Link to="/cars">Discover</Link>

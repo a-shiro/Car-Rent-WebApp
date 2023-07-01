@@ -15,13 +15,15 @@
     font-weight: 400;
 }
 
-.checker-pattern {
+.checker-pattern-popular {
     position:  absolute;
-    z-index: 0;
-    width: 100%;
-    height: 100px;
     top: 13.5em;
     left: 0;
+
+    width: 100%;
+    height: 100px;
+    
+    z-index: 0;
 
     background-size: 50px 50px;
     background-position: 0 0, 25px 25px;
@@ -29,22 +31,23 @@
                           linear-gradient(45deg, rgb(220, 220, 220) 25%, transparent 25%, transparent 75%, rgb(220, 220, 220) 75%, rgb(220, 220, 220));
 }
 
-
-.card-wrapper { 
-    margin: 5em 0;
+.card-wrapper-popular { 
     display: flex;
     justify-content: space-evenly;
+    
+    margin: 5em 0;
 }
 
-.card {
+.card-popular {
     display: flex;
     flex-direction: column;
 
     width: 260px;
     height: 160px;
+    margin: auto;
+    
     background-color: white;
 
-    margin: auto;
     position: relative;
 
     cursor: pointer;
@@ -52,21 +55,43 @@
     transition: box-shadow .3s;
 }
 
-.card:hover .card-image {
-    left: -2.5em;
-    bottom: 0;
-}
-.card:hover {
+.card-popular:hover {
     box-shadow: 10px 10px rgba(0, 0, 0);
 }
 
-.card:hover .card-clip,
-.card:hover .card-clip-2,
-.card:hover .card-clip-3 {
+.card-popular > span {
+    color: black;
+
+    font-size: 1.15rem;
+    font-weight: 400;
+
+    margin: .25em 1em;
+
+    z-index: 1;
+}
+
+.card-popular > img {
+    width: 95%;
+
+    position: absolute;
+    bottom: -.25em;
+    left: 0;
+    
+    transition: left 0.3s, bottom 0.3s;
+}
+
+.card-popular > img:hover {
+    left: -2.5em;
+    bottom: 0;
+}
+
+.card-popular:hover .card-line,
+.card-popular:hover .card-line-2,
+.card-popular:hover .card-line-3 {
     background-color: #e46400;
 }
 
-.card-clip, .card-clip-2, .card-clip-3{
+.card-line, .card-line-2, .card-line-3{
     position: absolute;
 
     z-index: 0;
@@ -79,21 +104,21 @@
     transition: background-color .2s linear;
 }
 
-.card-clip {
+.card-line {
     bottom: 7em;
 
     width: 15%;
     height: 3px;
 }
 
-.card-clip-2 {
+.card-line-2 {
     bottom: 6em;
 
     width: 50%;
     height: 3px;
 }
 
-.card-clip-3 {
+.card-line-3 {
     bottom: 2em;
     right: 0;
 
@@ -101,44 +126,21 @@
     height: 3px;
 }
 
-.card-title {
-    color: black;
-
-    font-size: 1.35rem;
-    font-weight: 400;
-
-    margin: .5em .25em 0 .25em;
-
-    z-index: 1;
-}
-
-.card-image {
-    width: 100%;
-
-    position: absolute;
-    bottom: -.25em;
-    left: -1.5em;
-    
-    
-    transition: left 0.3s, bottom 0.3s;
-}
-
-.cta-button {
+.button-popular {
     background-color: white;
     color: black;
-    border: 1px solid black;
-    
-    font-size: 1.5em;
 
+    font-size: 1.25em;
+    
     margin: 0 .5em 0 0;
     padding: .5em 1em .5em 1em ;
-
+    
+    border: 1px solid black;
     cursor: pointer;
-
     transition: color .2s ease, background-color .2s ease;
 }
 
-.cta-button:hover {
+.button-popular:hover {
     background-color: black;
     color: white;
 }
@@ -148,7 +150,7 @@
 }
 
 @media (min-width: 750px) {
-    .card {
+    .card-popular {
         margin: 0;
     }
 
@@ -158,48 +160,58 @@
 }
 
 @media (min-width: 1000px) {    
-    .card {
+    .section-popular h1 {
+        font-size: 3rem;
+    }
+
+    .card-popular {
         width: 270px;
         height: 170px;
     }
+    
+    .card-popular > span {
+        font-size: 1.2rem;
+    }
+    
+    .button-popular {
+        font-size: 1.45rem;
+    }
 
-    .popular-section h1 {
-        font-size: 3rem;
-        font-weight: 400;
+    .checker-pattern-popular {
+        top: 15em;
     }
 
     .large-screen { 
         display: flex;
     }
-
-    .checker-pattern {
-        top: 15em;
-    }
 }
 
 @media (min-width: 1600px) {
-    .popular-section {
+    .section-popular {
         padding: 6em 0;
     }
 
-    .card-wrapper {
+    .card-wrapper-popular {
         margin: 8em 0em;
     }
 
-    .card {
+    .card-popular {
         width: 320px;
-        height: 220px;
+        height: 200px;
     }
 
-    .card-title {
-        margin: 1em 1em 0 1em;
+    .card-popular > span {
+        margin: .5em .75em;
+
+        font-size: 1.3rem;
     }
 
+    
+    .checker-pattern-popular {
+        top: 22em;
+    }
+    
     .xl-screen {
         display: flex;
-    }
-
-    .checker-pattern {
-        top: 22em;
     }
 }

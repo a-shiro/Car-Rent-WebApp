@@ -22,14 +22,14 @@ export const Card = ({ carData, index }) => {
   return (
     <Link
       to={`/cars/${carData.urlPath}`}
-      className={`card ${screenSize}`}
+      className={`card-popular ${screenSize}`}
       key={carData.id}
     >
-      <div className="card-clip"></div>
-      <div className="card-clip-2"></div>
-      <div className="card-clip-3"></div>
+      <div className="card-line"></div>
+      <div className="card-line-2"></div>
+      <div className="card-line-3"></div>
 
-      <span className="card-title">
+      <span>
         {carData.brand} {carData.model}
       </span>
       <img className="card-image" src={carData.thumbnail} alt="car-thumbnail" />
