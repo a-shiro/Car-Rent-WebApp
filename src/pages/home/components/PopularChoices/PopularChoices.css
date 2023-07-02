@@ -57,6 +57,12 @@
 
 .card-popular:hover {
     box-shadow: 10px 10px rgba(0, 0, 0);
+
+}
+
+.card-popular:hover > img {
+    left: -2.5em;
+    bottom: 0;
 }
 
 .card-popular > span {
@@ -78,11 +84,6 @@
     left: 0;
     
     transition: left 0.3s, bottom 0.3s;
-}
-
-.card-popular > img:hover {
-    left: -2.5em;
-    bottom: 0;
 }
 
 .card-popular:hover .card-line,
