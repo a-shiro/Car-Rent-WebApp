@@ -1,52 +1,7 @@
-.about-section {
-    width: 90%;
-
-    padding: 4em 0;
-    margin: auto;
+.section-about {
+    padding: 1.25em;
 
     position: relative;
-}
-
-.about-wrapper {
-    display: flex;
-    flex-direction: column;
-}
-
-.about-text-wrapper {
-    display: flex;
-    flex-direction: column;
-}
-
-.about-text-wrapper h1 {
-    font-size: 3rem;
-    font-weight: 500;
-}
-
-.about-text-wrapper p {
-    margin: .5em 0;
-    font-size: 1.15rem;
-}
-
-.about-text-wrapper span {
-    font-weight: 500;
-    font-size: 1.25rem;
-}
-
-.about-text-wrapper a {
-    font-weight: 700;
-    color: black;
-    text-decoration: underline;
-    text-underline-offset: 2px;
-    text-decoration-thickness: 2px;
-}
-
-.about-text-wrapper a:hover {
-    color: rebeccapurple;
-}
-
-.about-wrapper img {
-    width: 100%;
-    display: block;
 }
 
 .background-text, .background-text-2{
@@ -66,50 +21,93 @@
 }
 
 .background-text-2 {
-    right: 0;
+    right: .5em;
     bottom: 5em;
 }
 
-.contacts-paragraph {
+.container-about {
+    display: flex;
+    flex-direction: column;
+
+    max-width: 720px;
+
+    margin: auto;
+}
+
+.container-about > div > h1 {
+    font-size: 2.15rem;
+    font-weight: 400;
+}
+
+.container-about > div > p {
+    margin: .5em 0;
+    font-size: 1.15rem;
+}
+
+.container-about > div > p > span {
+    font-weight: 500;
+    font-size: 1.25rem;
+}
+
+.container-about > div > p > a {
+    font-weight: 600;
+
+    color: black;
+  
+    text-decoration: underline;
+    text-underline-offset: 2px;
+    text-decoration-thickness: 2px;
+}
+
+.container-about > div > p > a:hover {
+    color: rebeccapurple;
+}
+
+.container-about > img {
+    width: 100%;
+    display: block;
+}
+
+.container-about > div > p:last-child {
     font-weight: 500;
     line-height: 1.25em;
+
+    margin-bottom: 1em;
+}
+
+@media (min-width: 750px) {
+    .section-about {
+        padding: 4em 1em;
+    }
 }
 
 @media (min-width: 1000px ) {
-    .about-section {
-        width: 95%;
-        max-width: 1600px;
+    .container-about > div > h1 {
+        font-size: 2.75rem;
     }
 
-    .about-wrapper {
-        flex-direction: row;
-        justify-content: space-evenly;
-    } 
-
-    .about-text-wrapper {
-        width: 40%;
-        order: 2;
+    .container-about > div > p {
+        font-size: 1.25rem;
     }
-
-    .about-wrapper img {
-        object-fit: cover;
-        object-position: 75%;
-        width: 50%;
-        order: 1;
-    }
-    
-    .background-text-2 {
-        right: 0;
-        bottom: 1.5em;
-    }
-
-    .background-text {
-        left: -.75em;
-    };
 }
 
 @media (min-width: 1600px) {
-    .about-wrapper img {
+    .container-about {
+        flex-direction: row;
+        justify-content: space-between;
+        max-width: 1500px;
+    } 
+
+    .container-about > div {
+        max-width: 650px;
+
+        order: 2;
+    }
+
+    .container-about > img {
         object-fit: contain;
+        max-width: 800px;
+
+        order: 1;
     }
 }

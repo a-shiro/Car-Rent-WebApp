@@ -3,9 +3,9 @@ import aboutImage from "../.././../../assets/images/about.jpg";
 
 const About = () => {
   return (
-    <section className="about-section">
-      <div className="about-wrapper">
-        <div className="about-text-wrapper">
+    <section className="section-about">
+      <div className="container-about">
+        <div>
           <h1>About us --</h1>
           <p>
             At <span>RentX</span>, we believe that a remarkable journey begins
@@ -39,13 +39,14 @@ const About = () => {
             <span>RentX</span>.
           </p>
 
-          <p className="contacts-paragraph">
+          <p>
             Feel free to give us a <a href="#">call</a> at any time or come to a
             RentX <a href="#">location</a> of your choice. Our call center
             and/or locations support 5 languages (EN - DE - ES - IT - RU) and we
             can advise you on the car that suits you best.
           </p>
         </div>
+
         <img src={aboutImage} alt="about-image" />
       </div>
 
