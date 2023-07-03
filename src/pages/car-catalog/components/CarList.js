@@ -16,23 +16,17 @@ export const CarList = () => {
   }, []);
 
   return (
-    <div className="catalog-card-wrapper">
+    <div className="cards-wrapper-catalog">
       {carList.map((car) => {
         return (
-          <Link to={`${car.path}`} key={car.id}>
-            <div className="catalog-card">
-              <div className="catalog-card-clip"></div>
-              <span className="catalog-card-title">
+          <Link to={`${car.urlPath}`} key={car.id}>
+            <div className="card-catalog">
+              <div className="card-checkers"></div>
+              <span>
                 {car.brand} {car.model}
               </span>
-              <span className="catalog-card-price">
-                starting at {car.pricePerDay}$
-              </span>
-              <img
-                className="catalog-card-image"
-                src={car.sideImgUrl}
-                alt="car-side-image"
-              />
+              <span>starting at {car.price}$</span>
+              <img src={car.thumbnail} alt="car-thumbnail" />
             </div>
           </Link>
         );

@@ -5,8 +5,8 @@ import "./Catalog.css";
 const Catalog = () => {
   return (
     <main>
-      <section className="catalog-section">
-        <div className="catalog-container">
+      <section>
+        <div className="container-catalog">
           <AsideFilters />
           <CarList />
         </div>

@@ -1,4 +1,4 @@
-import { Fragment, useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 import "../Catalog.css";
 
 export const AsideFilters = () => {
@@ -7,9 +7,9 @@ export const AsideFilters = () => {
   const [brandDropdownList, setBrandDropdownList] = useState(null);
 
   useEffect(() => {
-    setFiltersWrapper(document.querySelector(".filters-wrapper"));
-    setTypeDropdownList(document.querySelector(".type-filter ul"));
-    setBrandDropdownList(document.querySelector(".brand-filter ul"));
+    setFiltersWrapper(document.querySelector(".filters-wrapper-catalog"));
+    setTypeDropdownList(document.querySelector(".type-filter-catalog ul"));
+    setBrandDropdownList(document.querySelector(".brand-filter-catalog ul"));
   }, []);
 
   const toggleFiltersVisibility = () => {
@@ -42,25 +42,31 @@ export const AsideFilters = () => {
   };
 
   const clearFilters = () => {
-    document.querySelector(".type-filter .filter-button").textContent =
-      "All cars";
-    document.querySelector(".brand-filter .filter-button").textContent =
-      "All brands";
+    document.querySelector(
+      ".type-filter-catalog .filter-button-catalog"
+    ).textContent = "All cars";
+    document.querySelector(
+      ".brand-filter-catalog .filter-button-catalog"
+    ).textContent = "All brands";
   };
 
   return (
-    <Fragment>
-      <div className="filters-dropdown">
+    <div>
+      <div className="filters-dropdown-catalog">
         <button onClick={toggleFiltersVisibility}>Filters &darr;</button>
       </div>
 
-      <div className="filters-wrapper">
-        <div className="type-filter">
+      <div className="filters-wrapper-catalog">
+        <div className="type-filter-catalog">
           <span>Car Type</span>
-          <button className="filter-button" onClick={toggleDropdownVisibility}>
+          <button
+            className="filter-button-catalog"
+            onClick={toggleDropdownVisibility}
+          >
             All cars
           </button>
-          <ul onClick={clickHandler} className="filter-ul">
+
+          <ul onClick={clickHandler} className="filter-list-catalog">
             <li>All cars</li>
             <li>Convertible</li>
             <li>SUV</li>
@@ -70,12 +76,15 @@ export const AsideFilters = () => {
           </ul>
         </div>
 
-        <div className="brand-filter">
+        <div className="brand-filter-catalog">
           <span>Brand</span>
-          <button className="filter-button" onClick={toggleDropdownVisibility}>
+          <button
+            className="filter-button-catalog"
+            onClick={toggleDropdownVisibility}
+          >
             All brands
           </button>
-          <ul onClick={clickHandler} className="filter-ul">
+          <ul onClick={clickHandler} className="filter-list-catalog">
             <li>All brands</li>
             <li>Porsche</li>
             <li>Lamborghini</li>
@@ -85,7 +94,7 @@ export const AsideFilters = () => {
           </ul>
         </div>
 
-        <div>
+        <div className="price-filter-catalog">
           <span>Price range</span>
           <div>
             <input
@@ -102,19 +111,21 @@ export const AsideFilters = () => {
             />
           </div>
         </div>
-        <div>
+
+        <div className="power-filter-catalog">
           <span>Horse power</span>
           <div>
             <input defaultValue={150} type="number" placeholder="from" />
             <input defaultValue={1500} type="number" placeholder="to" />
           </div>
         </div>
+
         <div>
-          <button onClick={clearFilters} className="clear-filters-button">
-            Clear filters
+          <button onClick={clearFilters} className="clear-filters-catalog">
+            Clear Filters
           </button>
         </div>
       </div>
-    </Fragment>
+    </div>
   );
 };
