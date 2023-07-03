@@ -3,42 +3,44 @@ import { Link } from "react-router-dom";
 import "./Navigation.css";
 
 const Nav = () => {
-  const [navListElement, setNavListElement] = useState(null);
+  const [hamburgerMenu, setHamburgerMenu] = useState(null);
 
   useEffect(() => {
-    setNavListElement(document.getElementsByClassName("links-list")[0]);
+    setHamburgerMenu(document.getElementById("links-list"));
   }, []);
 
-  const toggleHandler = () => {
-    navListElement.classList.toggle("small-active");
+  const toggleHamburger = () => {
+    const menuVisibility = hamburgerMenu.style.display;
+
+    menuVisibility === "none" || menuVisibility === ""
+      ? (hamburgerMenu.style.display = "flex")
+      : (hamburgerMenu.style.display = "none");
+
+    document.querySelector(".navbar").classList.toggle("border-bottom");
   };
 
   return (
     <nav className="navbar">
-      <div>
-        <Link to="/" className="brand-logo">
-          RentX
-        </Link>
-      </div>
+      <Link to="/" className="brand-logo">
+        RentX
+      </Link>
 
-      <div className="links-list-container">
-        <ul className="links-list">
-          <li>
-            <Link to="/">Home</Link>
-          </li>
-          <li>
-            <Link to="/cars">Cars</Link>
-          </li>
-          <li>
-            <Link to="/about">About</Link>
-          </li>
-          <li>
-            <Link to="/contacts">Contact</Link>
-          </li>
-        </ul>
-      </div>
+      <ul id="links-list">
+        <li>
+          <Link to="/">Home</Link>
+        </li>
+        <li>
+          <Link to="/cars">Cars</Link>
+        </li>
+        <li>
+          <Link to="/about">About</Link>
+        </li>
+        <li>
+          <Link to="/contacts">Contact</Link>
+        </li>
+      </ul>
 
-      <a href="#" className="toggle-button" onClick={toggleHandler}>
+      <a href="#" className="hamburger-menu" onClick={toggleHamburger}>
         <span className="bar"></span>
         <span className="bar"></span>
         <span className="bar"></span>
