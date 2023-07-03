@@ -1,5 +1,6 @@
 footer {
     background-color: #f7f7f7;
+
     padding: 1em 0;
 
     position: relative;
@@ -8,13 +9,9 @@ footer {
 .info-wrapper {
     display: flex;
     flex-direction: column;
+   
     width: 90%;
     margin: 2em auto;
-}
-
-.info-wrapper p {
-    font-size: 1.15rem;
-    margin: .25em 0;
 }
 
 .info-wrapper div {
@@ -22,17 +19,24 @@ footer {
     text-align: center;
 }
 
-.info-title {
+.info-wrapper div > p {
+    font-size: 1.15rem;
+    margin: .25em 0;
+}
+
+.info-wrapper > div > h6 {
     font-size: 1.35rem;
     font-weight: 500;
+
     margin-bottom: .5em;
 }
 
 .copyright-wrapper {
-    margin: .5em auto;
     width: 95%;
+    margin: .5em auto;
+
+    font-size: 1.2rem;
     text-align: center;
-    font-size: 1.25rem;
 }
 
 @media (min-width: 750px) {
@@ -41,8 +45,13 @@ footer {
         justify-content: space-evenly;
     }
 
-    .info-wrapper div {
-        text-align: start;
+    .info-wrapper > div {
+        text-align: center;
     }
 }
 
+@media (min-width: 1000px) {
+    .info-wrapper > div {
+        text-align: start;
+    }
+}
