@@ -2,7 +2,7 @@ import { Link } from "react-router-dom";
 import "./404.css";
 import carVector from "../../assets/images/car-vector.png";
 
-export const PageNotFound = () => {
+const PageNotFound = () => {
   return (
     <main>
       <div className="wrapper-404">
@@ -23,3 +23,5 @@ export const PageNotFound = () => {
     </main>
   );
 };
+
+export default PageNotFound;
