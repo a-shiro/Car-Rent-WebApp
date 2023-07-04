@@ -62,6 +62,10 @@
     outline: none;
 }
 
+.filter-button-catalog:hover {
+    background-color: #f7f7f7;
+}
+
 .filter-list-catalog {
     background-color: white;
     
@@ -258,8 +262,8 @@ input[type="number"] {
 @media (min-width: 1000px ) {
     .container-catalog {
         width: 95%;
-        max-width: 1050px;
-        margin: auto;
+        max-width: 1100px;
+        margin: 4em auto;
 
         flex-direction: row;
     }
@@ -289,28 +293,22 @@ input[type="number"] {
     .card-catalog {
         width: 300px;
         height: 200px;
-        margin: 0;
+        margin: 0 0 1em 0;
     }
 }
 
 @media (min-width: 1500px) {
-    .filters-wrapper-catalog {
-        width: 25%;
-    }
-    
     .container-catalog {
-        justify-content: space-between;
+        max-width: 1450px;
     }
-    
 
-    .catalog-card-wrapper {
+    .cards-wrapper-catalog {
+        max-width: 1050px;
+
         justify-content: start;
-        max-width: 1200px;
-        width: 70%;
-        margin: 0;
     }
 
-    .catalog-card {
-        margin: 1.45em;
+    .card-catalog {
+        margin: 0 1.5em 3em 1.5em;
     }
 }

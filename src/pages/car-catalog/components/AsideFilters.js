@@ -115,8 +115,8 @@ export const AsideFilters = () => {
         <div className="power-filter-catalog">
           <span>Horse power</span>
           <div>
-            <input defaultValue={150} type="number" placeholder="from" />
-            <input defaultValue={1500} type="number" placeholder="to" />
+            <input defaultValue={150} type="number" placeholder="from $" />
+            <input defaultValue={1500} type="number" placeholder="to $" />
           </div>
         </div>
 
