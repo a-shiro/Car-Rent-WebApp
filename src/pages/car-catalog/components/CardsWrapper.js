@@ -1,23 +1,10 @@
-import { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
-import { getData } from "../../../services/queries";
 import "../Catalog.css";
 
-export const CardsWrapper = () => {
-  const [carList, setCarList] = useState([]);
-
-  useEffect(() => {
-    const queryCarList = async () => {
-      const data = await getData("cars");
-      setCarList(data);
-    };
-
-    queryCarList();
-  }, []);
-
+export const CardsWrapper = ({ dataList }) => {
   return (
     <div className="cards-wrapper-catalog">
-      {carList.map((car) => {
+      {dataList.map((car) => {
         return (
           <Link to={`${car.urlPath}`} key={car.id}>
             <div className="card-catalog">

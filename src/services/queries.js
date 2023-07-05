@@ -39,20 +39,17 @@ export async function getDataById(collectionName, id) {
   }
 }
 
-export async function getDataWhere(
-  collectionName,
-  { fieldName, operator, fieldValue }
-) {
+export async function getDataWhere(collectionName, queryConditions) {
   try {
     const collectionRef = collection(database, collectionName);
-    const q = query(collectionRef, where(fieldName, operator, fieldValue));
+    const q = query(collectionRef, ...queryConditions);
     const data = await getDocs(q);
     const filteredData = data.docs.map((doc) => ({
       ...doc.data(),
       id: doc.id,
     }));
 
-    return filteredData[0];
+    return filteredData;
   } catch (err) {
     console.error(err);
   }

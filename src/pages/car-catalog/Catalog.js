@@ -1,6 +1,8 @@
 import { useEffect, useState } from "react";
 import { AsideFilters } from "./components/AsideFilters";
 import { CardsWrapper } from "./components/CardsWrapper";
+import { where } from "firebase/firestore";
+import { getDataWhere } from "../../services/queries";
 import "./Catalog.css";
 
 const Catalog = () => {
@@ -11,11 +13,32 @@ const Catalog = () => {
   const [startPowerValue, setStartPowerValue] = useState(250);
   const [endPowerValue, setEndPowerValue] = useState(1500);
 
+  const [dataList, setDataList] = useState([]);
+
   useEffect(() => {
-    // console.log(startPriceValue, endPriceValue);
-    // console.log(startPowerValue, endPowerValue);
-    // console.log(carTypeValue, carBrandValue);
-    // ToDo: Add filtering query here and send the list to CardsWrapper
+    const queryData = async () => {
+      const queryConditions = [];
+
+      if (carTypeValue !== "All cars")
+        queryConditions.push(where("type", "==", carTypeValue));
+
+      if (carBrandValue !== "All brands")
+        queryConditions.push(where("brand", "==", carBrandValue));
+
+      queryConditions.push(where("price", ">=", startPriceValue));
+      queryConditions.push(where("price", "<=", endPriceValue));
+
+      let data = await getDataWhere("cars", queryConditions);
+
+      data = data.filter(
+        (obj) =>
+          startPowerValue <= obj.horsePower && obj.horsePower <= endPowerValue
+      );
+
+      setDataList(data);
+    };
+
+    queryData();
   }, [
     carTypeValue,
     carBrandValue,
@@ -30,20 +53,32 @@ const Catalog = () => {
       <section>
         <div className="container-catalog">
           <AsideFilters
-            typeValue={{ value: carTypeValue, setValue: setCarTypeValue }}
-            brandValue={{ value: carBrandValue, setValue: setCarBrandValue }}
-            priceValues={{ start: startPriceValue, end: endPriceValue }}
+            typeValue={{
+              value: carTypeValue,
+              setValue: setCarTypeValue,
+            }}
+            brandValue={{
+              value: carBrandValue,
+              setValue: setCarBrandValue,
+            }}
+            priceValues={{
+              start: startPriceValue,
+              end: endPriceValue,
+            }}
             setPriceValues={{
               setStart: setStartPriceValue,
               setEnd: setEndPriceValue,
             }}
-            powerValues={{ start: startPowerValue, end: endPowerValue }}
+            powerValues={{
+              start: startPowerValue,
+              end: endPowerValue,
+            }}
             setPowerValues={{
               setStart: setStartPowerValue,
               setEnd: setEndPowerValue,
             }}
           />
-          <CardsWrapper />
+          <CardsWrapper dataList={dataList} />
         </div>
       </section>
     </main>
