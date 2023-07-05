@@ -1,16 +1,35 @@
 import { useEffect, useState } from "react";
 import "../Catalog.css";
 
-export const AsideFilters = () => {
+export const AsideFilters = ({
+  typeValue,
+  brandValue,
+  priceValues,
+  setPriceValues,
+  powerValues,
+  setPowerValues,
+}) => {
   const [filtersWrapper, setFiltersWrapper] = useState(null);
   const [typeDropdownList, setTypeDropdownList] = useState(null);
   const [brandDropdownList, setBrandDropdownList] = useState(null);
 
+  const [priceStartValue, setPriceStartValue] = useState(priceValues.start);
+  const [priceEndValue, setPriceEndValue] = useState(priceValues.end);
+  const [powerStartValue, setPowerStartValue] = useState(powerValues.start);
+  const [powerEndValue, setPowerEndValue] = useState(powerValues.end);
+
   useEffect(() => {
-    setFiltersWrapper(document.querySelector(".filters-wrapper-catalog"));
-    setTypeDropdownList(document.querySelector(".type-filter-catalog ul"));
-    setBrandDropdownList(document.querySelector(".brand-filter-catalog ul"));
-  }, []);
+    if (!filtersWrapper) {
+      setFiltersWrapper(document.querySelector(".filters-wrapper-catalog"));
+      setTypeDropdownList(document.querySelector(".type-filter-catalog ul"));
+      setBrandDropdownList(document.querySelector(".brand-filter-catalog ul"));
+    }
+
+    document.getElementById("price-start").value = priceStartValue;
+    document.getElementById("price-end").value = priceEndValue;
+    document.getElementById("power-start").value = powerStartValue;
+    document.getElementById("power-end").value = powerEndValue;
+  }, [priceStartValue, priceEndValue, powerStartValue, powerEndValue]);
 
   const toggleFiltersVisibility = () => {
     filtersWrapper.classList.toggle("visible");
@@ -31,23 +50,37 @@ export const AsideFilters = () => {
     brandDropdownList.classList.toggle("visible");
   };
 
-  const clickHandler = (e) => {
-    const nameDisplay = e.target.parentElement.parentElement.children[1];
+  const changeOptionHandler = (e) => {
+    const newValue = e.target.textContent;
 
-    // ToDo: Add filtered query to DB
+    e.target.parentElement.id === "type"
+      ? typeValue.setValue(newValue)
+      : brandValue.setValue(newValue);
 
-    nameDisplay.textContent = e.target.textContent;
     typeDropdownList.classList.remove("visible");
     brandDropdownList.classList.remove("visible");
   };
 
+  const changeRangeHandler = (e, valueChanger, displayedValueChanger) => {
+    const newValue = Number(e.target.value);
+
+    valueChanger(newValue);
+    displayedValueChanger(newValue);
+  };
+
   const clearFilters = () => {
-    document.querySelector(
-      ".type-filter-catalog .filter-button-catalog"
-    ).textContent = "All cars";
-    document.querySelector(
-      ".brand-filter-catalog .filter-button-catalog"
-    ).textContent = "All brands";
+    typeValue.setValue("All cars");
+    brandValue.setValue("All brands");
+
+    setPriceValues.setStart(100);
+    setPriceValues.setEnd(20000);
+    setPowerValues.setStart(250);
+    setPowerValues.setEnd(1500);
+
+    setPriceStartValue(100);
+    setPriceEndValue(20000);
+    setPowerStartValue(250);
+    setPowerEndValue(1500);
   };
 
   return (
@@ -63,10 +96,14 @@ export const AsideFilters = () => {
             className="filter-button-catalog"
             onClick={toggleDropdownVisibility}
           >
-            All cars
+            {typeValue.value}
           </button>
 
-          <ul onClick={clickHandler} className="filter-list-catalog">
+          <ul
+            id="type"
+            onClick={changeOptionHandler}
+            className="filter-list-catalog"
+          >
             <li>All cars</li>
             <li>Convertible</li>
             <li>SUV</li>
@@ -82,9 +119,13 @@ export const AsideFilters = () => {
             className="filter-button-catalog"
             onClick={toggleDropdownVisibility}
           >
-            All brands
+            {brandValue.value}
           </button>
-          <ul onClick={clickHandler} className="filter-list-catalog">
+          <ul
+            id="brand"
+            onClick={changeOptionHandler}
+            className="filter-list-catalog"
+          >
             <li>All brands</li>
             <li>Porsche</li>
             <li>Lamborghini</li>
@@ -98,13 +139,25 @@ export const AsideFilters = () => {
           <span>Price range</span>
           <div>
             <input
-              defaultValue={500}
+              id="price-start"
+              onChange={(e) =>
+                changeRangeHandler(
+                  e,
+                  setPriceValues.setStart,
+                  setPriceStartValue
+                )
+              }
+              defaultValue={priceValues.start}
               name="priceRangeFrom"
               type="number"
               placeholder="from $"
             />
             <input
-              defaultValue={2000}
+              id="price-end"
+              onChange={(e) =>
+                changeRangeHandler(e, setPriceValues.setEnd, setPriceEndValue)
+              }
+              defaultValue={priceValues.end}
               name="priceRangeTo"
               type="number"
               placeholder="to $"
@@ -115,8 +168,28 @@ export const AsideFilters = () => {
         <div className="power-filter-catalog">
           <span>Horse power</span>
           <div>
-            <input defaultValue={150} type="number" placeholder="from $" />
-            <input defaultValue={1500} type="number" placeholder="to $" />
+            <input
+              id="power-start"
+              onChange={(e) =>
+                changeRangeHandler(
+                  e,
+                  setPowerValues.setStart,
+                  setPowerStartValue
+                )
+              }
+              defaultValue={powerValues.start}
+              type="number"
+              placeholder="from $"
+            />
+            <input
+              id="power-end"
+              onChange={(e) =>
+                changeRangeHandler(e, setPowerValues.setEnd, setPowerEndValue)
+              }
+              defaultValue={powerValues.end}
+              type="number"
+              placeholder="to $"
+            />
           </div>
         </div>
 

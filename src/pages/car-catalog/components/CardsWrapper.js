@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 import { getData } from "../../../services/queries";
 import "../Catalog.css";
 
-export const CarList = () => {
+export const CardsWrapper = () => {
   const [carList, setCarList] = useState([]);
 
   useEffect(() => {
