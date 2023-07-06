@@ -167,6 +167,10 @@ input[type="number"] {
     cursor: pointer;
 }
 
+.clear-filters-catalog:hover {
+    background-color: #f7f7f7
+}
+
 .visible {
     display: block;
 }
@@ -330,7 +334,7 @@ input[type="number"] {
     .cards-wrapper-catalog {
         max-width: 620px;
 
-        justify-content: center;
+        justify-content: space-between;
         align-items: start;
     }
 
@@ -357,6 +361,12 @@ input[type="number"] {
 
     .cards-wrapper-catalog {
         max-width: 1050px;
+
+        justify-content: start;
+    }
+
+    .cards-wrapper-catalog > h1 {
+        margin-left: 2.5em;
     }
 
     .card-catalog, .card-skeleton-catalog {
