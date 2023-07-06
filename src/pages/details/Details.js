@@ -2,38 +2,36 @@ import { useState, useEffect } from "react";
 import { useParams } from "react-router-dom";
 import { getDataWhere } from "../../services/queries";
 import arrowVector from "../../assets/images/arrow.webp";
+import { where } from "firebase/firestore";
 import "./Details.css";
 
 const Details = () => {
   const { carModel } = useParams();
   const [car, setCar] = useState({});
-
   const [activeImage, setActiveImage] = useState(null);
 
   useEffect(() => {
     const fetchData = async () => {
-      const data = await getDataWhere("cars", {
-        fieldName: "path",
-        operator: "==",
-        fieldValue: carModel,
-      });
+      let data = await getDataWhere("cars", [where("urlPath", "==", carModel)]);
 
-      setActiveImage(data.images[0]);
-      data.images.shift();
+      data = data[0];
+
+      setActiveImage(data.photos[0]);
+      data.photos.shift();
       setCar(data);
     };
 
     fetchData();
   }, []);
 
-  const nextImageHandler = () => {
-    car.images.push(activeImage);
-    setActiveImage(car.images.shift());
+  const nextImage = () => {
+    car.photos.push(activeImage);
+    setActiveImage(car.photos.shift());
   };
 
-  const prevImageHandler = () => {
-    car.images.unshift(activeImage);
-    setActiveImage(car.images.pop());
+  const prevImage = () => {
+    car.photos.unshift(activeImage);
+    setActiveImage(car.photos.pop());
   };
 
   const toggleOptionHandler = (e) => {
@@ -58,29 +56,31 @@ const Details = () => {
 
   return (
     <main>
-      <section className="details-section">
-        <h1 className="details-title">
+      <section className="section-details">
+        <h1>
           {car.brand} {car.model}
         </h1>
-        <div className="details-info-wrapper">
-          <div className="rent-car-image-wrapper">
-            <img className="rent-car-image" src={activeImage} />
-            <button onClick={prevImageHandler} className="button-prev">
-              <img className="prev" src={arrowVector} />
+
+        <div className="info-wrapper-details">
+          <div className="image-wrapper-details">
+            <img src={activeImage} alt={`${car.model}-photo`} />
+            <button onClick={prevImage}>
+              <img src={arrowVector} />
             </button>
-            <button onClick={nextImageHandler} className="button-next">
+            <button onClick={nextImage}>
               <img src={arrowVector} />
             </button>
           </div>
 
-          <div className="car-info-wrapper">
+          <div className="table-wrapper-details">
             <div className="rent-details">
-              <span className="price">
-                from <b>{car.pricePerDay}$</b> per day
+              <span>
+                from <b>{car.price}$</b> per day
               </span>
               <span>The minimum rental period is 2 days.</span>
             </div>
-            <div className="car-specs">
+
+            <div className="table-details">
               <span>Car specifications</span>
               <table>
                 <tbody>
@@ -93,18 +93,19 @@ const Details = () => {
                     <td>{car.horsePower}</td>
                   </tr>
                   <tr>
-                    <td>0-100 km/h</td>
-                    <td>{car.zeroToSixty}s</td>
+                    <td>Top Speed</td>
+                    <td>{car.topSpeed}</td>
                   </tr>
                   <tr>
-                    <td>Top Speed</td>
-                    <td>{car.topSpeed} km/h</td>
+                    <td>0-100 km/h</td>
+                    <td>{car.zeroToHundred}s</td>
                   </tr>
                 </tbody>
               </table>
             </div>
-            <div>
-              <button className="rent-button">Rent</button>
+
+            <div className="rent-button-details">
+              <button>Rent</button>
             </div>
           </div>
         </div>

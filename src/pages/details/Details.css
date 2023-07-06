@@ -1,15 +1,17 @@
-.details-section {
+.section-details {
     padding: 3em 0;
 }
 
-.details-title { 
+.section-details > h1 { 
     text-align: center;
 
-    font-size: 1.75rem;
+    font-size: 1.5rem;
     font-weight: 500;
 }
 
-.details-info-wrapper {
+/* Image slider */
+
+.info-wrapper-details {
     display: flex;
     flex-direction: column;
 
@@ -18,7 +20,7 @@
     margin: auto
 }
 
-.rent-car-image-wrapper {
+.image-wrapper-details {
     display: flex;
     justify-content: center;
     
@@ -28,7 +30,7 @@
     position: relative;
 }
 
-.rent-car-image {
+.image-wrapper-details > img {
     display: block;
     
     border-radius: 3px;
@@ -36,7 +38,7 @@
     width: 100%;
 }
 
-.button-next, .button-prev{
+.image-wrapper-details > button {
     padding: .5em 1em;
     border: none;
     background-color: white;
@@ -48,24 +50,26 @@
     z-index: 2;
 }
 
-.button-prev {
+.image-wrapper-details > button {
     left: 2em;
 }
 
-.button-next {
+.image-wrapper-details > button:last-of-type {
     left: 6.5em;
 }
 
-.button-prev img, .button-next img {
+.image-wrapper-details > button > img {
     width: 20px;
     padding-top: 5px;
 }
 
-.button-next img {
+/* Table */
+
+.image-wrapper-details > button:last-of-type > img {
     transform: scaleX(-1);
 }
 
-.details-info-wrapper span {
+.table-wrapper-details span {
     display: block;
 }
 
@@ -75,57 +79,56 @@
     text-align: center;
 }
 
-.rent-details span:first-child {
-    font-size: 1.7rem;
+.rent-details > span {
+    font-size: 1.5rem;
     margin-bottom: .25em;
 }
 
-.rent-details b {
-    font-weight: 600;
+.rent-details > span > b {
+    font-weight: 500;
 }
-.rent-details span:last-child {
+.rent-details span:last-of-type {
     font-size: 1.05rem;
 }
 
-.car-specs {
+.table-details {
     margin: 1.5em 0;
 }
 
-.car-specs span {
-    font-size: 1.5rem;
+.table-details > span {
+    font-size: 1.35rem;
     font-weight: 500;
 
     margin-bottom: .75em;
 }
 
-.car-specs table {
-    font-size: 1.15rem;
+.table-details > table {
+    background-color: #f7f7f7;
+
     width: 100%;
+
+    font-size: 1.10rem;
+
     border-collapse: collapse;
     box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
 }
 
-.car-specs table tr {
-    background-color: #f7f7f7;
-    
-}
-
-.car-specs table td {
+.table-details > table > tbody > tr > td {
     padding: .5em;
     border: 1px solid rgb(199, 199, 199); 
 }
 
-.car-specs table tr td:first-child {
-    width: 70%;
+.table-details > table > tbody > tr > td:first-child {
+    width: 55%;
 }
 
-.rent-button {
+.rent-button-details > button {
     background-color: white;
     color: black;
     border: 1px solid black;
     
-    font-size: 1.55em;
-    font-family: Barlow;
+    font-size: 1.35em;
+    font-family: Montserrat, sans-serif;
 
     width: 100%;
     margin: 1em 0;
@@ -136,10 +139,12 @@
     transition: color .2s ease, background-color .2s ease;
 }
 
-.rent-button:hover {
+.rent-button-details > button:hover {
     background-color: black;
     color: white;
 }
+
+/* Details */
 
 .toggles-wrapper {
     display: flex;
@@ -214,31 +219,31 @@
     position: relative;
 }
 
-@media (min-width: 750px) {
-
-}
+/* Media queries */
 
 @media (min-width: 1000px) {
-    .rent-car-image-wrapper {
-        width: 62%;
+    .section-details > h1 {
+        font-size: 2rem;
     }
-    .rent-car-image {
+
+    .info-wrapper-details {
+        max-width: 1150px;
+        padding: 3em 0 2em 0;
+
+        flex-direction: row;
+        justify-content: space-evenly;
+        align-items: center;
+    }
+
+    .image-wrapper-details {
+        width: 60%;
+    }
+    .image-wrapper-details > img {
         object-fit: cover;
     }
 
-    .car-info-wrapper {
-        width: 33%;
-    }
-
-    .details-info-wrapper {
-        flex-direction: row;
-        justify-content: space-evenly;
-        
-        padding: 3em 0 2em 0;
-    }
-
-    .details-title {
-        font-size: 2.75rem;
+    .table-wrapper-details {
+        width: 35%;
     }
 
     .option-button {
@@ -251,14 +256,36 @@
 }
 
 @media (min-width: 1600px) {
-    .details-info-wrapper {
-        justify-content: space-between;
+    .image-wrapper-details > img {
+        margin-right: 2em;
+        width: 720px;
     }
 
-    .rent-car-image {
-        object-fit: contain;
+    .image-wrapper-details > button {
+        left: -2em;
     }
-    .car-info-wrapper {
-        width: 40%;
+    
+    .image-wrapper-details > button:last-of-type {
+        left: 2.5em;
+    }
+
+    .rent-details > span {
+        font-size: 1.75rem;
+    }
+    
+    .rent-details span:last-of-type {
+        font-size: 1.15rem;
+    }
+
+    .table-details > span {
+        font-size: 1.5rem;
+    }
+    
+    .table-details > table {
+        font-size: 1.15rem;
+    }
+
+    .rent-button-details > button {
+        font-size: 1.5rem;
     }
 }
