@@ -16,13 +16,13 @@ export const CardsWrapper = ({ dataList }) => {
 
   return (
     <div className="cards-wrapper-catalog">
-      {dataList.length > 0 ? (
+      {!skeletonVisible ? (
         <Fragment>
-          {dataList.map((car) => {
-            return (
-              <Fragment key={car.id}>
-                {!skeletonVisible ? (
-                  <Link to={`${car.urlPath}`}>
+          {dataList.length > 0 ? (
+            <Fragment>
+              {dataList.map((car) => {
+                return (
+                  <Link to={`${car.urlPath}`} key={car.id}>
                     <div className="card-catalog">
                       <div className="card-checkers"></div>
                       <span>
@@ -32,15 +32,15 @@ export const CardsWrapper = ({ dataList }) => {
                       <img src={car.thumbnail} alt="car-thumbnail" />
                     </div>
                   </Link>
-                ) : (
-                  <CardSkeleton />
-                )}
-              </Fragment>
-            );
-          })}
+                );
+              })}
+            </Fragment>
+          ) : (
+            <h1>Unfortunately, no cars were found for the specified filter.</h1>
+          )}
         </Fragment>
       ) : (
-        <h1>Unfortunately, no cars were found for the specified filter.</h1>
+        <CardSkeleton />
       )}
     </div>
   );
