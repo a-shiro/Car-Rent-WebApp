@@ -1,10 +1,10 @@
 import { Fragment, useEffect, useState } from "react";
 import { Card } from "./Card";
 import { getData } from "../../../../services/queries";
-import "./Locations.css";
 import leftWorldMap from "../../../../assets/images/left-world-map-vector.png";
 import middleWorldMap from "../../../../assets/images/middle-world-map-vector.png";
 import rightWorldMap from "../../../../assets/images/right-world-map-vector.png";
+import "./Locations.css";
 
 const Locations = () => {
   const [countriesSelected, setCountriesSelected] = useState(true);
@@ -20,7 +20,9 @@ const Locations = () => {
       setCountriesList(countries);
     };
 
-    queryLocations();
+    if (citiesList.length === 0) {
+      queryLocations();
+    }
   }, []);
 
   const toggleHandler = (e) => {

@@ -65,7 +65,7 @@ const Contacts = () => {
         </div>
       </section>
 
-      <section>
+      <section className="image-section-contacts">
         <img className="vector-image-contacts" src={carVector} />
       </section>
     </main>

@@ -57,7 +57,7 @@ const About = () => {
 
       <section className="info-section-about" ref={refHistory}>
         <div className="info-wrapper-about">
-          <h1>RentX - Redefining luxury car rentals since 2010 --</h1>
+          <h1>RentX - Redefining luxury car rentals since 2010</h1>
 
           <div>
             <p>
@@ -114,7 +114,7 @@ const About = () => {
 
       <section className="info-section-about" ref={refBrands}>
         <div className="info-wrapper-about">
-          <h1>Brands --</h1>
+          <h1>Brands</h1>
           <div>
             <p>
               At <span>RentX</span>, we take pride in offering a meticulously
@@ -200,7 +200,7 @@ const About = () => {
 
       <section className="info-section-about" ref={refService}>
         <div className="info-wrapper-about">
-          <h1>Service --</h1>
+          <h1>Service</h1>
           <div>
             <p>
               At <span>RentX</span>, we understand that true luxury knows no
@@ -278,7 +278,7 @@ const About = () => {
 
       <section className="info-section-about" ref={refLocation}>
         <div className="info-wrapper-about">
-          <h1>Locations --</h1>
+          <h1>Locations</h1>
           <div>
             <p>
               At <span>RentX</span>, we understand that true luxury knows no

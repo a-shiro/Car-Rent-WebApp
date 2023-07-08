@@ -16,7 +16,7 @@ const PageNotFound = () => {
           <Link to="/cars">Browse Cars</Link>
         </div>
 
-        <div>
+        <div className="image-wrapper-404">
           <img className="vector-image-404" src={carVector} alt="car-vector" />
         </div>
       </div>

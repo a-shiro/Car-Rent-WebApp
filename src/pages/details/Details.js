@@ -81,7 +81,7 @@ const Details = () => {
             </div>
 
             <div className="table-details">
-              <span>Car specifications</span>
+              <span>Car specifications:</span>
               <table>
                 <tbody>
                   <tr>
@@ -109,21 +109,28 @@ const Details = () => {
             </div>
           </div>
         </div>
-
-        <div className="details-info">
-          <div onClick={toggleOptionHandler} className="toggles-wrapper">
-            <button id="description" className="option-button active">
+      </section>
+      <section>
+        <div className="full-info-details">
+          <div
+            onClick={toggleOptionHandler}
+            className="options-wrapper-details"
+          >
+            <button id="description" className="option-button-details active">
               Description
             </button>
-            <button id="rental" className="option-button ">
+            <button id="rental" className="option-button-details">
               Rental conditions
             </button>
-            <button id="locations" className="option-button">
+            <button id="locations" className="option-button-details">
               Available locations
             </button>
           </div>
 
-          <div id="carDescription" className="option visible">
+          <div
+            id="carDescription"
+            className="full-info-wrapper-details visible"
+          >
             <div>
               <p>
                 Introducing the breathtaking Porsche 911 Cabrio, a true icon of
@@ -205,7 +212,7 @@ const Details = () => {
             </div>
           </div>
 
-          <div id="rentalConditions" className="option">
+          <div id="rentalConditions" className="full-info-wrapper-details">
             <div>
               <h3>1. Minimum Age Requirement</h3>
               <p>
@@ -258,7 +265,7 @@ const Details = () => {
             </div>
           </div>
 
-          <div id="availableLocations" className="option">
+          <div id="availableLocations" className="full-info-wrapper-details">
             <p>Available locations</p>
           </div>
         </div>
