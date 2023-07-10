@@ -1,78 +1,33 @@
-export const Table = ({
-  activeCollection,
-  setActiveCollection,
-  tableHeads,
-  tableData,
-  collectionOptions,
-}) => {
-  const visibilityHandler = (e) => {
-    const id = e.target.getAttribute("data-target");
-    document.querySelector(`#${id}`).classList.toggle("visible-admin");
-  };
+import { TableActions } from "./TableActions";
 
-  const changeCollectionHandler = (e) => {
-    setActiveCollection(e.target.textContent);
-    document.querySelector(".dropdown-admin").classList.remove("visible-admin");
-  };
-
+export const Table = ({ data }) => {
   return (
-    <section className="table-section-admin">
-      <div className="table-title-wrapper-admin">
-        <h1>
-          Active collection: <span>{activeCollection}</span>
-        </h1>
-      </div>
-
-      <table className="table-admin">
-        <thead>
-          {tableHeads &&
-            tableHeads.map((x) => (
-              <tr key={tableHeads.indexOf(x)}>
+    <table className="table-admin">
+      <thead>
+        <tr>
+          <th>Actions</th>
+        </tr>
+        {data &&
+          Object.keys(data[0]).map((x) => {
+            return (
+              <tr key={x}>
                 <th>{x}</th>
               </tr>
-            ))}
-        </thead>
-        <tbody>
-          {tableData &&
-            tableData.map((arr) => (
-              <tr key={tableData.indexOf(arr)}>
-                {arr.map((x) => (
-                  <td key={arr.indexOf(x) + arr[arr.length - 1]}>{x}</td>
-                ))}
-              </tr>
-            ))}
-        </tbody>
-      </table>
+            );
+          })}
+      </thead>
 
-      <div className="dropdown-wrapper-admin">
-        <div>
-          <button
-            data-target="dropdown"
-            className="dropdown-toggle-admin"
-            onClick={visibilityHandler}
-          >
-            {activeCollection}
-          </button>
-
-          <button
-            data-target="modal"
-            className="add-button-admin"
-            onClick={visibilityHandler}
-          >
-            Add
-          </button>
-        </div>
-
-        {collectionOptions && (
-          <ul id="dropdown" className="dropdown-admin">
-            {collectionOptions.map((collection) => (
-              <li onClick={changeCollectionHandler} key={collection}>
-                {collection}
-              </li>
-            ))}
-          </ul>
-        )}
-      </div>
-    </section>
+      <tbody>
+        {data &&
+          data.map((obj) => (
+            <tr key={obj.id}>
+              <TableActions id={obj.id} />
+              {Object.values(obj).map((x) => (
+                <td key={obj.id + Math.random()}>{`${x}`}</td>
+              ))}
+            </tr>
+          ))}
+      </tbody>
+    </table>
   );
 };
