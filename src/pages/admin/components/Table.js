@@ -7,7 +7,7 @@ export const Table = ({ data }) => {
         <tr>
           <th>Actions</th>
         </tr>
-        {data &&
+        {data?.length > 0 &&
           Object.keys(data[0]).map((x) => {
             return (
               <tr key={x}>
@@ -18,7 +18,7 @@ export const Table = ({ data }) => {
       </thead>
 
       <tbody>
-        {data &&
+        {data?.length > 0 &&
           data.map((obj) => (
             <tr key={obj.id}>
               <TableActions id={obj.id} />
