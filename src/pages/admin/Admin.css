@@ -8,13 +8,13 @@
 
     margin-bottom: .5em;
 
-    font-weight: 500;
+    font-weight: 400;
 }
 
 .table-title-wrapper-admin > h1 > span {
     text-transform: capitalize;
     
-    font-weight: 400;
+    font-weight: 500;
 }
 
 .table-admin {
@@ -212,7 +212,6 @@
     z-index: 1;
 
     width: 100%;
-    height: 100%;
 
     overflow: auto;
     
@@ -220,24 +219,27 @@
 }
 
 .form-wrapper-admin {
-    position: fixed;
-    top: 5em;
-    left: 1em;
-
     border-radius: 2px;
 
     background-color: #f7f7f7;
     
     width: 90%;
+    max-width: 400px;
     height: 700px;
-
     padding: 2em 1em;
+    margin: 5em auto;
+
+    position: relative;
 
     display: flex;
     flex-direction: column;
     justify-content: start;
     align-items: center;
 
+    overflow-y: hidden;
+}
+
+.form-wrapper-admin:hover {
     overflow-y: scroll;
 }
 
@@ -246,18 +248,27 @@
     font-size: 2.25rem;
 }
 
-.form-admin > label {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
+.close-modal-admin {
+    background-color: crimson;
+    color: white;
+    
+    padding: .25em .5em;
 
-    margin: 1em 0;
+    position: absolute;
+    top: .75em;
+    right: .75em;
+
+    font-size: 1rem;
+    font-family: Montserrat, sans-serif;
+
+    border: none;
+    border-radius: 2px;
 }
 
-.form-admin > label > input {
-    margin: auto;
-    padding: .75em;
+.form-admin > input, .form-admin > textarea {
     width: 100%;    
+    margin: 1em 0;
+    padding: .75em;
 
     display: block;
 
@@ -268,15 +279,42 @@
     outline: none;
 }
 
-.form-admin > label > input::placeholder {
-    font-size: 1.05rem;
-    font-family: Barlow, sans-serif;
+.form-admin > textarea {
+    height: 100px;
 }
 
-.form-admin > label > input[type~="file"] {
+.form-admin > input::placeholder, .form-admin > textarea::placeholder{
+    font-size: 1.05rem;
+    font-family: Montserrat, sans-serif;
+}
+
+.form-admin > input[type~="file"] {
     border: none;
     box-shadow: none;
     cursor: pointer;
+}
+
+.form-submit-admin {
+    background-color: white;
+    
+    width: 100%;
+    margin-top: 1em;
+    padding: .75em;
+
+    font-family: Montserrat, sans-serif;
+    font-size: 1rem;
+    font-weight: 500;
+
+    border: 1px solid rgb(199, 199, 199);
+    border-radius: 2px;
+    box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;
+    
+    cursor: pointer;
+    outline: none;
+}
+
+.form-submit-admin:hover {
+    background-color: #f7f7f7;
 }
 
 .visible-admin {
