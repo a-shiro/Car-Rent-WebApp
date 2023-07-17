@@ -27,7 +27,7 @@ export const Dropdown = ({ activeCollection, setActiveCollection }) => {
           className="add-button-admin"
           onClick={visibilityHandler}
         >
-          Add
+          +
         </button>
       </div>
       {/*  Change list items to be dynamic \/ */}

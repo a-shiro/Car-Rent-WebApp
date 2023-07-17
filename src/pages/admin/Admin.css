@@ -102,21 +102,26 @@
 }
 
 .action-button-admin {
+    padding: .5em 1em;
+
     position: absolute;
     top: -.25em;
 
-    padding: .5em 1em;
+    font-family: Montserrat, sans-serif;
+    font-size: .85rem;
     
     border: 0;
     border-radius: 1px;
+
+    cursor: pointer;
 }
 
 .actions-wrapper-admin > button:first-child{
-    left: .5em;
+    left: .10em;
 }
 
 .actions-wrapper-admin > button:last-child {
-    right: .5em;
+    right: .10em;
 
     color: #f7f7f7;
     background-color: crimson;
@@ -124,6 +129,10 @@
 
 .dropdown-wrapper-admin {
     position: relative;
+}
+
+.dropdown-wrapper-admin > div {
+    margin-top: 1em;
 }
 
 .dropdown-toggle-admin {
@@ -138,7 +147,6 @@
     text-align: start;
 
     padding: .75em;
-    margin-top: 1em;
     
     border: 1px solid rgb(199, 199, 199);
     border-radius: 2px;
@@ -153,24 +161,23 @@
 .add-button-admin {
     background-color: white;
 
-    padding: .75em 1.5em;
+    padding: .5em .9em .6em .9em;
     margin-left: .75em;
 
     font-family: Barlow, sans-serif;
     font-weight: 500;
-    font-size: 1.15rem;
-
-    border: 1px solid black;
-    border-radius: 1px;
-
-    transition: background-color .3s, color .3s;
-
+    font-size: 1.35rem;
+    
+    border: 1px solid rgb(199, 199, 199);
+    border-radius: 2px;
+    box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;
+    
     cursor: pointer;
+    transition: background-color .1s, color .1s;
 }
 
 .add-button-admin:hover {
-    background-color: black;
-    color: white;
+    background-color: #f7f7f7;
 }
 
 .dropdown-admin {
@@ -209,7 +216,7 @@
     left: 0;
     top: 0;
     
-    z-index: 1;
+    z-index: 2;
 
     width: 100%;
 
@@ -223,8 +230,8 @@
 
     background-color: #f7f7f7;
     
-    width: 90%;
-    max-width: 400px;
+    width: 95%;
+    max-width: 500px;
     height: 700px;
     padding: 2em 1em;
     margin: 5em auto;
@@ -263,10 +270,14 @@
 
     border: none;
     border-radius: 2px;
+
+    cursor: pointer;
 }
 
 .form-admin > input, .form-admin > textarea {
-    width: 100%;    
+    width: 100%;
+    min-width: 300px;
+    max-width: 300px;
     margin: 1em 0;
     padding: .75em;
 
@@ -342,5 +353,9 @@
 @media (min-width: 1600px) {
     .table-admin {
         height: 700px;
+    }
+
+    .modal-admin {
+        height: 100%;
     }
 }
