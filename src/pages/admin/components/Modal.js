@@ -6,25 +6,31 @@ import { getDownloadURL, ref, uploadBytes } from "firebase/storage";
 export const Modal = ({ data, activeCollection }) => {
   const [formFields, setFormFields] = useState(null);
   const [fieldValues, setFieldValues] = useState(null);
-  const [singleImageData, setSingleImageData] = useState(null);
-  const [multipleImages, setMultipleImages] = useState([]);
-  const [doneUploading, setDoneUploading] = useState(false);
+
+  const [singleFile, setSingleFile] = useState(null);
+  const [multipleFiles, setMultipleFiles] = useState(null);
+
+  const [multipleFilesUploaded, setMultipleFilesUploaded] = useState(false);
+  const [singleFileUploaded, setSingleFileUploaded] = useState(false);
 
   useEffect(() => {
     const createFormSchema = (data) => {
       const schema = {};
 
       Object.entries(data[0]).map(([key, value]) => {
-        if (key === "id") {
-          return;
-        }
+        if (key === "id") return;
 
         const fieldName = key;
         let fieldType = typeof value;
 
-        if (fieldName === "photos" || fieldName === "thumbnail") {
-          fieldType = "file";
+        switch (fieldName) {
+          case "photos":
+          case "thumbnail":
+          case "logo":
+            fieldType = "file";
+            break;
         }
+
         schema[fieldName] = fieldType;
       });
 
@@ -35,38 +41,20 @@ export const Modal = ({ data, activeCollection }) => {
       createFormSchema(data);
     }
 
-    // WRITE A CLEAN CODE
-
-    if (doneUploading && fieldValues[singleImageData.fieldName] !== "") {
-      console.log("posting here");
-
+    if (multipleFiles !== null && multipleFilesUploaded && singleFileUploaded) {
       postData(activeCollection, fieldValues);
+
+      setSingleFile(null);
+      setSingleFileUploaded(false);
+      setMultipleFiles(null);
+      setMultipleFilesUploaded(false);
+    } else if (multipleFiles === null && singleFileUploaded) {
+      postData(activeCollection, fieldValues);
+
+      setSingleFile(null);
+      setSingleFileUploaded(false);
     }
-  }, [data, doneUploading, fieldValues]);
-
-  const onValueChange = (e) => {
-    let newValue = e.target.value;
-
-    if (e.target.placeholder === "photos") {
-      setMultipleImages(Array.from(e.target.files));
-      newValue = [];
-    } else if (e.target.type === "file") {
-      setSingleImageData({
-        fieldName: e.target.placeholder,
-        file: e.target.files[0],
-      });
-      newValue = "";
-    }
-
-    if (e.target.type === "number") {
-      newValue = Number(newValue);
-    }
-
-    setFieldValues(() => ({
-      ...fieldValues,
-      [e.target.placeholder]: newValue,
-    }));
-  };
+  }, [data, multipleFilesUploaded, singleFileUploaded]);
 
   const createFields = (key) => {
     let multipleFiles = false;
@@ -102,51 +90,64 @@ export const Modal = ({ data, activeCollection }) => {
     );
   };
 
+  const onValueChange = (e) => {
+    let newValue = e.target.value;
+
+    if (e.target.placeholder === "photos") {
+      setMultipleFiles({ photos: Array.from(e.target.files) });
+      newValue = [];
+    } else if (e.target.type === "file") {
+      setSingleFile({
+        fieldName: e.target.placeholder,
+        file: e.target.files[0],
+      });
+      newValue = "";
+    } else if (e.target.type === "number") {
+      newValue = Number(newValue);
+    }
+
+    setFieldValues(() => ({
+      ...fieldValues,
+      [e.target.placeholder]: newValue,
+    }));
+  };
+
   const closeModal = () => {
     document.getElementById("modal").classList.toggle("visible-admin");
   };
 
   const submitHandler = async (e) => {
     e.preventDefault();
+    const filePath = `${singleFile.fieldName}/${singleFile.file}`;
+    const storageRef = ref(storage, filePath);
 
-    const uploadImage = async () => {
-      if (singleImageData !== null) {
-        const file = singleImageData.file;
-        const fieldName = singleImageData.fieldName;
-        const filePath = `${fieldName}/${file.name}`;
-        const storageRef = ref(storage, filePath);
+    await uploadBytes(storageRef, singleFile.file);
+    const fileUrl = await getDownloadURL(storageRef);
 
-        await uploadBytes(storageRef, file);
-        const fileUrl = await getDownloadURL(storageRef);
+    setFieldValues((prevState) => ({
+      ...prevState,
+      [singleFile.fieldName]: fileUrl,
+    }));
 
-        setFieldValues(() => ({
-          ...fieldValues,
-          [fieldName]: fileUrl,
-        }));
+    if (typeof fileUrl === "string") {
+      setSingleFileUploaded(true);
+    }
+
+    multipleFiles?.photos.map(async (file) => {
+      const relativePath = fieldValues.model.split(" ").join("-").toLowerCase();
+
+      const filePath = `cars/${relativePath}/${file.name}`;
+      const storageRef = ref(storage, filePath);
+
+      await uploadBytes(storageRef, file);
+      const fileUrl = await getDownloadURL(storageRef);
+
+      fieldValues.photos.push(fileUrl);
+
+      if (multipleFiles.photos.length === fieldValues.photos.length) {
+        setMultipleFilesUploaded(true);
       }
-
-      if (multipleImages.length > 0) {
-        multipleImages.map(async (file) => {
-          const filePath = `cars/${fieldValues.model.toLowerCase()}/${
-            file.name
-          }`;
-
-          const storageRef = ref(storage, filePath);
-
-          await uploadBytes(storageRef, file);
-
-          const fileUrl = await getDownloadURL(storageRef);
-
-          fieldValues.photos.push(fileUrl);
-
-          if (multipleImages.length === fieldValues.photos.length) {
-            setDoneUploading(true);
-          }
-        });
-      }
-    };
-
-    uploadImage();
+    });
   };
 
   return (
