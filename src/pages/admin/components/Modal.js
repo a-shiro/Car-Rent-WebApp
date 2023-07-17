@@ -148,6 +148,8 @@ export const Modal = ({ data, activeCollection }) => {
         setMultipleFilesUploaded(true);
       }
     });
+
+    closeModal();
   };
 
   return (
