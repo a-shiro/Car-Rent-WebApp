@@ -1,37 +1,33 @@
 import { useState, useEffect } from "react";
-import { useParams } from "react-router-dom";
+import { useNavigate, useParams } from "react-router-dom";
 import { getDataWhere } from "../../services/queries";
 import arrowVector from "../../assets/images/arrow.webp";
 import { where } from "firebase/firestore";
 import "./Details.css";
+import { useOutletContext } from "react-router-dom";
 
 const Details = () => {
-  const { carModel } = useParams();
-  const [car, setCar] = useState({});
-  const [activeImage, setActiveImage] = useState(null);
+  const [car, setCar] = useOutletContext();
+  const [activePhoto, setActivePhoto] = useState(null);
 
   useEffect(() => {
-    const fetchData = async () => {
-      let data = await getDataWhere("cars", [where("urlPath", "==", carModel)]);
-
-      data = data[0];
-
-      setActiveImage(data.photos[0]);
-      data.photos.shift();
-      setCar(data);
-    };
-
-    fetchData();
+    setActivePhoto(car.photos[0]);
   }, []);
 
-  const nextImage = () => {
-    car.photos.push(activeImage);
-    setActiveImage(car.photos.shift());
+  const nextPhoto = () => {
+    const photosArr = car.photos;
+    const nextImageIndex = photosArr.indexOf(activePhoto) + 1;
+    setActivePhoto(
+      car.photos[nextImageIndex === photosArr.length ? 0 : nextImageIndex]
+    );
   };
 
-  const prevImage = () => {
-    car.photos.unshift(activeImage);
-    setActiveImage(car.photos.pop());
+  const prevPhoto = () => {
+    const photosArr = car.photos;
+    const nextImageIndex = photosArr.indexOf(activePhoto) - 1;
+    setActivePhoto(
+      car.photos[nextImageIndex < 0 ? photosArr.length - 1 : nextImageIndex]
+    );
   };
 
   const toggleOptionHandler = (e) => {
@@ -58,16 +54,16 @@ const Details = () => {
     <main>
       <section className="section-details">
         <h1>
-          {car.brand} {car.model}
+          {car?.brand} {car?.model}
         </h1>
 
         <div className="info-wrapper-details">
           <div className="image-wrapper-details">
-            <img src={activeImage} alt={`${car.model}-photo`} />
-            <button onClick={prevImage}>
+            <img src={activePhoto} alt={`${car?.model}-photo`} />
+            <button onClick={prevPhoto}>
               <img src={arrowVector} />
             </button>
-            <button onClick={nextImage}>
+            <button onClick={nextPhoto}>
               <img src={arrowVector} />
             </button>
           </div>
@@ -75,7 +71,7 @@ const Details = () => {
           <div className="table-wrapper-details">
             <div className="rent-details">
               <span>
-                from <b>{car.price}$</b> per day
+                from <b>{car?.price}$</b> per day
               </span>
               <span>The minimum rental period is 2 days.</span>
             </div>
@@ -86,19 +82,19 @@ const Details = () => {
                 <tbody>
                   <tr>
                     <td>Engine</td>
-                    <td>{car.engine}</td>
+                    <td>{car?.engine}</td>
                   </tr>
                   <tr>
                     <td>Horse Power</td>
-                    <td>{car.horsePower}</td>
+                    <td>{car?.horsePower}</td>
                   </tr>
                   <tr>
                     <td>Top Speed</td>
-                    <td>{car.topSpeed}</td>
+                    <td>{car?.topSpeed}</td>
                   </tr>
                   <tr>
                     <td>0-100 km/h</td>
-                    <td>{car.zeroToHundred}s</td>
+                    <td>{car?.zeroToHundred}s</td>
                   </tr>
                 </tbody>
               </table>
