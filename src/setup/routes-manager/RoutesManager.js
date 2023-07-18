@@ -10,14 +10,16 @@ import Details from "../../pages/details/Details";
 // import { Register } from "../../pages/auth/register/Register";
 // import { Administration } from "../../pages/administration/Administration";
 import Admin from "../../pages/admin/Admin";
-import { AuthRoute } from "./AuthRoute";
+import DetailsRouteGuard from "./DetailsRouteGuard";
 
 export const RoutesManager = () => {
   return (
     <Routes>
       <Route path="/" element={<Home />} />
       <Route path="/cars" element={<Catalog />} />
-      <Route path="/cars/:carModel" element={<Details />} />
+      <Route element={<DetailsRouteGuard />}>
+        <Route path="/cars/:carModel" element={<Details />} />
+      </Route>
       <Route path="/about" element={<About />} />
       <Route path="/contacts" element={<Contacts />} />
       {/* <Route element={<AuthRoute />}> */}
