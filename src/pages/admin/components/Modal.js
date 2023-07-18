@@ -118,7 +118,7 @@ export const Modal = ({ data, activeCollection }) => {
 
   const submitHandler = async (e) => {
     e.preventDefault();
-    const filePath = `${singleFile.fieldName}/${singleFile.file}`;
+    const filePath = `${singleFile.fieldName}/${singleFile.file.name}`;
     const storageRef = ref(storage, filePath);
 
     await uploadBytes(storageRef, singleFile.file);
