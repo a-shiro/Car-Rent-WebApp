@@ -3,7 +3,7 @@ import { postData } from "../../../services/queries";
 import { storage } from "../../../setup/config/firebase";
 import { getDownloadURL, ref, uploadBytes } from "firebase/storage";
 
-export const Modal = ({ data, activeCollection }) => {
+export const AddModal = ({ data, activeCollection }) => {
   const [formFields, setFormFields] = useState(null);
   const [fieldValues, setFieldValues] = useState(null);
 

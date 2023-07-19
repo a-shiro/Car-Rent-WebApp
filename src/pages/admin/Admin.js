@@ -1,15 +1,14 @@
 import React, { useState, useEffect } from "react";
 import { getData } from "../../services/queries";
 import { Table } from "./components/Table";
-import { Modal } from "./components/Modal";
+import { AddModal } from "./components/AddModal";
+import { AccessModal } from "./components/AccessModal";
 import { Dropdown } from "./components/Dropdown";
-import { validCodes } from "./codes.js";
 import "./Admin.css";
 
 const Admin = () => {
   const [activeCollection, setActiveCollection] = useState("cars");
   const [tableData, setTableData] = useState(null);
-  const [userInput, setUserInput] = useState("");
   const [accessGranted, setAcessGranted] = useState(false);
 
   const sortData = (obj) =>
@@ -31,30 +30,10 @@ const Admin = () => {
     queryData();
   }, [activeCollection, accessGranted]);
 
-  const grantAccess = (e) => {
-    e.preventDefault();
-
-    if (validCodes.includes(userInput)) {
-      setAcessGranted(true);
-    }
-  };
-
   return (
     <main>
       {!accessGranted ? (
-        <div>
-          <h1>admin signup</h1>
-          <form onSubmit={grantAccess}>
-            <input
-              onChange={(e) => {
-                setUserInput(e.target.value);
-              }}
-              value={userInput}
-              placeholder="code"
-            />
-            <button>Sign in</button>
-          </form>
-        </div>
+        <AccessModal setAcessGranted={setAcessGranted} />
       ) : (
         <section className="table-section-admin">
           <div className="table-title-wrapper-admin">
@@ -64,7 +43,7 @@ const Admin = () => {
           </div>
 
           <Table data={tableData} activeCollection={activeCollection} />
-          <Modal data={tableData} activeCollection={activeCollection} />
+          <AddModal data={tableData} activeCollection={activeCollection} />
           <Dropdown
             activeCollection={activeCollection}
             setActiveCollection={setActiveCollection}
