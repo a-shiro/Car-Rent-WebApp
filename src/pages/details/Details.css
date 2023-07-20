@@ -23,9 +23,12 @@
 .image-wrapper-details {
     display: flex;
     justify-content: center;
-    
+
+    background-color: #f7f7f7;
+
+    width: 100%;
+    padding-top: 65%;
     margin: 1.5em auto;
-    max-width: 675px;
 
     position: relative;
 }
@@ -36,6 +39,9 @@
     border-radius: 3px;
 
     width: 100%;
+
+    position: absolute;
+    top: 0;
 }
 
 .image-wrapper-details > button {
@@ -240,6 +246,7 @@
 
     .image-wrapper-details {
         width: 60%;
+        padding-top: 40%;
     }
 
     .image-wrapper-details > img {
@@ -269,16 +276,15 @@
 
 @media (min-width: 1600px) {
     .image-wrapper-details > img {
-        margin-right: 2em;
-        width: 720px;
+        width: 700px;
     }
 
     .image-wrapper-details > button {
-        left: -2em;
+        left: 2em;
     }
     
     .image-wrapper-details > button:last-of-type {
-        left: 2.5em;
+        left: 6.5em;
     }
 
     .rent-details > span {

@@ -10,8 +10,16 @@ const Details = () => {
   const [car, setCar] = useOutletContext();
   const [activePhoto, setActivePhoto] = useState(null);
 
+  const [skeletonVisible, setSkeletonVisible] = useState(true);
+
   useEffect(() => {
+    const timer = setTimeout(() => {
+      setSkeletonVisible(false);
+    }, 800);
+
     setActivePhoto(car.photos[0]);
+
+    return () => clearTimeout(timer);
   }, []);
 
   const nextPhoto = () => {
