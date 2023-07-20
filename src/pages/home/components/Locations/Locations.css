@@ -89,9 +89,35 @@
     margin: auto;
 }
 
-.card-locations {
-    max-width: 325px;
+.card-skeleton-locations {
+    width: 325px;
+    height: 235px;
 
+    margin: auto;
+    margin-bottom: 2em;
+    
+    display: flex;
+    flex-direction: column;
+    
+    text-align: start;
+
+    background-color: #F7F7F7;
+    color: black;
+
+    cursor: pointer;
+}
+
+.card-skeleton-locations > span {
+    width: 120px;
+    height: 20px;
+    
+    margin: .5em 0 .3em .5em;
+
+    background-color: rgb(220,220,220);
+}
+
+.card-locations {
+    min-width: 325px;
     margin: auto;
     margin-bottom: 2em;
     
@@ -120,8 +146,11 @@
 }
 
 .card-locations > img {
-    height: 100%;
     display: block;
+    
+    width: 325px;
+    height: 225px;
+
     border-radius: 2px;
 }
 
@@ -141,8 +170,12 @@
         max-width: 680px;
     }
 
+    .card-skeleton-locations {
+        margin: 0 0 2em 0;
+        margin-bottom: 0;
+    }
+
     .card-locations {
-        width: 50%;
         margin: 0 0 2em 0;
         margin-bottom: 0;
     }

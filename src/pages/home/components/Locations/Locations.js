@@ -5,11 +5,13 @@ import leftWorldMap from "../../../../assets/images/left-world-map-vector.png";
 import middleWorldMap from "../../../../assets/images/middle-world-map-vector.png";
 import rightWorldMap from "../../../../assets/images/right-world-map-vector.png";
 import "./Locations.css";
+import { CardSkeleton } from "./CardSkeleton";
 
 const Locations = () => {
   const [countriesSelected, setCountriesSelected] = useState(true);
   const [citiesList, setCitiesList] = useState([]);
   const [countriesList, setCountriesList] = useState([]);
+  const [skeletonVisible, setSkeletonVisible] = useState(true);
 
   useEffect(() => {
     const queryLocations = async () => {
@@ -23,6 +25,12 @@ const Locations = () => {
     if (citiesList.length === 0) {
       queryLocations();
     }
+
+    const timer = setTimeout(() => {
+      setSkeletonVisible(false);
+    }, 800);
+
+    return () => clearTimeout(timer);
   }, []);
 
   const toggleHandler = (e) => {
@@ -66,21 +74,29 @@ const Locations = () => {
           </button>
         </div>
 
-        <div className="card-wrapper-locations">
-          {countriesSelected ? (
-            <Fragment>
-              {countriesList.map((country) => (
-                <Card data={country} key={country.id} />
-              ))}
-            </Fragment>
-          ) : (
-            <Fragment>
-              {citiesList.map((city) => (
-                <Card data={city} key={city.id} />
-              ))}
-            </Fragment>
-          )}
-        </div>
+        {skeletonVisible ? (
+          <div className="card-wrapper-locations">
+            {[...Array(12)].map((x, i) => (
+              <CardSkeleton key={i} />
+            ))}
+          </div>
+        ) : (
+          <div className="card-wrapper-locations">
+            {countriesSelected ? (
+              <Fragment>
+                {countriesList.map((country) => (
+                  <Card data={country} key={country.id} />
+                ))}
+              </Fragment>
+            ) : (
+              <Fragment>
+                {citiesList.map((city) => (
+                  <Card data={city} key={city.id} />
+                ))}
+              </Fragment>
+            )}
+          </div>
+        )}
       </div>
     </section>
   );
