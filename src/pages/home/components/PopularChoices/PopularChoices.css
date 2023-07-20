@@ -17,7 +17,7 @@
 
 .checker-pattern-popular {
     position:  absolute;
-    top: 13.5em;
+    top: 14em;
     left: 0;
 
     width: 100%;
@@ -34,8 +34,17 @@
 .card-wrapper-popular { 
     display: flex;
     justify-content: space-evenly;
-    
     margin: 5em 0;
+}
+
+.card-skeleton-popular {
+    background-color: white;
+
+    width: 260px;
+    height: 170px;
+    
+    position: relative;
+    cursor: pointer;
 }
 
 .card-popular {
@@ -43,7 +52,7 @@
     flex-direction: column;
 
     width: 260px;
-    height: 160px;
+    height: 170px;
     margin: auto;
     
     background-color: white;
@@ -57,7 +66,6 @@
 
 .card-popular:hover {
     box-shadow: 10px 10px rgba(0, 0, 0);
-
 }
 
 .card-popular:hover > img {
@@ -196,7 +204,12 @@
         margin: 8em 0em;
     }
 
-    .card-popular {
+    .card-skeleton-popular {
+        width: 320px;
+        height: 200px;
+    }
+
+    .card-popular{
         width: 320px;
         height: 200px;
     }
@@ -209,7 +222,7 @@
 
     
     .checker-pattern-popular {
-        top: 22em;
+        top: 21em;
     }
     
     .xl-screen {
