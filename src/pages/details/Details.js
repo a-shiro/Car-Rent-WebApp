@@ -1,25 +1,14 @@
 import { useState, useEffect } from "react";
-import { useNavigate, useParams } from "react-router-dom";
-import { getDataWhere } from "../../services/queries";
 import arrowVector from "../../assets/images/arrow.webp";
-import { where } from "firebase/firestore";
-import "./Details.css";
 import { useOutletContext } from "react-router-dom";
+import "./Details.css";
 
 const Details = () => {
   const [car, setCar] = useOutletContext();
   const [activePhoto, setActivePhoto] = useState(null);
 
-  const [skeletonVisible, setSkeletonVisible] = useState(true);
-
   useEffect(() => {
-    const timer = setTimeout(() => {
-      setSkeletonVisible(false);
-    }, 800);
-
     setActivePhoto(car.photos[0]);
-
-    return () => clearTimeout(timer);
   }, []);
 
   const nextPhoto = () => {
